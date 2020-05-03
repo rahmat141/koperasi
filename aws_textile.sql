@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2020 pada 11.56
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Generation Time: May 03, 2020 at 04:08 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,82 +25,183 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kehadiran`
+-- Table structure for table `kehadiran`
 --
 
 CREATE TABLE `kehadiran` (
+  `id_kehadiran` int(11) NOT NULL,
   `id_pegawai` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
-  `jam_datang` varchar(255) NOT NULL,
-  `jam_pulang` varchar(255) NOT NULL
+  `jam_datang` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `jam_pulang` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kehadiran`
---
-
-INSERT INTO `kehadiran` (`id_pegawai`, `nama`, `tanggal`, `jam_datang`, `jam_pulang`) VALUES
-(7, 'Yusril Wahyuda', '2020-05-02', '06:00', '17:00'),
-(8, 'Sherli Yualinda', '2020-05-02', '06:00', '15:00'),
-(9, 'Sherla Yualinda', '2020-05-02', '07:00', '15:00'),
-(11, 'Yusril Wahyuda', '2020-05-03', '07:00', '15:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penjualan_sarung`
+-- Table structure for table `pegawai`
 --
 
-CREATE TABLE `penjualan_sarung` (
-  `id` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
+CREATE TABLE `pegawai` (
+  `id_pegawai` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `pekerjaan` varchar(255) NOT NULL,
+  `jenis_kelamin` varchar(255) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_hp` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembeli`
+--
+
+CREATE TABLE `pembeli` (
+  `id_pembeli` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_hp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penjualan`
+--
+
+CREATE TABLE `penjualan` (
+  `id_produk` int(11) NOT NULL,
+  `id_pembeli` int(11) NOT NULL,
   `sales` varchar(255) NOT NULL,
-  `no_Nota` varchar(255) NOT NULL,
-  `item` varchar(255) NOT NULL,
-  `qyt` varchar(255) NOT NULL,
-  `harga_perqyt` varchar(255) NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `no_nota` varchar(255) NOT NULL,
+  `pcs` int(11) NOT NULL,
+  `harga_pcs` int(11) NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `penjualan_sarung`
+-- Table structure for table `produk`
 --
 
-INSERT INTO `penjualan_sarung` (`id`, `tanggal`, `sales`, `no_Nota`, `item`, `qyt`, `harga_perqyt`, `keterangan`) VALUES
-(1, '2020-05-03', 'Facebook', '032/0918', 'Alisa', '5', '286000', 'BCA 2/9 2.350.000 JNE Tracking 100.000');
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `ukuran` varchar(255) NOT NULL,
+  `kualitas` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produksi`
+--
+
+CREATE TABLE `produksi` (
+  `id_pegawai` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `tanggal_produksi` datetime NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `kehadiran`
+-- Indexes for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
+  ADD PRIMARY KEY (`id_kehadiran`),
+  ADD KEY `fk_kehadiran` (`id_pegawai`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indeks untuk tabel `penjualan_sarung`
+-- Indexes for table `pembeli`
 --
-ALTER TABLE `penjualan_sarung`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `pembeli`
+  ADD PRIMARY KEY (`id_pembeli`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- Indexes for table `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD KEY `fk_penjualan` (`id_produk`),
+  ADD KEY `fk_pembeli` (`id_pembeli`);
+
+--
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indexes for table `produksi`
+--
+ALTER TABLE `produksi`
+  ADD KEY `fk_pegawai` (`id_pegawai`),
+  ADD KEY `fk_sarung` (`id_produk`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `kehadiran`
+-- AUTO_INCREMENT for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `penjualan_sarung`
+-- AUTO_INCREMENT for table `pegawai`
 --
-ALTER TABLE `penjualan_sarung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `pegawai`
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pembeli`
+--
+ALTER TABLE `pembeli`
+  MODIFY `id_pembeli` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `kehadiran`
+--
+ALTER TABLE `kehadiran`
+  ADD CONSTRAINT `fk_kehadiran` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
+
+--
+-- Constraints for table `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD CONSTRAINT `fk_pembeli` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`),
+  ADD CONSTRAINT `fk_penjualan` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Constraints for table `produksi`
+--
+ALTER TABLE `produksi`
+  ADD CONSTRAINT `fk_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
+  ADD CONSTRAINT `fk_sarung` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
