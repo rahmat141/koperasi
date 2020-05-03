@@ -7,7 +7,7 @@
   <div class="form-group">
 	<tr>
 		<td>Tanggal</td>
-		<td><input type="text" name="tanggal" class="form-control form-control-user"></td>
+		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
 	</tr>
   </div>
   <div class="form-group">
