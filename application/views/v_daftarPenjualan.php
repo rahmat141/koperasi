@@ -328,6 +328,7 @@
             <th>Item</th>
             <th>Qyt</th>
             <th>Harga/Qyt</th>
+            <th>Total</th>
             <th>Keterangan</th>
         </tr>
         <?php
@@ -340,13 +341,14 @@
             <td><?php echo $data->sales; ?></td>
             <td><?php echo $data->no_Nota; ?></td>
             <td><?php echo $data->item; ?></td>
-            <td><?php echo $data->qyt; ?></td>
-            <td><?php echo $data->harga_perqyt; ?></td>
+            <td><?php echo $data->qyt; ?> Kodi</td>
+            <td>Rp<?php echo $data->harga_perqyt; ?></td>
+            <td>Rp<?php echo $data->total; ?></td>
             <td><?php echo $data->keterangan; ?></td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/sekertaris/index'?>" class="btn btn-primary">Input Kehadiran</a>
+     <a href="<?= base_url().'index.php/Sarung/penjualan_sarung'?>" class="btn btn-primary">Input Penjualan</a>
     </center>
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">

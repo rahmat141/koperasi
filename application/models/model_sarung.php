@@ -6,7 +6,7 @@
         }
 
         public function tampil(){
-    		$this->db->select('id,tanggal,sales,no_Nota,item,qyt,harga_perqyt,keterangan');
+    		$this->db->select('id,tanggal,sales,no_Nota,item,qyt,Format(harga_perqyt,0) as harga_perqyt,keterangan,Format((qyt * harga_perqyt),0) as total');
     		$this->db->from('penjualan_sarung');
     		$query = $this->db->get();
     		return $query->result();
