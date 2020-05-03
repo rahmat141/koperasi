@@ -17,7 +17,7 @@ class sekertaris extends CI_Controller{
     }
 
     public function simpan_kehadiran(){
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('id_pegawai', 'Nama', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
 
         if ($this->form_validation->run() == FALSE){
@@ -26,15 +26,15 @@ class sekertaris extends CI_Controller{
             
         }
         else{
-        $nama = $this->input->post('nama');
+        $id_pegawai = $this->input->post('id_pegawai');
         $tanggal = $this->input->post('tanggal');
         $jam_datang = $this->input->post('jam_datang');
         $jam_pulang = $this->input->post('jam_pulang');
 
-        $data   = array('nama' => $nama,
+        $data   = array('id_pegawai' => $id_pegawai,
                     'jam_datang' => $jam_datang,
                     'tanggal' => $tanggal,
-                    'jam_pulang' => $jam_pulang
+                    'jam_pulang' => 0
                     );
 
         $this->model_kehadiran->insert($data,"kehadiran");
@@ -55,13 +55,11 @@ class sekertaris extends CI_Controller{
 
     public function update_kehadiran(){
         $id_pegawai = $this->input->post('id_pegawai');
-        $nama = $this->input->post('nama');
         $tanggal = $this->input->post('tanggal');
         $jam_datang = $this->input->post('jam_datang');
         $jam_pulang = $this->input->post('jam_pulang');
  
         $data = array(
-        'nama' => $nama,
         'tanggal' => $tanggal,
         'jam_datang' => $jam_datang,
         'jam_pulang' => $jam_pulang
@@ -78,5 +76,11 @@ class sekertaris extends CI_Controller{
         $where = array('id_pegawai' => $id_pegawai);
         $this->model_kehadiran->hapus_kehadiran($where,'kehadiran');
         redirect('sekertaris/daftarKehadiran');
+    }
+
+    public function searchKehadiran(){
+        $search = $this->input->post('search');
+        $data['kehadiran'] = $this->model_kehadiran->search($search);
+        $this->load->view('v_daftarkehadiran',$data);
     }
 }

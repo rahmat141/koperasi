@@ -32,7 +32,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('asset/images/ormawa/'.$this->session->userdata('logo'))?>" width="65" height="65">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="100" height="100">
         </div>
       </a>
 
@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/Organisasi'?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -287,7 +287,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->nama ?></span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url('asset/images/foto/'.$this->session->userdata('foto')); ?>">
+               <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

@@ -6,8 +6,9 @@
         }
 
         public function tampil(){
-    		$this->db->select('id_pegawai,nama,tanggal,jam_datang,jam_pulang, ((jam_pulang - jam_datang) - 8) as lembur');
-    		$this->db->from('kehadiran');
+    		$this->db->select('k.id_pegawai,p.nama,k.tanggal,k.jam_datang,k.jam_pulang, ((k.jam_pulang - k.jam_datang) - 8) as lembur');
+    		$this->db->from('kehadiran k');
+            $this->db->join('pegawai p',' k.id_pegawai = p.id_pegawai');
     		$query = $this->db->get();
     		return $query->result();
     	}
