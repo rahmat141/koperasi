@@ -12,6 +12,11 @@ class Dashboard extends MY_Controller {
         $this->load->view('dashboard/index', $data);
     }
 
+    public function index2(){
+        $data['page_resource'] = parent::page_resources();
+        $this->load->view('dashboard/index', $data);
+    }
+
     public function user_profile(){
         $user_db_data = $this->user_data_m->detail($this->session->userdata('id'))->row();
         $user_base_db_data = $this->user_m->detail($this->session->userdata('id'))->row();
