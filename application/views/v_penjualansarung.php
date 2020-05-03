@@ -319,6 +319,7 @@
 	<h1>Penjualan Sarung</h1>
 	<hr>
 	<hr>
+  <a href="<?= base_url().'index.php/Sarung/daftarPenjualan'?>" class="btn btn-primary">Lihat Penjualan</a><br>
 	<form action="<?= base_url() ?>index.php/Sarung/simpan_penjualan" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
