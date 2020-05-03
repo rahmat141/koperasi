@@ -315,34 +315,29 @@
 
         </nav>
         <!-- End of Topbar -->
-<!--===============================================================================================-->  
-  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
-<!--===============================================================================================-->
-<div class="limiter">
-    <div class="container-login10">
-      <div class="wrap-login10 p-l-55 p-r-55 p-t-65 p-b-50">
     <center>
     <h1>Data Kehadiran</h1>
     <hr><hr>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Bulan
+  </button>
+  
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_januari';?>">Januari</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_februari';?>">Februari</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_maret';?>">Maret</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_april';?>">April</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_mei';?>">Mei</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_juni';?>">Juni</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_juli';?>">Juli</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_agustus';?>">Agustus</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_september';?>">September</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_oktober';?>">Oktober</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_november';?>">November</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_desember';?>">Desember</a>
+  </div> 
+  </div>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
         <tr>
@@ -357,7 +352,7 @@
         </tr>
         <?php
             $i=1;
-            foreach ($kehadiran as $data) {
+            foreach ($data as $data) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
@@ -380,21 +375,6 @@
     </div>
   </div>
   </div>
-<!--===============================================================================================-->
-    <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
-<!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">

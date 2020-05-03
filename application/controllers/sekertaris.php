@@ -43,7 +43,7 @@ class sekertaris extends CI_Controller{
     }
 
     public function daftarKehadiran(){
-        $data['kehadiran'] = $this->model_kehadiran->tampil();
+        $data['data'] = $this->model_kehadiran->tampil();
         $this->load->view('v_daftarkehadiran',$data);
     }
 
@@ -78,9 +78,64 @@ class sekertaris extends CI_Controller{
         redirect('sekertaris/daftarKehadiran');
     }
 
-    public function searchKehadiran(){
-        $search = $this->input->post('search');
-        $data['kehadiran'] = $this->model_kehadiran->search($search);
+    //Bulan
+    public function v_januari(){
+        $data['data'] = $this->model_kehadiran->get_januari()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    }
+
+    public function v_februari(){
+        $data['data'] = $this->model_kehadiran->get_februari()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_maret(){
+        $data['data'] = $this->model_kehadiran->get_maret()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_april(){
+        $data['data'] = $this->model_kehadiran->get_april()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_mei(){
+        $data['data'] = $this->model_kehadiran->get_mei()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_juni(){
+        $data['data'] = $this->model_kehadiran->get_juni()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_juli(){
+        $data['data'] = $this->model_kehadiran->get_juli()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_agustus(){
+        $data['data'] = $this->model_kehadiran->get_agustus()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_september(){
+        $data['data'] = $this->model_kehadiran->get_september()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_oktober(){
+        $data['data'] = $this->model_kehadiran->get_oktober()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_november(){
+        $data['data'] = $this->model_kehadiran->get_november()->result();
+        $this->load->view('v_daftarkehadiran',$data);
+    } 
+
+    public function v_desember(){
+        $data['data'] = $this->model_kehadiran->get_desember()->result();
         $this->load->view('v_daftarkehadiran',$data);
     }
 }
