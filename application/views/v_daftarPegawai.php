@@ -351,7 +351,7 @@
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/Produk/produk'?>" class="btn btn-primary">Tambah Pegawai</a>
+     <a href="<?= base_url().'index.php/Pegawai/pegawai'?>" class="btn btn-primary">Tambah Pegawai</a>
     </center>
     </div>
   </div>

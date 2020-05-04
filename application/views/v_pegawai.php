@@ -347,7 +347,7 @@
 	<hr>
 	<hr>
 	<a href="<?= base_url().'index.php/Pegawai/daftarPegawai'?>" class="btn btn-primary">Lihat Pegawai</a><br>
-	<form action="<?= base_url() ?>index.php/Pegawai/daftarPegawai" method="POST" enctype="multipart/form-data">
+	<form action="<?= base_url() ?>index.php/Pegawai/simpanPegawai" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
 	<tr>
