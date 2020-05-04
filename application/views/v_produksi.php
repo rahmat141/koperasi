@@ -354,7 +354,7 @@
 		<td>Nama Pegawai</td>
 		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
             <?php foreach($pegawai as $row){
-              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
+              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.' '.$row->pekerjaan.'</option>';
             }
             ?> </select>
   </tr>
@@ -362,7 +362,7 @@
   <div class="form-group">
   <tr>
     <td>Nama Produk</td>
-    <td><select class="form-control" id="id_pegawai" name="id_pegawai">
+    <td><select class="form-control" id="id_produk" name="id_produk">
             <?php foreach($produk as $row){
               echo '<option value="'.$row->id_produk.'">'.$row->nama.'</option>';
             }

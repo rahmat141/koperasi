@@ -95,7 +95,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -107,6 +107,7 @@
           </div>
         </div>
       </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -330,40 +331,37 @@
         </nav>
         <!-- End of Topbar -->
     <center>
-    <h1>Daftar Data Pegawai</h1>
+    <h1>Daftar Data Produksi</h1>
     <hr><hr>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
         <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>No HP</th>
-            <th>Jenis Kelamin</th>
-            <th>Pekerjaan</th>
+            <th>Nama Pegawai</th>
+            <th>Nama Produk</th>
+            <th>Tanggal Produksi</th>
+            <th>Jumlah</th>
             <th>Kelola</th>
-        
           
         </tr>
         <?php
             $i=1;
-            foreach ($pegawai as $pegawai) {
+            foreach ($produksi as $produksi) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $pegawai->nama; ?></td>
-            <td><?php echo $pegawai->alamat; ?></td>
-            <td><?php echo $pegawai->no_hp; ?></td>
-            <td><?php echo $pegawai->jenis_kelamin; ?></td>
-            <td><?php echo $pegawai->pekerjaan; ?></td>
+            <td><?php echo $produksi->namaPegawai; ?></td>
+            <td><?php echo $produksi->namaProduk; ?></td>
+            <td><?php echo $produksi->tanggal_produksi; ?></td>
+            <td><?php echo $produksi->jumlah; ?></td>
             <td>
-              <a href="<?= base_url().'index.php/Pegawai/editPegawai/'.$pegawai->id_pegawai;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Pegawai/hapusPegawai/'.$pegawai->id_pegawai;?>" onclick="return confirm('Anda Yakin Menghapus Pegawai ?')" class="btn btn-danger">Hapus</a>
+              <a href="<?= base_url().'index.php/Produk/editProduksi/'.$produksi->id_produksi;?>" class="btn btn-primary">Edit</a>
+              <a href="<?= base_url().'index.php/Produk/hapusProduksi/'.$produksi->id_produksi;?>" onclick="return confirm('Anda Yakin Menghapus produk ?')" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/Pegawai/pegawai'?>" class="btn btn-primary">Tambah Pegawai</a>
+     <a href="<?= base_url().'index.php/Produk/produksi'?>" class="btn btn-primary">Tambah Produksi</a>
     </center>
     </div>
   </div>
