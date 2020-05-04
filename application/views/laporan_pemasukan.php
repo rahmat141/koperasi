@@ -32,7 +32,7 @@
         <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('asset/images/ormawa/'.$this->session->userdata('logo'))?>" width="65" height="65">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="65" height="65">
         </div>
       </a>
 
@@ -305,7 +305,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->nama ?></span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url('asset/images/foto/'.$this->session->userdata('foto')); ?>">
+                <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -444,20 +444,20 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url().'assets/vendor/jquery/jquery.min.js'?>"></script>
-  <script src="<?php echo base_url().'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/jquery/jquery.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?php echo base_url().'assets/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url().'assets/js/sb-admin-2.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/sb-admin-2.min.js'?>"></script>
 
   <!-- Page level plugins -->
-  <script src="<?php echo base_url().'assets/vendor/chart.js/Chart.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/chart.js/Chart.min.js'?>"></script>
 
   <!-- Page level custom scripts -->
-  <script src="<?php echo base_url().'assets/js/demo/chart-area-demo.js'?>"></script>
-  <script src="<?php echo base_url().'assets/js/demo/chart-pie-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/demo/chart-area-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/demo/chart-pie-demo.js'?>"></script>
 </body>
 </html>
