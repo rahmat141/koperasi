@@ -54,7 +54,7 @@ class Pegawai extends CI_Controller{
         'nama' => $nama,
         'pekerjaan' => $pekerjaan,
         'jenis_kelamin' => $jenis_kelamin,
-        'alamat' => $alamat
+        'alamat' => $alamat,
         'no_hp' => $no_hp
         );
  

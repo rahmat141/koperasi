@@ -343,53 +343,78 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>KEHADIRAN PEGAWAI</h1>
-	<hr>
-	<hr>
-	<a href="<?= base_url().'index.php/sekertaris/daftarKehadiran'?>" class="btn btn-primary">Lihat Kehadiran</a><br>
-	<form action="<?= base_url() ?>index.php/sekertaris/simpan_kehadiran" method="POST" enctype="multipart/form-data">
-	<table>
+    <h1>EDIT PEGAWAI</h1>
+    <hr>
+    <hr>
+    <form action="<?= base_url() ?>index.php/Produk/updateProduk" method="POST" enctype="multipart/form-data">
+    <?php foreach ($pegawai as $p) { ?>
+    <table>
   <div class="form-group">
-	<tr>
-		<td>Nama</td>
-		<td><select name="id_pegawai" class="form-control form-control-sm">
-          <option value="0"></option>
-          <option value="1">Yusril</option>
-          <option value="2">Ade</option>
-          <option value="3">Gifari Abi</option>
-          <option value="4">Afnenda</option>
-          <option value="5">Sherla</option>
-          <option value="6">Sherli</option>
-          <option value="7">Deby</option>
-    </select>	
-  </tr>
+    <tr>
+        <input type="hidden" name="id_pegawai" class="form-control form-control-user" value="<?php echo $p->id_pegawai ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Tanggal</td> 
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
-	</tr>
+    <tr>
+        <td>Nama</td> 
+        <td><input type="text" name="nama" class="form-control form-control-user" value="<?php echo $p->nama ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Jam Datang</td>
-		<td><input type="time" name="jam_datang" class="form-control form-control-user"></td>
-	</tr>
+    <tr>
+        <td>Alamat</td> 
+        <td><textarea name="alamat" class="form-control form-control-user" value="<?php echo $p->alamat ?>"></textarea></td>
+    </tr>
   </div>
   <div class="form-group">
+    <tr>
+        <td>No Hp</td> 
+        <td><input type="text" name="no_hp" class="form-control form-control-user" value="<?php echo $p->no_hp ?>"></td>
+    </tr>
   </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Hadir" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-  	<?php
+  <div class="form-group">
+    <tr>
+        <td>Jenis Kelamin</td>
+        <td>
+          <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-control-sm">
+              <option value="">---</option>
+              <option value="Laki-Laki" <?php echo $p->jenis_kelamin == "Laki-Laki" ? 'selected' : '' ?>>Laki-Laki</option>
+              <option value="Perempuan" <?php echo $p->jenis_kelamin == "Perempuan" ? 'selected' : '' ?>>Perempuan</option>
+          </select> 
+        </td>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+        <td>Pekerjaan</td>
+        <td>
+          <select name="pekerjaan" id="pekerjaan" class="form-control form-control-sm">
+              <option value="">---</option>
+              <option value="Mesin 1" <?php echo $p->pekerjaan == "Mesin 1" ? 'selected' : '' ?>>Mesin 1</option>
+              <option value="Mesin 2" <?php echo $p->pekerjaan == "Mesin 2" ? 'selected' : '' ?>>Mesin 2</option>
+              <option value="Mesin 3" <?php echo $p->pekerjaan == "Mesin 3" ? 'selected' : '' ?>>Mesin 3</option>
+              <option value="Mesin 4" <?php echo $p->pekerjaan == "Mesin 4" ? 'selected' : '' ?>>Mesin 4</option>
+              <option value="Penjahit" <?php echo $p->pekerjaan == "Penjahit" ? 'selected' : '' ?>>Penjahit</option>
+              <option value="Finishing" <?php echo $p->pekerjaan == "Finishing" ? 'selected' : '' ?>>Finishing</option>
+              <option value="Packing" <?php echo $p->pekerjaan == "Packing" ? 'selected' : '' ?>>Packing</option>
+          </select> 
+        </td>
+    </tr>
+  </div>
+  
+    <tr><td></td>
+        <td align="center">
+            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
+        </td>
+    </tr>   
+    </table>
+    <?php } ?>
+  <?php
       echo $this->session->flashdata('pesan');
-  	?>
- 	</div>
- 	</div>
-  	</div>
+  ?>
+  </div>
+  </div>
+  </div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -406,7 +431,6 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
-
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

@@ -72,10 +72,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-          <span>Kehadiran</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/pegawai" style="text-decoration: none">Pegawai</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/sekertaris/kehadiran" style="text-decoration: none">Kelola Kehadiran</a>
           </div>
         </div>
@@ -357,8 +358,15 @@
   <div class="form-group">
 	<tr>
 		<td>Alamat</td> 
-		<td><input type="text-area" name="alamat" class="form-control form-control-user"></td>
+    <td><textarea name="alamat" class="form-control form-control-user"></textarea></td>
+		
 	</tr>
+  </div>
+  <div class="form-group">
+  <tr>
+    <td>No HP</td> 
+    <td><input type="text" name="no_hp" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
 	<tr>
@@ -381,7 +389,7 @@
   <tr>
     <td>Jenis Kelamin</td> 
     <td>
-      <select name="kualitas" id="kualitas" class="form-control form-control-sm">
+      <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-control-sm">
           <option value="">---</option>
           <option value="Laki-Laki">Laki-Laki</option>
           <option value="Perempuan">Perempuan</option>

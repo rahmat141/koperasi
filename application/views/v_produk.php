@@ -72,10 +72,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-          <span>Kehadiran</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/pegawai" style="text-decoration: none">Pegawai</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/sekertaris/kehadiran" style="text-decoration: none">Kelola Kehadiran</a>
           </div>
         </div>
