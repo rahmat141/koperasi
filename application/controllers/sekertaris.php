@@ -30,11 +30,13 @@ class sekertaris extends CI_Controller{
         $tanggal = $this->input->post('tanggal');
         $jam_datang = $this->input->post('jam_datang');
         $jam_pulang = $this->input->post('jam_pulang');
+        $jam_kerja = $this->input->post('jam_kerja');
 
         $data   = array('id_pegawai' => $id_pegawai,
                     'jam_datang' => $jam_datang,
                     'tanggal' => $tanggal,
-                    'jam_pulang' => 0
+                    'jam_pulang' => 0,
+                    'jam_kerja' => 80000
                     );
 
         $this->model_kehadiran->insert($data,"kehadiran");

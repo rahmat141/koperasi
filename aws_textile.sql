@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2020 pada 18.35
+-- Waktu pembuatan: 04 Bulan Mei 2020 pada 09.06
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -32,17 +32,17 @@ CREATE TABLE `kehadiran` (
   `id_kehadiran` int(11) NOT NULL,
   `id_pegawai` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `jam_datang` int(11) NOT NULL,
-  `jam_pulang` int(11) NOT NULL
+  `jam_kerja` time NOT NULL,
+  `jam_datang` time NOT NULL,
+  `jam_pulang` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kehadiran`
 --
 
-INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_datang`, `jam_pulang`) VALUES
-(3, 1, '2020-05-03', 6, 16),
-(4, 2, '2020-05-03', 8, 15);
+INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `jam_datang`, `jam_pulang`) VALUES
+(10, 1, '2020-05-04', '08:00:00', '08:00:00', '17:00:00');
 
 -- --------------------------------------------------------
 
@@ -116,6 +116,13 @@ CREATE TABLE `produk` (
   `kualitas` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
+(2, 'bjj', 6000, 'Besar', 'Bagus');
+
 -- --------------------------------------------------------
 
 --
@@ -180,7 +187,7 @@ ALTER TABLE `produksi`
 -- AUTO_INCREMENT untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
-  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
@@ -198,7 +205,7 @@ ALTER TABLE `pembeli`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

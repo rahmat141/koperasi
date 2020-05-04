@@ -359,9 +359,9 @@
             <td><?php echo $i; ?></td>
             <td><?php echo $data->nama; ?></td>
             <td><?php echo $data->tanggal; ?></td>
-            <td><?php echo $data->jam_datang; ?>:00</td>
-            <td><?php echo $data->jam_pulang; ?>:00</td>
-            <?php if ($data->lembur >= 0) { ?>
+            <td><?php echo $data->jam_datang; ?></td>
+            <td><?php echo $data->jam_pulang; ?></td>
+            <?php if ($data->lembur > 0 ) { ?>
               <td><?php echo $data->lembur; ?> jam</td>
             <?php }else{ ?>
             <td>0 jam</td>
