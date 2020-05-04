@@ -58,7 +58,7 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-         <span>Kelola Produk</span>
+          <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -144,7 +144,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo site_url('sekertaris/searchKehadiran');?>" method="post">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -317,43 +317,101 @@
 
         </nav>
         <!-- End of Topbar -->
-    <center>
-    <h1>Daftar Data Produk</h1>
-    <hr><hr>
-    <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
-       
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Ukuran</th>
-            <th>Kualitas</th>
-            <th>Harga</th>
-            <th>Kelola</th>
-          
-        </tr>
-        <?php
-            $i=1;
-            foreach ($produk as $produk) {
-        ?>
-        <tr>
-            <td><?php echo $i; ?></td>
-            <td><?php echo $produk->nama; ?></td>
-            <td><?php echo $produk->ukuran; ?></td>
-            <td><?php echo $produk->kualitas; ?></td>
-            <td><?php echo $produk->harga; ?></td>
-            <td>
-              <a href="<?= base_url().'index.php/Produk/editProduk/'.$produk->id_produk;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Produk/hapusProduk/'.$produk->id_produk;?>" onclick="return confirm('Anda Yakin Menghapus produk ?')" class="btn btn-danger">Hapus</a>
-            </td>
-        </tr>
-        <?php $i++; }?>
-    </table>
-     <a href="<?= base_url().'index.php/Produk/produk'?>" class="btn btn-primary">Tambah Produk</a>
-    </center>
-    </div>
+<!--===============================================================================================-->  
+  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
+<!--===============================================================================================-->
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+<center>
+	<h1>DAFTAR PRODUKSI</h1>
+	<hr>
+	<hr>
+	<a href="<?= base_url().'index.php/Produk/daftarProduksi'?>" class="btn btn-primary">Lihat Produksi</a><br>
+	<form action="<?= base_url() ?>index.php/Produk/simpanProduksi" method="POST" enctype="multipart/form-data">
+	<table>
+  <div class="form-group">
+	<tr>
+		<td>Nama Pegawai</td>
+		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
+            <?php foreach($pegawai as $row){
+              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
+  <div class="form-group">
+  <tr>
+    <td>Nama Produk</td>
+    <td><select class="form-control" id="id_pegawai" name="id_pegawai">
+            <?php foreach($produk as $row){
+              echo '<option value="'.$row->id_produk.'">'.$row->nama.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
+  <div class="form-group">
+	<tr>
+		<td>Tanggal Produksi</td> 
+		<td><input type="date" name="tanggal_produksi" class="form-control form-control-user"></td>
+	</tr>
+  </div>
+  <div class="form-group">
+	<tr>
+		<td>Jumlah</td>
+		<td><input type="text" name="jumlah" class="form-control form-control-user"></td>
+	</tr>
+  </div>
+  <div class="form-group">
+  </div>
+	<tr><td></td>
+		<td align="center">
+			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Hadir" style="width: 100%">
+		</td>
+	</tr>	
+	</table>
+  	<?php
+      echo $this->session->flashdata('pesan');
+  	?>
+ 	</div>
+ 	</div>
+  	</div>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
+<!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

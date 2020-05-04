@@ -58,12 +58,12 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
-            <a class="collapse-item" href="#" style="text-decoration: none">Produksi Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
@@ -346,7 +346,7 @@
     <h1>EDIT PEGAWAI</h1>
     <hr>
     <hr>
-    <form action="<?= base_url() ?>index.php/Produk/updateProduk" method="POST" enctype="multipart/form-data">
+    <form action="<?= base_url() ?>index.php/Pegawai/updatePegawai" method="POST" enctype="multipart/form-data">
     <?php foreach ($pegawai as $p) { ?>
     <table>
   <div class="form-group">
@@ -363,7 +363,7 @@
   <div class="form-group">
     <tr>
         <td>Alamat</td> 
-        <td><textarea name="alamat" class="form-control form-control-user" value="<?php echo $p->alamat ?>"></textarea></td>
+        <td><input type="text" name="alamat" class="form-control form-control-user" value="<?php echo $p->alamat ?>"></td>
     </tr>
   </div>
   <div class="form-group">

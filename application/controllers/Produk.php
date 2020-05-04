@@ -65,5 +65,64 @@ class Produk extends CI_Controller{
         redirect('Produk/daftarProduk');
     }
 
+//################################### PRODUKSI ################################
+
+     public function produksi(){
+        $data['produksi'] = $this->model_produk->pegawai();
+        $this->load->view('v_produksi',$data);
+    }
+
+    public function simpanProduksi(){
+        $id_produk = $this->input->post('id_produk');
+        $id_pegawai = $this->input->post('id_pegawai');
+        $tanggal_produksi = $this->input->post('tanggal_produksi');
+        $jumlah = $this->input->post('jumlah');
+
+        $data   = array('id_produk' => $id_produk,
+                        'id_pegawai' => $id_pegawai,
+                        'tanggal_produksi' => $tanggal_produksi,
+                        'jumlah' => $jumlah,
+                    );
+
+        $this->model_produk->insert_produksi($data,"produksi");
+        redirect('Produk/daftarProduksi');
+    }
+    public function daftarProduksi(){
+        $data['produksi'] = $this->model_produk->tampil_produksi();
+        $this->load->view('v_daftarProduksi',$data);
+    }
+
+    public function editProduksi($id_produk){
+        $where = array('id_produk' => $id_produk);
+        $data['produksi'] = $this->model_produk->edit_produksi($where,'produksi')->result();
+        $this->load->view('v_edit_produksi',$data);
+    }
+
+     public function updateProduksi(){
+        $id_produk = $this->input->post('id_produk');
+        $id_pegawai = $this->input->post('id_pegawai');
+        $tanggal_produksi = $this->input->post('tanggal_produksi');
+        $jumlah = $this->input->post('jumlah');
+
+ 
+        $data = array(
+        'tanggal_produksi' => $tanggal_produksi,
+        'jumlah' => $jumlah
+        );
+ 
+        $where = array(
+        'id_produk' => $id_produk,
+        'id_pegawai' => $id_pegawai
+        ); 
+        $this->model_produk->update_produksi($where,$data,'produksi');
+        redirect('Produk/daftarProduksi');
+    }
+
+    public function hapusProduksi($id_produk){
+        $where = array('id_produk' => $id_produk);
+        $this->model_produk->hapus_produksi($where,'produksi');
+        redirect('Produk/daftarProduksi');
+    }
+
 }
 ?>

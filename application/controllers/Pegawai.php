@@ -38,12 +38,12 @@ class Pegawai extends CI_Controller{
 
     public function editPegawai($id_pegawai){
         $where = array('id_pegawai' => $id_pegawai);
-        $data['pegawai'] = $this->model_pegawai->edit_produk($where,'pegawai')->result();
+        $data['pegawai'] = $this->model_pegawai->edit_pegawai($where,'pegawai')->result();
         $this->load->view('v_edit_pegawai',$data);
     }
 
      public function updatePegawai(){
-        $id_pegawai = $this->input->post('id_produk');
+        $id_pegawai = $this->input->post('id_pegawai');
         $nama = $this->input->post('nama');
         $pekerjaan = $this->input->post('pekerjaan');
         $jenis_kelamin = $this->input->post('jenis_kelamin');
