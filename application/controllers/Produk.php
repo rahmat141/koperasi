@@ -68,7 +68,8 @@ class Produk extends CI_Controller{
 //################################### PRODUKSI ################################
 
      public function produksi(){
-        $data['produksi'] = $this->model_produk->pegawai();
+        $data['produk'] = $this->model_produk->produk();
+        $data['pegawai'] = $this->model_produk->pegawai();
         $this->load->view('v_produksi',$data);
     }
 
