@@ -317,7 +317,7 @@
         </nav>
         <!-- End of Topbar -->
     <center>
-    <h1>Data Kehadiran</h1>
+    <h1>Daftar Data Produk</h1>
     <hr><hr>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
@@ -342,7 +342,7 @@
             <td><?php echo $produk->harga; ?></td>
             <td>
               <a href="<?= base_url().'index.php/Produk/editProduk/'.$produk->id_produk;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Produk/hapusProduk/'.$produk->id_produk;?>" onclick="return confirm('Anda Yakin Menghapus kehadiran ?')" class="btn btn-danger">Hapus</a>
+              <a href="<?= base_url().'index.php/Produk/hapusProduk/'.$produk->id_produk;?>" onclick="return confirm('Anda Yakin Menghapus produk ?')" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         <?php $i++; }?>

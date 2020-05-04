@@ -364,7 +364,7 @@
 	<tr>
 		<td>Ukuran</td>
 		<td>
-      <select name="ukuran" class="form-control form-control-sm">
+      <select name="ukuran" id="ukuran" class="form-control form-control-sm">
           <option value="">---</option>
           <option value="Besar">Besar</option>
           <option value="Kecil">Kecil</option>
@@ -376,7 +376,7 @@
   <tr>
     <td>Kualitas</td> 
     <td>
-      <select name="kualitas" class="form-control form-control-sm">
+      <select name="kualitas" id="kualitas" class="form-control form-control-sm">
           <option value="">---</option>
           <option value="Bagus">Bagus</option>
           <option value="BS">BS</option>
