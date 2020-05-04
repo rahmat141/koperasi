@@ -6,7 +6,7 @@
         }
 
         public function tampil_produk(){
-    		$this->db->select('nama,harga, ukuran, kualitas');
+    		$this->db->select('id_produk,nama,harga, ukuran, kualitas');
     		$this->db->from('produk');
     		$query = $this->db->get();
     		return $query->result();
