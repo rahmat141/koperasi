@@ -330,7 +330,7 @@
         </nav>
         <!-- End of Topbar -->
     <center>
-    <h1>Daftar Data Pegawai</h1>
+    <h1>Daftar Data Pembeli</h1>
     <hr><hr>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
@@ -339,31 +339,27 @@
             <th>Nama</th>
             <th>Alamat</th>
             <th>No HP</th>
-            <th>Jenis Kelamin</th>
-            <th>Pekerjaan</th>
             <th>Kelola</th>
         
           
         </tr>
         <?php
             $i=1;
-            foreach ($pegawai as $pegawai) {
+            foreach ($pembeli as $pembeli) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $pegawai->nama; ?></td>
-            <td><?php echo $pegawai->alamat; ?></td>
-            <td><?php echo $pegawai->no_hp; ?></td>
-            <td><?php echo $pegawai->jenis_kelamin; ?></td>
-            <td><?php echo $pegawai->pekerjaan; ?></td>
+            <td><?php echo $pembeli->nama; ?></td>
+            <td><?php echo $pembeli->alamat; ?></td>
+            <td><?php echo $pembeli->no_hp; ?></td>
             <td>
-              <a href="<?= base_url().'index.php/Pegawai/editPegawai/'.$pegawai->id_pegawai;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Pegawai/hapusPegawai/'.$pegawai->id_pegawai;?>" onclick="return confirm('Anda Yakin Menghapus Pegawai ?')" class="btn btn-danger">Hapus</a>
+              <a href="<?= base_url().'index.php/Pembeli/editPembeli/'.$pembeli->id_pembeli;?>" class="btn btn-primary">Edit</a>
+              <a href="<?= base_url().'index.php/Pembeli/hapusPembeli/'.$pembeli->id_pembeli;?>" onclick="return confirm('Anda Yakin Menghapus Pembeli ?')" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/Pegawai/pegawai'?>" class="btn btn-primary">Tambah Pegawai</a>
+     <a href="<?= base_url().'index.php/Pembeli/pembeli'?>" class="btn btn-primary">Tambah Pembeli</a>
     </center>
     </div>
   </div>

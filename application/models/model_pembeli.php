@@ -12,16 +12,16 @@
     		return $query->result();
     	}
 
-    	public function edit_produk($where,$table){      
+    	public function edit_pembeli($where,$table){      
         	return $this->db->get_where($table,$where);
     	}
 
-    	public function update_produk($where,$data,$table){
+    	public function update_pembeli($where,$data,$table){
         	$this->db->where($where);
         	$this->db->update($table,$data);
     	} 
 
-    	public function hapus_produk($where,$table){
+    	public function hapus_pembeli($where,$table){
         	$this->db->delete($table,$where);
     	}
     }

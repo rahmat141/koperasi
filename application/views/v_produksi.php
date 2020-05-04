@@ -95,6 +95,19 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Pembeli</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pembeli/pembeli" style="text-decoration: none">Kelola Pembeli</a>
+           
+          </div>
+        </div>
+      </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -354,7 +367,7 @@
 		<td>Nama Pegawai</td>
 		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
             <?php foreach($pegawai as $row){
-              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
+              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.' di '.$row->pekerjaan.'</option>';
             }
             ?> </select>
   </tr>
@@ -364,7 +377,7 @@
     <td>Nama Produk</td>
     <td><select class="form-control" id="id_pegawai" name="id_pegawai">
             <?php foreach($produk as $row){
-              echo '<option value="'.$row->id_produk.'">'.$row->nama.'</option>';
+              echo '<option value="'.$row->id_produk.'">'.$row->nama.' '.$row->ukuran.' '.$row->kualitas.'</option>';
             }
             ?> </select>
   </tr>
