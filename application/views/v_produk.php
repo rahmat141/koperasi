@@ -342,44 +342,54 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>KEHADIRAN PEGAWAI</h1>
+	<h1>INPUT PRODUK</h1>
 	<hr>
 	<hr>
-	<a href="<?= base_url().'index.php/sekertaris/daftarKehadiran'?>" class="btn btn-primary">Lihat Kehadiran</a><br>
-	<form action="<?= base_url() ?>index.php/sekertaris/simpan_kehadiran" method="POST" enctype="multipart/form-data">
+	<a href="<?= base_url().'index.php/Produk/daftarProduk'?>" class="btn btn-primary">Lihat Produk</a><br>
+	<form action="<?= base_url() ?>index.php/Produk/simpanProduk" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
 	<tr>
 		<td>Nama</td>
-		<td><select name="id_pegawai" class="form-control form-control-sm">
-          <option value="0"></option>
-          <option value="1">Yusril</option>
-          <option value="2">Ade</option>
-          <option value="3">Gifari Abi</option>
-          <option value="4">Afnenda</option>
-          <option value="5">Sherla</option>
-          <option value="6">Sherli</option>
-          <option value="7">Deby</option>
-    </select>	
+		<td><input type="text" name="nama" class="form-control form-control-user"></td>	
   </tr>
   </div>
   <div class="form-group">
 	<tr>
-		<td>Tanggal</td> 
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
+		<td>Harga</td> 
+		<td><input type="text" name="harga" class="form-control form-control-user"></td>
 	</tr>
   </div>
   <div class="form-group">
 	<tr>
-		<td>Jam Datang</td>
-		<td><input type="time" name="jam_datang" class="form-control form-control-user"></td>
+		<td>Ukuran</td>
+		<td>
+      <select name="ukuran" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Besar">Besar</option>
+          <option value="Kecil">Kecil</option>
+      </select> 
+    </td>
 	</tr>
   </div>
+  <div class="form-group">
+  <tr>
+    <td>Kualitas</td> 
+    <td>
+      <select name="kualitas" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Bagus">Bagus</option>
+          <option value="BS">BS</option>
+      </select> 
+    </td>
+  </tr>
+  </div>
+  <br>
   <div class="form-group">
   </div>
 	<tr><td></td>
 		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Hadir" style="width: 100%">
+			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
 		</td>
 	</tr>	
 	</table>
