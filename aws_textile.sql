@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2020 pada 10.30
+-- Waktu pembuatan: 04 Bulan Mei 2020 pada 13.08
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -66,11 +66,9 @@ CREATE TABLE `pegawai` (
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
 (1, 'Yusril', '', '', '', ''),
 (2, 'Ade', '', '', '', ''),
-(3, 'Gifari', '', '', '', ''),
-(4, 'Afnenda', '', '', '', ''),
 (5, 'Sherla', '', '', '', ''),
 (6, 'Sherli', '', '', '', ''),
-(7, 'Deby', '', '', '', '');
+(8, 'Yolo', 'Mesin 1', 'Laki-Laki', 'dgs', '0');
 
 -- --------------------------------------------------------
 
@@ -208,7 +206,7 @@ ALTER TABLE `kehadiran`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembeli`
