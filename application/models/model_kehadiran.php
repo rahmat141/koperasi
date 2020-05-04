@@ -13,6 +13,13 @@
     		return $query->result();
     	}
 
+        public function pegawai(){
+            $this->db->select('*');
+            $this->db->from('pegawai');
+            $query = $this->db->get();
+            return $query->result();
+        }
+
     	public function edit_kehadiran($where,$table){      
         	return $this->db->get_where($table,$where);
     	}

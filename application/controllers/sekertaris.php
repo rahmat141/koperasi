@@ -13,11 +13,11 @@ class sekertaris extends CI_Controller{
 	}
 
     public function kehadiran(){
-        $this->load->view('v_kehadiran');
+        $data['pegawai'] = $this->model_kehadiran->pegawai();
+        $this->load->view('v_kehadiran',$data);
     }
 
     public function simpan_kehadiran(){
-        $this->form_validation->set_rules('id_pegawai', 'Nama', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
 
         if ($this->form_validation->run() == FALSE){

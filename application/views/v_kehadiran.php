@@ -351,16 +351,11 @@
   <div class="form-group">
 	<tr>
 		<td>Nama</td>
-		<td><select name="id_pegawai" class="form-control form-control-sm">
-          <option value="0"></option>
-          <option value="1">Yusril</option>
-          <option value="2">Ade</option>
-          <option value="3">Gifari Abi</option>
-          <option value="4">Afnenda</option>
-          <option value="5">Sherla</option>
-          <option value="6">Sherli</option>
-          <option value="7">Deby</option>
-    </select>	
+		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
+            <?php foreach($pegawai as $row){
+              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
+            }
+            ?> </select>
   </tr>
   </div>
   <div class="form-group">
