@@ -124,5 +124,71 @@ class Produk extends CI_Controller{
         redirect('Produk/daftarProduksi');
     }
 
+//################################### PENJUALAN ########################################
+
+    public function penjualan(){
+        $this->load->view('v_penjualan');
+    }
+
+    public function simpanPenjualan(){
+        $tanggal = $this->input->post('tanggal');
+        $sales = $this->input->post('sales');
+        $no_Nota = $this->input->post('no_Nota');
+        $item = $this->input->post('item');
+        $qyt = $this->input->post('qyt');
+        $harga_perqyt = $this->input->post('harga_perqyt');
+        $keterangan = $this->input->post('keterangan');
+
+        $data   = array('tanggal' => $tanggal,
+                    'sales' => $sales,
+                    'no_Nota' => $no_Nota,
+                    'item' => $item,
+                    'qyt' => $qyt,
+                    'harga_perqyt' => $harga_perqyt,
+                    'keterangan' => $keterangan,
+                    );
+
+        $this->model_sarung->insert($data,"penjualan");
+        redirect('Produk/daftarPenjualan');
+    }
+
+    public function daftarPenjualan(){
+        $data['penjualan'] = $this->model_sarung->tampil();
+        $this->load->view('v_daftarPenjualan',$data);
+    }
+
+    public function editPenjualan($id_produk){
+        $where = array('id_produk' => $id_produk);
+        $data['penjualan'] = $this->model_produk->edit_penjualan($where,'penjualan')->result();
+        $this->load->view('v_edit_penjualan',$data);
+    }
+
+     public function updatePenjualan(){
+        $id_produk = $this->input->post('id_produk');
+        $id_pegawai = $this->input->post('id_pegawai');
+        $tanggal_produksi = $this->input->post('tanggal_produksi');
+        $jumlah = $this->input->post('jumlah');
+
+ 
+        $data = array(
+        'tanggal_produksi' => $tanggal_produksi,
+        'jumlah' => $jumlah
+        );
+ 
+        $where = array(
+        'id_produk' => $id_produk,
+        'id_pegawai' => $id_pegawai
+        ); 
+        $this->model_produk->update_penjualan($where,$data,'penjualan');
+        redirect('Produk/daftarPenjualan');
+    }
+
+    public function hapusPenjualan($id_produk){
+        $where = array('id_produk' => $id_produk);
+        $this->model_produk->hapus_penjualan($where,'penjualan');
+        redirect('Produk/daftarPenjualan');
+    }
+
+
 }
 ?>
