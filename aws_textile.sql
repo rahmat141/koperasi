@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 04:29 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Waktu pembuatan: 04 Bulan Mei 2020 pada 19.37
+-- Versi server: 10.1.31-MariaDB
+-- Versi PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kehadiran`
+-- Struktur dari tabel `cashflow`
+--
+
+CREATE TABLE `cashflow` (
+  `id_transaksi` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
+  `nama_transaksi` varchar(255) COLLATE utf8_bin NOT NULL,
+  `debit` int(11) NOT NULL,
+  `kredit` int(11) NOT NULL,
+  `kategori` varchar(255) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `cashflow`
+--
+
+INSERT INTO `cashflow` (`id_transaksi`, `tanggal`, `nama_transaksi`, `debit`, `kredit`, `kategori`) VALUES
+(1, '2020-04-06', 'Hasil Penjualan dari Apit', 2000000, 0, 'sas'),
+(2, '2020-04-06', 'Hasil Penjualan dari Apit', 3000000, 0, ''),
+(3, '2020-05-01', 'Hasil Penjualan dari Apit', 1000000, 0, ''),
+(4, '2020-05-02', 'Penjualan Sarung alisa', 3000000, 0, ''),
+(5, '2020-05-05', '30 batang besi 10', 0, 1905000, ''),
+(6, '2020-05-05', '30 batang besi 10', 0, 1905000, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kehadiran`
 --
 
 CREATE TABLE `kehadiran` (
@@ -38,7 +65,7 @@ CREATE TABLE `kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kehadiran`
+-- Dumping data untuk tabel `kehadiran`
 --
 
 INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `jam_datang`, `jam_pulang`) VALUES
@@ -47,7 +74,7 @@ INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -60,7 +87,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pegawai`
+-- Dumping data untuk tabel `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
@@ -69,7 +96,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembeli`
+-- Struktur dari tabel `pembeli`
 --
 
 CREATE TABLE `pembeli` (
@@ -80,7 +107,7 @@ CREATE TABLE `pembeli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pembeli`
+-- Dumping data untuk tabel `pembeli`
 --
 
 INSERT INTO `pembeli` (`id_pembeli`, `nama`, `alamat`, `no_hp`) VALUES
@@ -89,7 +116,7 @@ INSERT INTO `pembeli` (`id_pembeli`, `nama`, `alamat`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penggajian`
+-- Struktur dari tabel `penggajian`
 --
 
 CREATE TABLE `penggajian` (
@@ -104,7 +131,7 @@ CREATE TABLE `penggajian` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penjualan`
+-- Struktur dari tabel `penjualan`
 --
 
 CREATE TABLE `penjualan` (
@@ -122,7 +149,7 @@ CREATE TABLE `penjualan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -134,7 +161,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
@@ -143,7 +170,7 @@ INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produksi`
+-- Struktur dari tabel `produksi`
 --
 
 CREATE TABLE `produksi` (
@@ -155,7 +182,7 @@ CREATE TABLE `produksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produksi`
+-- Dumping data untuk tabel `produksi`
 --
 
 INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produksi`, `jumlah`) VALUES
@@ -167,33 +194,39 @@ INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produ
 --
 
 --
--- Indexes for table `kehadiran`
+-- Indeks untuk tabel `cashflow`
+--
+ALTER TABLE `cashflow`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
+-- Indeks untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD PRIMARY KEY (`id_kehadiran`),
   ADD KEY `fk_kehadiran` (`id_pegawai`);
 
 --
--- Indexes for table `pegawai`
+-- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indexes for table `pembeli`
+-- Indeks untuk tabel `pembeli`
 --
 ALTER TABLE `pembeli`
   ADD PRIMARY KEY (`id_pembeli`);
 
 --
--- Indexes for table `penggajian`
+-- Indeks untuk tabel `penggajian`
 --
 ALTER TABLE `penggajian`
   ADD PRIMARY KEY (`id_gaji`),
   ADD KEY `fk_gaji` (`id_pegawai`);
 
 --
--- Indexes for table `penjualan`
+-- Indeks untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
   ADD PRIMARY KEY (`id_penjualan`),
@@ -201,13 +234,13 @@ ALTER TABLE `penjualan`
   ADD KEY `fk_pembeli` (`id_pembeli`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `produksi`
+-- Indeks untuk tabel `produksi`
 --
 ALTER TABLE `produksi`
   ADD PRIMARY KEY (`id_produksi`),
@@ -215,76 +248,82 @@ ALTER TABLE `produksi`
   ADD KEY `fk_sarung` (`id_produk`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kehadiran`
+-- AUTO_INCREMENT untuk tabel `cashflow`
+--
+ALTER TABLE `cashflow`
+  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
   MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `pegawai`
+-- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `pembeli`
+-- AUTO_INCREMENT untuk tabel `pembeli`
 --
 ALTER TABLE `pembeli`
   MODIFY `id_pembeli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `penggajian`
+-- AUTO_INCREMENT untuk tabel `penggajian`
 --
 ALTER TABLE `penggajian`
   MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `penjualan`
+-- AUTO_INCREMENT untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
   MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `produksi`
+-- AUTO_INCREMENT untuk tabel `produksi`
 --
 ALTER TABLE `produksi`
   MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `kehadiran`
+-- Ketidakleluasaan untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD CONSTRAINT `fk_kehadiran` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
--- Constraints for table `penggajian`
+-- Ketidakleluasaan untuk tabel `penggajian`
 --
 ALTER TABLE `penggajian`
   ADD CONSTRAINT `fk_gaji` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
--- Constraints for table `penjualan`
+-- Ketidakleluasaan untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
   ADD CONSTRAINT `fk_pembeli` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`),
   ADD CONSTRAINT `fk_penjualan` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Constraints for table `produksi`
+-- Ketidakleluasaan untuk tabel `produksi`
 --
 ALTER TABLE `produksi`
   ADD CONSTRAINT `fk_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
