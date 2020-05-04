@@ -58,7 +58,7 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -356,58 +356,56 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>DAFTAR PRODUKSI</h1>
-	<hr>
-	<hr>
-	<a href="<?= base_url().'index.php/Produk/daftarProduksi'?>" class="btn btn-primary">Lihat Produksi</a><br>
-	<form action="<?= base_url() ?>index.php/Produk/simpanProduksi" method="POST" enctype="multipart/form-data">
-	<table>
+    <h1>EDIT PRODUKSI</h1>
+    <hr>
+    <hr>
+    <form action="<?= base_url() ?>index.php/Produk/updateProduk" method="POST" enctype="multipart/form-data">
+    <?php foreach ($produksi as $p) { ?>
+    <table>
   <div class="form-group">
-	<tr>
-		<td>Nama Pegawai</td>
-		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
-            <?php foreach($pegawai as $row){
-              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.' di '.$row->pekerjaan.'</option>';
-            }
-            ?> </select>
-  </tr>
+    <tr>
+        <input type="hidden" name="id_produksi" class="form-control form-control-user" value="<?php echo $p->id_produksi ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
-  <tr>
-    <td>Nama Produk</td>
-    <td><select class="form-control" id="id_pegawai" name="id_produk">
-            <?php foreach($produk as $row){
-              echo '<option value="'.$row->id_produk.'">'.$row->nama.' '.$row->ukuran.' '.$row->kualitas.'</option>';
-            }
-            ?> </select>
-  </tr>
+    <tr>
+        <td>Nama Pegawai</td> 
+        <td><input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Tanggal Produksi</td> 
-		<td><input type="date" name="tanggal_produksi" class="form-control form-control-user"></td>
-	</tr>
+    <tr>
+        <td>Nama Produk</td> 
+        <td><input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Jumlah</td>
-		<td><input type="text" name="jumlah" class="form-control form-control-user"></td>
-	</tr>
+    <tr>
+        <td>Tanggal Produksi</td> 
+        <td><input type="text" name="tanggal_produksi" class="form-control form-control-user" value="<?php echo $p->tanggal_produksi ?>"></td>
+    </tr>
   </div>
   <div class="form-group">
+    <tr>
+        <td>Jumlah</td> 
+        <td><input type="text" name="jumlah" class="form-control form-control-user" value="<?php echo $p->jumlah ?>"></td>
+    </tr>
   </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-  	<?php
+  
+  
+    <tr><td></td>
+        <td align="center">
+            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
+        </td>
+    </tr>   
+    </table>
+    <?php } ?>
+  <?php
       echo $this->session->flashdata('pesan');
-  	?>
- 	</div>
- 	</div>
-  	</div>
+  ?>
+  </div>
+  </div>
+  </div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -424,7 +422,6 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
-
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

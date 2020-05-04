@@ -31,7 +31,7 @@
         }
 
         public function tampil_produksi(){
-            $this->db->select('ps.id_pegawai,p.nama,p.pekerjaan,ps.id_produk,pr.nama,pr.ukuran,
+            $this->db->select('ps.id_produksi,ps.id_pegawai,p.nama as namaPegawai,p.pekerjaan,ps.id_produk,pr.nama as namaProduk,pr.ukuran,
                 pr.kualitas,ps.tanggal_produksi,ps.jumlah');
             $this->db->from('produksi ps');
             $this->db->join('pegawai p',' ps.id_pegawai = p.id_pegawai');

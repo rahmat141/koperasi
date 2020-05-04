@@ -93,8 +93,8 @@ class Produk extends CI_Controller{
         $this->load->view('v_daftarProduksi',$data);
     }
 
-    public function editProduksi($id_produk){
-        $where = array('id_produk' => $id_produk);
+    public function editProduksi($id_produksi){
+        $where = array('id_produksi' => $id_produksi);
         $data['produksi'] = $this->model_produk->edit_produksi($where,'produksi')->result();
         $this->load->view('v_edit_produksi',$data);
     }
@@ -119,8 +119,8 @@ class Produk extends CI_Controller{
         redirect('Produk/daftarProduksi');
     }
 
-    public function hapusProduksi($id_produk){
-        $where = array('id_produk' => $id_produk);
+    public function hapusProduksi($id_produksi){
+        $where = array('id_produksi' => $id_produksi);
         $this->model_produk->hapus_produksi($where,'produksi');
         redirect('Produk/daftarProduksi');
     }
