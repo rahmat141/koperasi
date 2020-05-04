@@ -62,13 +62,13 @@ class Pegawai extends CI_Controller{
         'id_pegawai' => $id_pegawai
         ); 
         $this->model_pegawai->update_pegawai($where,$data,'pegawai');
-        redirect('Produk/daftarProduk');
+        redirect('Pegawai/daftarPegawai');
     }
 
-    public function hapusProduk($id_produk){
-        $where = array('id_produk' => $id_produk);
-        $this->model_produk->hapus_produk($where,'produk');
-        redirect('Produk/daftarProduk');
+    public function hapusPegawai($id_pegawai){
+        $where = array('id_pegawai' => $id_pegawai);
+        $this->model_pegawai->hapus_pegawai($where,'pegawai');
+        redirect('Pegawai/daftarPegawai');
     }
 
 }
