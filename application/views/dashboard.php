@@ -89,8 +89,8 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Kelola Penggajian</a>
-           
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/tambah" style="text-decoration: none">Input Gaji</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/daftarGaji" style="text-decoration: none">Laporan Gaji</a>
           </div>
         </div>
       </li>
