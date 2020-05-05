@@ -409,12 +409,6 @@
   </div>
   <div class="form-group">
   <tr>
-    <td>Harga PCS</td>
-    <td><??></td>
-  </tr>
-  </div>
-  <div class="form-group">
-  <tr>
     <td>Tanggal Transaksi</td>
     <td><input type="date" name="tanggal" class="form-control form-control-user"></td>
   </tr>

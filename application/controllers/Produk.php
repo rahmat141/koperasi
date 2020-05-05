@@ -140,7 +140,6 @@ class Produk extends CI_Controller{
         $tanggal = $this->input->post('tanggal');
         $no_nota = $this->input->post('no_nota');
         $pcs = $this->input->post('pcs');
-        $harga_pcs = $this->input->post('harga_pcs');
         $keterangan = $this->input->post('keterangan');
 
         $data   = array('id_produk' => $id_produk,
@@ -149,8 +148,7 @@ class Produk extends CI_Controller{
                         'tanggal' => $tanggal,
                         'no_nota' => $no_nota,
                         'pcs' => $pcs,
-                        'harga_pcs' => $harga_pcs,
-                        'keterangan' => $keterangan,
+                        'keterangan' => $keterangan
                         
                     );
 

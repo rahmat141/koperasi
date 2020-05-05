@@ -364,10 +364,10 @@
             <td><?php echo $penjualan->sales; ?></td>
             <td><?php echo $penjualan->no_nota; ?></td>
             <td><?php echo $penjualan->pcs; ?></td>
-            <td><?php echo $penjualan->harga_pcs; ?></td>
+            <td><?php echo $penjualan->harga; ?></td>
             <td><?php echo $penjualan->total; ?></td>
-            <td><?php echo $penjualan->Tanggal; ?></td>
-            <td><?php echo $penjualan->Keterangan; ?></td>
+            <td><?php echo $penjualan->tanggal; ?></td>
+            <td><?php echo $penjualan->keterangan; ?></td>
             <td>
               <a href="<?= base_url().'index.php/Produk/editPenjualan/'.$penjualan->id_penjualan;?>" class="btn btn-primary">Edit</a>
               <a href="<?= base_url().'index.php/Produk/hapusPenjualan/'.$penjualan->id_penjualan;?>" onclick="return confirm('Anda Yakin Menghapus Penjualan ?')" class="btn btn-danger">Hapus</a>

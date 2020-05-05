@@ -74,8 +74,8 @@
         }
 
         public function tampil_penjualan(){
-            $this->db->select('pn.id_produk,p.nama as namaProduk, p.ukuran,p.kualitas,pn.id_pembeli,pm.nama as namaPembeli,
-                pn.keterangan,pn.sales,pn.tanggal,pn.no_nota, pn.pcs, p.harga,Format((pn.pcs * p.harga),0) as total where p.harga =pn.id_produk');
+            $this->db->select('pn.id_penjualan,pn.id_produk,p.nama as namaProduk, p.ukuran,p.kualitas,pn.id_pembeli,pm.nama as namaPembeli,
+                pn.keterangan,pn.sales,pn.tanggal,pn.no_nota, pn.pcs, p.harga,Format((pn.pcs * p.harga),0) as total,p.harga');
             $this->db->from('penjualan pn');
             $this->db->join('produk p',' pn.id_produk = p.id_produk');
             $this->db->join('pembeli pm',' pn.id_pembeli = pm.id_pembeli');
