@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 </head>
@@ -58,13 +58,13 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -72,7 +72,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-         <span>Kepegawaian</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -161,7 +161,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo site_url('sekertaris/searchKehadiran');?>" method="post">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -306,7 +306,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->nama ?></span>
-               <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
+                <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -334,42 +334,54 @@
 
         </nav>
         <!-- End of Topbar -->
-<center>
-    <h1>Detail Penjualan</h1>
+    <center>
+    <h1>Daftar Data Penjualan</h1>
     <hr><hr>
-    <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0">
+    <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
         <tr>
             <th>No</th>
-            <th>Tanggal</th>
+            <th>Nama Pembeli</th>
+            <th>Nama Produk</th>
             <th>Sales</th>
             <th>No Nota</th>
-            <th>Item</th>
-            <th>Qyt</th>
-            <th>Harga/Qyt</th>
+            <th>PCS</th>
+            <th>Harga PCS</th>
             <th>Total</th>
+            <th>Tanggal</th>
             <th>Keterangan</th>
+            <th>Kelola</th>
+          
         </tr>
         <?php
             $i=1;
-            foreach ($penjualan as $data) {
+            foreach ($penjualan as $penjualan) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $data->tanggal; ?></td>
-            <td><?php echo $data->sales; ?></td>
-            <td><?php echo $data->no_Nota; ?></td>
-            <td><?php echo $data->item; ?></td>
-            <td><?php echo $data->qyt; ?> Kodi</td>
-            <td>Rp<?php echo $data->harga_perqyt; ?></td>
-            <td>Rp<?php echo $data->total; ?></td>
-            <td><?php echo $data->keterangan; ?></td>
+            <td><?php echo $penjualan->namaPembeli; ?></td>
+            <td><?php echo $penjualan->namaProduk,' ',$penjualan->ukuran,' ',$penjualan->kualitas; ?></td>
+            <td><?php echo $penjualan->sales; ?></td>
+            <td><?php echo $penjualan->no_nota; ?></td>
+            <td><?php echo $penjualan->pcs; ?></td>
+            <td><?php echo $penjualan->harga_pcs; ?></td>
+            <td><?php echo $penjualan->total; ?></td>
+            <td><?php echo $penjualan->Tanggal; ?></td>
+            <td><?php echo $penjualan->Keterangan; ?></td>
+            <td>
+              <a href="<?= base_url().'index.php/Produk/editPenjualan/'.$penjualan->id_penjualan;?>" class="btn btn-primary">Edit</a>
+              <a href="<?= base_url().'index.php/Produk/hapusPenjualan/'.$penjualan->id_penjualan;?>" onclick="return confirm('Anda Yakin Menghapus Penjualan ?')" class="btn btn-danger">Hapus</a>
+            </td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/Sarung/penjualan_sarung'?>" class="btn btn-primary">Input Penjualan</a>
+     <a href="<?= base_url().'index.php/Produk/penjualan'?>" class="btn btn-primary">Tambah Penjualan</a>
     </center>
-<footer class="sticky-footer bg-white">
+    </div>
+  </div>
+  </div>
+  <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+  <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy;</span>

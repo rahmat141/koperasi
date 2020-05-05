@@ -64,7 +64,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -360,7 +360,7 @@
             <td><?php echo $produk->harga; ?></td>
             <td>
               <a href="<?= base_url().'index.php/Produk/editProduk/'.$produk->id_produk;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Produk/hapusProduk/'.$produk->id_produk;?>" onclick="return confirm('Anda Yakin Menghapus produk ?')" class="btn btn-danger">Hapus</a>
+              <a href="<?= base_url().'index.php/Produk/hapusProduk/'.$produk->id_produk;?>" onclick="return confirm('Anda Yakin Menghapus Produk ?')" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         <?php $i++; }?>

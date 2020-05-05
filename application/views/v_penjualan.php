@@ -64,7 +64,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -107,6 +107,7 @@
           </div>
         </div>
       </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -333,62 +334,129 @@
 
         </nav>
         <!-- End of Topbar -->
+<!--===============================================================================================-->  
+  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
+<!--===============================================================================================-->
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>Penjualan Sarung</h1>
-	<hr>
-	<hr>
-  <a href="<?= base_url().'index.php/Sarung/daftarPenjualan'?>" class="btn btn-primary">Lihat Penjualan</a><br>
-	<form action="<?= base_url() ?>index.php/Sarung/simpan_penjualan" method="POST" enctype="multipart/form-data">
-	<table>
+  <h1>INPUT PENJUALAN</h1>
+  <hr>
+  <hr>
+  <a href="<?= base_url().'index.php/Produk/daftarPenjualan'?>" class="btn btn-primary">Lihat Penjualan</a><br>
+  <form action="<?= base_url() ?>index.php/Produk/simpanPenjualan" method="POST" enctype="multipart/form-data">
+  <table>
   <div class="form-group">
-	<tr>
-		<td>Tanggal</td>
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>Nama Pembeli</td>
+    <td><select class="form-control" id="id_pembeli" name="id_pembeli">
+            <?php foreach($pembeli as $row){
+
+              echo '<option value="'.$row->id_pembeli.'">'.$row->nama.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Sales</td> 
-		<td><input type="text" name="sales" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>Nama Produk</td>
+
+    <td><select class="form-control" id="id_produk" name="id_produk">
+      
+            <?php foreach($produk as $row){
+              echo '<option value="'.$row->id_produk.'">'.$row->nama.' '.$row->ukuran.' '.$row->kualitas.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>No Nota</td>
-		<td><input type="text" name="no_Nota" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>Sales</td> 
+    <td><input type="text" name="sales" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Item</td>
-		<td><input type="text" name="item" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>No Nota</td>
+    <td><input type="text" name="no_nota" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Qyt</td>
-		<td><input type="text" name="qyt" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>PCS</td>
+    <td><input type="text" name="pcs" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Harga/Qyt</td>
-		<td><input type="text" name="harga_perqyt" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>Harga PCS</td>
+    <td><??></td>
+  </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Keterangan</td>
-		<td><input type="text" name="keterangan" class="form-control form-control-user"></td>
-	</tr>
+  <tr>
+    <td>Tanggal Transaksi</td>
+    <td><input type="date" name="tanggal" class="form-control form-control-user"></td>
+  </tr>
   </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Simpan" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-	<footer class="sticky-footer bg-white">
+  <div class="form-group">
+  <tr>
+    <td>Keterangan</td>
+    <td><input type="keterangan" name="keterangan" class="form-control form-control-user"></td>
+  </tr>
+  </div>
+  <div class="form-group">
+  </div>
+  <tr><td></td>
+    <td align="center">
+      <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
+    </td>
+  </tr> 
+  </table>
+    <?php
+      echo $this->session->flashdata('pesan');
+    ?>
+  </div>
+  </div>
+    </div>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
+  <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy;</span>

@@ -64,7 +64,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -354,13 +354,13 @@
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $produksi->namaPegawai; ?></td>
-            <td><?php echo $produksi->namaProduk; ?></td>
+            <td><?php echo $produksi->namaPegawai,' di ',$produksi->pekerjaan; ?></td>
+            <td><?php echo $produksi->namaProduk,' ',$produksi->ukuran,' ',$produksi->kualitas; ?></td>
             <td><?php echo $produksi->tanggal_produksi; ?></td>
             <td><?php echo $produksi->jumlah; ?></td>
             <td>
               <a href="<?= base_url().'index.php/Produk/editProduksi/'.$produksi->id_produksi;?>" class="btn btn-primary">Edit</a>
-              <a href="<?= base_url().'index.php/Produk/hapusProduksi/'.$produksi->id_produksi;?>" onclick="return confirm('Anda Yakin Menghapus produk ?')" class="btn btn-danger">Hapus</a>
+              <a href="<?= base_url().'index.php/Produk/hapusProduksi/'.$produksi->id_produksi;?>" onclick="return confirm('Anda Yakin Menghapus Produksi ?')" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         <?php $i++; }?>
