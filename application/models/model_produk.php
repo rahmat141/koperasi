@@ -120,7 +120,7 @@
         $this->db->from('produk p');
         $this->db->join('produksi pr','p.id_produk = pr.id_produk');
         $this->db->join('pegawai peg','peg.id_pegawai = pr.id_pegawai');
-        $this->db->where('peg.pekerjaan',' Finishing');
+        $this->db->where('peg.pekerjaan','Finishing');
         $this->db->group_by('p.id_produk');
         $query = $this->db->get();
         return $query->result();
