@@ -94,6 +94,19 @@
         </div>
       </li>
 
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Gudang</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/stokGudang" style="text-decoration: none">Stok Gudang</a>
+           
+          </div>
+        </div>
+      </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
 

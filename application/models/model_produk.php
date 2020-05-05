@@ -104,5 +104,20 @@
         public function hapus_penjualan($where,$table){
             $this->db->delete($table,$where);
         }
+
+//################################## Stok Gudang ##################################
+
+        public function produksi(){
+            $this->db->select('*');
+            $this->db->from('produksi');
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+         public function tampil_stok(){
+            $this->db->query("SELECT concat(pr.nama,' ',pr.ukuran,' ',pr.kualitas) as 'nama produk', sum(p.jumlah) as jumlah from produk pr JOIN produksi p USING(id_produk) JOIN pegawai pg USING (id_pegawai) WHERE pg.pekerjaan ='Finishing' GROUP BY pr.id_produk");
+            $query = $this->db->get();
+            return $query->result();
     }
+}
 ?>
