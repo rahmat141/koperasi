@@ -355,8 +355,6 @@
             <th>No</th>
             <th>Nama Produk</th>
             <th>Jumlah Sisa Produk</th>
-        
-          
         </tr>
         <?php
             $i=1;

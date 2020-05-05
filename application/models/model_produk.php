@@ -113,9 +113,12 @@
             $query = $this->db->get();
             return $query->result();
         }
-
-         public function tampil_stok(){
-            $this->db->query("SELECT concat(pr.nama,' ',pr.ukuran,' ',pr.kualitas) as 'nama produk', sum(p.jumlah) as jumlah from produk pr JOIN produksi p USING(id_produk) JOIN pegawai pg USING (id_pegawai) WHERE pg.pekerjaan ='Finishing' GROUP BY pr.id_produk");
+    
+    public function tampil_stok(){
+            $this->db->SELECT('nama, ukuran, kualitas, SUM(jumlah) as jumlah');
+            $this->db->from('produk p');
+            $this->db->join('produksi pr','p.id_produk = pr.id_produk');
+            $this->db->group_by('nama');
             $query = $this->db->get();
             return $query->result();
     }

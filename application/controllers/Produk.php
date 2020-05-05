@@ -204,17 +204,11 @@ class Produk extends CI_Controller{
 
 //==================================== STOK GUDANG ===================================
 
-     public function stokGudang(){
-        $data['produk'] = $this->model_produk->produk();
-        $data['produksi'] = $this->model_produk->produksi();
-        $data['pegawai'] = $this->model_produk->pegawai();
-        $this->load->view('v_stokGudang',$data);
-    }
-
-    public function daftarStokGudang(){
+    public function stokGudang(){
         $data['stok'] = $this->model_produk->tampil_stok();
         $this->load->view('v_stokGudang',$data);
     }
+    
     public function rincianGudang(){
         $data['produk'] = $this->model_produk->produk();
         $data['produksi'] = $this->model_produk->produksi();
