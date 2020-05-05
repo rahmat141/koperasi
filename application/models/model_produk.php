@@ -115,12 +115,15 @@
         }
     
     public function tampil_stok(){
-            $this->db->SELECT('nama, ukuran, kualitas, SUM(jumlah) as jumlah');
-            $this->db->from('produk p');
-            $this->db->join('produksi pr','p.id_produk = pr.id_produk');
-            $this->db->group_by('nama');
-            $query = $this->db->get();
-            return $query->result();
+
+        $this->db->SELECT('p.nama, p.ukuran, p.kualitas, SUM(jumlah) as jumlah');
+        $this->db->from('produk p');
+        $this->db->join('produksi pr','p.id_produk = pr.id_produk');
+        $this->db->join('pegawai peg','peg.id_pegawai = pr.id_pegawai');
+        $this->db->where('peg.pekerjaan',' Finishing');
+        $this->db->group_by('p.id_produk');
+        $query = $this->db->get();
+        return $query->result();
     }
 }
 ?>
