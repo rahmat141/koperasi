@@ -1,4 +1,4 @@
-s<?php
+<?php
 class Model_cashflow extends CI_Model{
 
     public function getData(){
