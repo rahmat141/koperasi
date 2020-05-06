@@ -29,10 +29,10 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
+      <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="65" height="65">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="100" height="100">
         </div>
       </a>
 
@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/Organisasi'?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -120,6 +120,7 @@
           </div>
         </div>
       </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -346,81 +347,105 @@
 
         </nav>
         <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head> -->
-<body>
+<!--===============================================================================================-->  
+  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
+<!--===============================================================================================-->
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-<h3>Laporan Pengeluaran</h3>
-</center>
-    <!-- <?php echo anchor('inventaris/inventaris/','Tambah Data'); ?> -->
-    <!-- <a class="btn btn-success" href="<?php echo base_url('index.php/kegiatan/simpan/'.$this->session->idOrganisasi); ?>" style="text-decoration: none">Pengajuan Kegiatan</a> -->
-    <div class="card-body">
-      
-      <div class="table-responsive">
-      
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <tr>
-              <th>No</th>
-              <th>Tanggal</th>
-              <th>Nama Transaksi</th>
-              <!-- <th>Debit</th> -->
-              <th>Kredit</th>
-              <th>Kategori</th>
-              <th>Aksi</th>
-          </tr>
-          <?php
-              $i=1;
-              foreach ($data as $key) {
-          ?>
-          <tr>
-              <td><?php echo $i; ?></td>
-              <td><?php echo $key->tanggal; ?></td>
-              <td><?php echo $key->nama_transaksi; ?></td>
-              <!-- <td>Rp.<?php echo $key->Debit; ?></td> -->
-              <td>Rp.<?php echo $key->Kredit; ?></td>
-              <td><?php echo $key->kategori; ?></td>
-              <td>
-              <a href="<?php echo site_url('Cashflow/edit_pengeluaran/'.$key->id_transaksi); ?>" class="btn btn-primary btn-sm"  style="height: 30px; width: 60px">Edit</a>
-              <!-- <a href="<?php echo site_url('Cashflow/hapus_pengeluaran/'.$key->id_transaksi); ?>" onclick="return confirm('Anda yakin mau menghapus kegiatan ini ?')" class="btn btn-danger btn-sm" style="height: 30px; width:60px">Hapus</a>     -->
-              <!-- <a href="<?php echo site_url('Lpj/lpj/'.$key->id_transaksi); ?>" class="btn btn-success btn-sm" style="height: 30px; width: 60px">LPJ</a>   -->
-              </td>
-          </tr>
-          <?php $i++; }?>
-          <tr>
-          <?php foreach($total as $key){ ?>
-              
-              
-              <tr>
-              <td></td>
-              <td>Total Pemasukan</td>
-              <td></td>
-              <td>Rp.<?php echo $key->total_pengeluaran; ?></td>
-              </tr>
-              <?php }?>
-          </tr>
-        </table>
-      </div>  
-    </div>    
-    <!-- <a href="<?php echo base_url().'index.php/inventaris/index';?>">Tambah Data</a> -->
-    <!-- <a href="<?= base_url(); ?>index.php/inventaris/index">Kembali ke Menu</a> -->
-    <!-- <a href="<?= site_url('Admin/logout') ?>">Logout</a> -->
-</center>
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
+	<h1>EDIT PEMASUKAN</h1>
+	<hr>
+  <hr>
+  <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
+  <?php foreach ($data as $key){ ?>
+	<!-- <a href="<?= base_url().'index.php/Produk/daftarProduk'?>" class="btn btn-primary">Lihat Produk</a><br> -->
+	<form action="<?= base_url() ?>index.php/Cashflow/simpan_pemasukan" method="POST" enctype="multipart/form-data">
+	<table>
+  <div class="form-group">
+	<tr>
+		<td>Tanggal</td>
+		<td><input type="date" name="tanggal" class="form-control form-control-user" value="<?= $key->tanggal; ?>"></td>	
+  </tr>
+  </div>
+  <div class="form-group">
+	<tr>
+		<td>Nama Transaksi</td> 
+		<td><input type="text" name="nama_transaksi" class="form-control form-control-user" value="<?= $key->nama_transaksi; ?>"></td>
+	</tr>
+  </div>
+  <div class="form-group">
+	<tr>
+		<td>Jumlah Pemasukan</td>
+		<td>
+      <input type="text" name="pemasukan" class="form-control form-control-user" value="<?= $key->debit; ?>">
+    </td>
+	</tr>
+  </div>
+  <div class="form-group">
+  <tr>
+    <td>Kategori</td> 
+    <td>
+    <input type="text" name="kategori" class="form-control form-control-user" value="<?= $key->kategori; ?>">
+    </td>
+  </tr>
+  </div>
+  <br>
+  <div class="form-group">
+  </div>
+	<tr><td></td>
+		<td align="center">
+			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
+		</td>
+	</tr>	
+	</table>
+  <?php } ?>
+  <script>
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>
+ 	</div>
+ 	</div>
+  	</div>
+  <!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
+<!--===============================================================================================-->
+  <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
+  <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; HMDSI 2019</span>
+            <span>Copyright &copy;</span>
           </div>
         </div>
       </footer>
@@ -457,20 +482,20 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url().'assets/vendor/jquery/jquery.min.js'?>"></script>
-  <script src="<?php echo base_url().'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/vendor/jquery/jquery.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?php echo base_url().'assets/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url().'assets/js/sb-admin-2.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/js/sb-admin-2.min.js'?>"></script>
 
   <!-- Page level plugins -->
-  <script src="<?php echo base_url().'assets/vendor/chart.js/Chart.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/vendor/chart.js/Chart.min.js'?>"></script>
 
   <!-- Page level custom scripts -->
-  <script src="<?php echo base_url().'assets/js/demo/chart-area-demo.js'?>"></script>
-  <script src="<?php echo base_url().'assets/js/demo/chart-pie-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/js/demo/chart-area-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/masuk/js/demo/chart-pie-demo.js'?>"></script>
 </body>
 </html>

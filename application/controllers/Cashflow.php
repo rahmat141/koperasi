@@ -112,6 +112,11 @@
             // $this->load->view('tampil_cashflow',$data);
             // ob_end_clean();
         }
+        public function edit_pemasukan($id){
+            $where = array('id_transaksi' => $id);
+            $data['data'] = $this->Model_cashflow->edit_pemasukan($where,'cashflow')->result();
+            $this->load->view('edit_pemasukan',$data);
+        }
     }
 
 ?>

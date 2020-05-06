@@ -13,7 +13,10 @@ class Model_cashflow extends CI_Model{
         //}
    	}
 
-   	public function edit_kas($where,$table){      
+   	public function edit_pemasukan($where,$table){      
+        return $this->db->get_where($table,$where);
+    }
+    public function edit_pengeluaran($where,$table){      
         return $this->db->get_where($table,$where);
     }
 
