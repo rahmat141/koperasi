@@ -387,13 +387,23 @@
   <div class="form-group">
     <tr>
         <td>Nama Pegawai</td> 
-        <td><input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"></td>
+        <td>
+          <select name="id_pegawai" class="form-control">
+            
+            <option value="<?= $p->id_pegawai?>"><?= $p->namaPegawai ?></option>
+                  
+          </select>
+          <!-- <input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Nama Produk</td> 
-        <td><input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"></td>
+        <td>
+          <option value="<?= $p->id_produk?>"><?= $p->namaProduk ?></option>
+          <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
