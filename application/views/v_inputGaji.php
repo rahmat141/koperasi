@@ -40,7 +40,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -63,8 +63,8 @@
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
-            <a class="collapse-item" href="#" style="text-decoration: none">Produksi Produk</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -72,10 +72,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-          <span>Kehadiran</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/pegawai" style="text-decoration: none">Pegawai</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/sekertaris/kehadiran" style="text-decoration: none">Kelola Kehadiran</a>
           </div>
         </div>
@@ -94,7 +95,20 @@
         </div>
       </li>
 
-       <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Pembeli</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pembeli/pembeli" style="text-decoration: none">Kelola Pembeli</a>
+           
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapse">
          
           <span>Gudang</span>

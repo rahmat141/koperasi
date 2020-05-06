@@ -82,15 +82,15 @@
         </div>
       </li>
 
-        <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Kelola Penggajian</a>
-           
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/tambah" style="text-decoration: none">Input Gaji</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/daftarGaji" style="text-decoration: none">Laporan Gaji</a>
           </div>
         </div>
       </li>
@@ -387,13 +387,23 @@
   <div class="form-group">
     <tr>
         <td>Nama Pegawai</td> 
-        <td><input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"></td>
+        <td>
+          <select name="id_pegawai" class="form-control">
+            
+            <option value="<?= $p->id_pegawai?>"><?= $p->namaPegawai ?></option>
+                  
+          </select>
+          <!-- <input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Nama Produk</td> 
-        <td><input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"></td>
+        <td>
+          <option value="<?= $p->id_produk?>"><?= $p->namaProduk ?></option>
+          <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
