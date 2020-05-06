@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2020 at 07:41 AM
+-- Generation Time: May 06, 2020 at 07:19 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -91,7 +91,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
-(9, 'Hendra', 'Mesin 2', 'Laki-Laki', 'Sukabirus', '08216426');
+(9, 'Hendra', 'Mesin 2', 'Laki-Laki', 'Sukabirus', '08216426'),
+(10, 'Sulis', 'Finishing', 'Perempuan', 'Sukabirus 135', '0897655778'),
+(11, 'yani', 'Finishing', 'Perempuan', 'sukapura 298', '097665');
 
 -- --------------------------------------------------------
 
@@ -128,6 +130,13 @@ CREATE TABLE `penggajian` (
   `tgl` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `penggajian`
+--
+
+INSERT INTO `penggajian` (`id_gaji`, `id_pegawai`, `gapok`, `lembur`, `lainnya`, `tgl`) VALUES
+(1, 9, 500000, 20000, 0, '2020-05-06');
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +153,15 @@ CREATE TABLE `penjualan` (
   `pcs` int(11) NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penjualan`
+--
+
+INSERT INTO `penjualan` (`id_penjualan`, `id_produk`, `id_pembeli`, `sales`, `tanggal`, `no_nota`, `pcs`, `keterangan`) VALUES
+(2, 3, 1, 'Apit', '2020-05-06', '0/8777', 20, 'transfer'),
+(3, 3, 1, 'Apit', '2020-05-07', '0/8778', 10, 'transfer'),
+(4, 2, 1, 'Apit', '2020-05-06', '0/8779', 20, 'transfer');
 
 -- --------------------------------------------------------
 
@@ -164,7 +182,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
-(2, 'Allysa', 50000, 'Besar', 'Bagus'),
+(2, 'Allysa', 20000, 'Besar', 'Bagus'),
 (3, 'Donggala', 50000, 'Besar', 'Bagus');
 
 -- --------------------------------------------------------
@@ -187,7 +205,11 @@ CREATE TABLE `produksi` (
 
 INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produksi`, `jumlah`) VALUES
 (1, 9, 2, '2020-05-05', 200),
-(2, 9, 2, '2020-05-05', 5);
+(2, 9, 2, '2020-05-05', 5),
+(3, 10, 2, '2020-05-22', 200),
+(4, 11, 3, '2020-05-15', 10),
+(5, 10, 2, '2020-05-27', 15),
+(6, 11, 3, '2020-05-21', 30);
 
 --
 -- Indexes for dumped tables
@@ -267,7 +289,7 @@ ALTER TABLE `kehadiran`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pembeli`
@@ -279,13 +301,13 @@ ALTER TABLE `pembeli`
 -- AUTO_INCREMENT for table `penggajian`
 --
 ALTER TABLE `penggajian`
-  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -297,7 +319,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `produksi`
 --
 ALTER TABLE `produksi`
-  MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
