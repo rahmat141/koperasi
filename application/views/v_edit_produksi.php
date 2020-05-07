@@ -389,7 +389,7 @@
         <td>
           <select name="id_pegawai" class="form-control">
                   <?php foreach($pegawai as $m): ?>
-                  <option value="<?= $m->id_pegawai?>"><?= $m->nama ?></option>
+                  <option value="<?= $m->id_pegawai?>"><?= $m->nama, " ",$m->pekerjaan ?></option>
                   <?php endforeach; ?>
               </select>
           <!-- <input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"> -->
@@ -402,7 +402,7 @@
         <td>
           <select name="id_produk" class="form-control">
                   <?php foreach($produk as $m): ?>
-                  <option value="<?= $m->id_produk?>"><?= $m->nama ?></option>
+                  <option value="<?= $m->id_produk?>"><?= $m->nama," ",$m->ukuran," ",$m->kualitas ?></option>
                   <?php endforeach; ?>
               </select>
           <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->

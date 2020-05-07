@@ -406,7 +406,7 @@
         <td>
           <select name="id_produk" class="form-control">
                   <?php foreach($produk as $m): ?>
-                  <option value="<?= $m->id_produk?>"><?= $m->nama ?></option>
+                  <option value="<?= $m->id_produk?>"><?= $m->nama,' ',$m->ukuran,' ',$m->kualitas ?></option>
                   <?php endforeach; ?>
               </select>
           <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->
@@ -429,6 +429,12 @@
     <tr>
         <td>PCS</td> 
         <td><input type="text" name="pcs" class="form-control form-control-user" value="<?php echo $penjualan->pcs ?>"></td>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+        <td>Keterangan</td> 
+        <td><input type="text" name="keterangan" class="form-control form-control-user" value="<?php echo $penjualan->keterangan ?>"></td>
     </tr>
   </div>
   <div class="form-group">
