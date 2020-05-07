@@ -73,8 +73,8 @@ class sekertaris extends CI_Controller{
         redirect('sekertaris/daftarKehadiran');
     }
 
-    public function hapus_kehadiran($id_pegawai){
-        $where = array('id_pegawai' => $id_pegawai);
+    public function hapus_kehadiran($id_kehadiran){
+        $where = array('id_kehadiran' => $id_kehadiran);
         $this->model_kehadiran->hapus_kehadiran($where,'kehadiran');
         redirect('sekertaris/daftarKehadiran');
     }
