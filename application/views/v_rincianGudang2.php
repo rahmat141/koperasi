@@ -95,7 +95,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -347,25 +347,39 @@
         </nav>
         <!-- End of Topbar -->
     <center>
-    <h1>Rincian Pemasukan Produk di Gudang</h1>
+    <h1>Rincian Pengeluaran Gudang</h1>
     <hr><hr>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
         <tr>
             <th>No</th>
+            <th>Nama Pembeli</th>
             <th>Nama Produk</th>
-            <th>Pemasukan Produk</th>
-            <th>Tanggal Produksi</th>            
+            <th>Sales</th>
+            <th>No Nota</th>
+            <th>PCS</th>
+            <th>Harga PCS</th>
+            <th>Total</th>
+            <th>Tanggal</th>
+            <th>Keterangan</th>
+            
+          
         </tr>
         <?php
             $i=1;
-            foreach ($rincian as $r) {
+            foreach ($rincian2 as $r) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
-            <td><?php echo $r->nama,' ',$r->ukuran,' ',$r->kualitas; ?></td>
-            <td><?php echo $r->pemasukan,' pcs'?></td>
-            <td><?php echo $r->tanggal_produksi; ?></td>
+            <td><?php echo $r->namaPembeli; ?></td>
+            <td><?php echo $r->namaProduk,' ',$r->ukuran,' ',$r->kualitas; ?></td>
+            <td><?php echo $r->sales; ?></td>
+            <td><?php echo $r->no_nota; ?></td>
+            <td><?php echo $r->pcs; ?></td>
+            <td><?php echo $r->harga; ?></td>
+            <td><?php echo $r->total; ?></td>
+            <td><?php echo $r->tanggal; ?></td>
+            <td><?php echo $r->keterangan; ?></td>
         </tr>
         <?php $i++; }?>
     </table>

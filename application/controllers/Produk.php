@@ -210,10 +210,12 @@ class Produk extends CI_Controller{
     }
     
     public function rincianGudang(){
-        $data['produk'] = $this->model_produk->produk();
-        $data['produksi'] = $this->model_produk->produksi();
-        $data['pegawai'] = $this->model_produk->pegawai();
+        $data['rincian'] = $this->model_produk->rincian_gudang();
         $this->load->view('v_rincianGudang',$data);
+    }
+    public function rincianGudang2(){
+        $data['rincian2'] = $this->model_produk->tampil_penjualan();
+        $this->load->view('v_rincianGudang2',$data);
     }
 
 }

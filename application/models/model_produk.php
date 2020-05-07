@@ -116,14 +116,39 @@
     
     public function tampil_stok(){
 
-        $this->db->SELECT('p.nama, p.ukuran, p.kualitas, SUM(jumlah) as jumlah');
-        $this->db->from('produk p');
-        $this->db->join('produksi pr','p.id_produk = pr.id_produk');
-        $this->db->join('pegawai peg','peg.id_pegawai = pr.id_pegawai');
-        $this->db->where('peg.pekerjaan','Finishing');
-        $this->db->group_by('p.id_produk');
+        $this->db->SELECT('pr.nama, pr.ukuran, pr.kualitas, SUM(pen.pcs) as pengeluaran,
+                            (
+                                SELECT sum(prod.jumlah)
+                                from produksi prod
+                                JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai)
+                                where prod.id_produk = pr.id_produk and pg.pekerjaan="Finishing"
+                                GROUP by prod.id_produk
+                            ) as pemasukan,
+                            (( SELECT sum(prod.jumlah)
+                            from produksi prod
+                            JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai)
+                            where prod.id_produk = pr.id_produk and pg.pekerjaan="Finishing"
+                            GROUP by prod.id_produk)-SUM(pen.pcs)) as jumlah');
+        $this->db->from('produk pr');
+        $this->db->join('penjualan pen',' pen.id_produk = pr.id_produk');
+        $this->db->group_by('pr.id_produk');
         $query = $this->db->get();
         return $query->result();
     }
+
+    //################################## Detail Pemasukan Gudang #######################
+
+    public function rincian_gudang(){
+            $this->db->select('pr.nama, pr.ukuran, pr.kualitas, p.jumlah as pemasukan, p.tanggal_produksi');
+            $this->db->from('produk pr');
+            $this->db->join('produksi p',' p.id_produk = pr.id_produk');
+            $this->db->join('pegawai pg',' pg.id_pegawai = p.id_pegawai');
+            $this->db->where('pg.pekerjaan','Finishing');
+            $query = $this->db->get();
+            return $query->result();
+
+           
+        }
+
 }
 ?>

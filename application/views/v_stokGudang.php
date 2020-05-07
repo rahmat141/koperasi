@@ -354,6 +354,8 @@
         <tr>
             <th>No</th>
             <th>Nama Produk</th>
+            <th>Pemasukan Produk</th>
+            <th>Pengeluaran Produk</th>
             <th>Jumlah Sisa Produk</th>
         </tr>
         <?php
@@ -363,11 +365,14 @@
         <tr>
             <td><?php echo $i; ?></td>
             <td><?php echo $s->nama,' ',$s->ukuran,' ',$s->kualitas; ?></td>
-            <td><?php echo $s->jumlah; ?></td>
+            <td><?php echo $s->pemasukan,' pcs'?></td>
+            <td><?php echo $s->pengeluaran,' pcs'?></td>
+            <td><?php echo $s->jumlah,' pcs'; ?></td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/Pegawai/pegawai'?>" class="btn btn-primary">Tambah Pegawai</a>
+     <a href="<?= base_url().'index.php/Produk/rincianGudang'?>" class="btn btn-primary">Lihat Rincian Pemasukan</a>
+     <a href="<?= base_url().'index.php/Produk/rincianGudang2'?>" class="btn btn-primary">Lihat Rincian Pengeluaran</a>
     </center>
     </div>
   </div>
