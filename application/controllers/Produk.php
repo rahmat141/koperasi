@@ -94,12 +94,15 @@ class Produk extends CI_Controller{
     }
 
     public function editProduksi($id_produksi){
-        $where = array('id_produksi' => $id_produksi);
-        $data['produksi'] = $this->model_produk->edit_produksi($where,'produksi')->result();
+        // $where = array('id_produksi' => $id_produksi);
+        $data['pegawai'] = $this->model_produk->pegawai();
+        $data['produk'] = $this->model_produk->produk();
+        $data['produksi'] = $this->model_produk->get_produksi($id_produksi);
         $this->load->view('v_edit_produksi',$data);
     }
 
      public function updateProduksi(){
+        $id_produksi = $this->input->post('id_produksi');
         $id_produk = $this->input->post('id_produk');
         $id_pegawai = $this->input->post('id_pegawai');
         $tanggal_produksi = $this->input->post('tanggal_produksi');
@@ -107,15 +110,13 @@ class Produk extends CI_Controller{
 
  
         $data = array(
-        'tanggal_produksi' => $tanggal_produksi,
-        'jumlah' => $jumlah
+            'id_produk' => $id_produk,
+            'id_pegawai' => $id_pegawai,
+            'tanggal_produksi' => $tanggal_produksi,
+            'jumlah' => $jumlah
         );
  
-        $where = array(
-        'id_produk' => $id_produk,
-        'id_pegawai' => $id_pegawai
-        ); 
-        $this->model_produk->update_produksi($where,$data,'produksi');
+        $this->model_produk->update($data,$id_produksi);
         redirect('Produk/daftarProduksi');
     }
 
@@ -162,36 +163,34 @@ class Produk extends CI_Controller{
     }
 
     public function editPenjualan($id_penjualan){
-        $where = array('id_penjualan' => $id_penjualan);
-        $data['penjualan'] = $this->model_produk->edit_penjualan($where,'penjualan')->result();
+        $data['produk'] = $this->model_produk->produk();
+        $data['pembeli'] = $this->model_produk->pembeli();
+        $data['penjualan'] = $this->model_produk->get_penjualan($id_penjualan);
         $this->load->view('v_edit_penjualan',$data);
     }
 
      public function updatePenjualan(){
+        $id_penjualan = $this->input->post('id_penjualan');
         $id_produk = $this->input->post('id_produk');
         $id_pembeli = $this->input->post('id_pembeli');
         $sales = $this->input->post('sales');
         $tanggal = $this->input->post('tanggal');
         $no_nota = $this->input->post('no_nota');
         $pcs = $this->input->post('pcs');
-        $harga_pcs = $this->input->post('harga_pcs');
         $keterangan = $this->input->post('keterangan');
 
  
         $data = array(
-        'sales' => $sales,
-        'tanggal' => $tanggal,
-        'no_nota' => $no_nota,
-        'pcs' => $pcs,
-        'harga_pcs' => $harga_pcs,
-        'keterangan' => $keterangan
+            'id_pembeli' => $id_pembeli,
+            'id_produk' => $id_produk,
+            'sales' => $sales,
+            'tanggal' => $tanggal,
+            'no_nota' => $no_nota,
+            'pcs' => $pcs,
+            'keterangan' => $keterangan
         );
  
-        $where = array(
-        'id_produk' => $id_produk,
-        'id_pembeli' => $id_pembeli
-        ); 
-        $this->model_produk->update_penjualan($where,$data,'penjualan');
+        $this->model_produk->update_penjualan($data,$id_penjualan);
         redirect('Produk/daftarPenjualan');
     }
 

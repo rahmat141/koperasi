@@ -29,6 +29,9 @@
          public function insert_produksi($data,$table){
             $this->db->insert($table,$data);
         }
+        public function get_produksi($id_produksi) {
+        return $this->db->where('id_produksi', $id_produksi)->get('produksi')->row(1);
+    }
 
         public function tampil_produksi(){
             $this->db->select('ps.id_produksi,ps.id_pegawai,p.nama as namaPegawai,p.pekerjaan,ps.id_produk,pr.nama as namaProduk,pr.ukuran,
@@ -58,10 +61,15 @@
             return $this->db->get_where($table,$where);
         }
 
-        public function update_produksi($where,$data,$table){
-            $this->db->where($where);
-            $this->db->update($table,$data);
-        } 
+        public function update($data, $id_produksi)
+    {
+        return $this->db->where('id_produksi', $id_produksi)->update('produksi', $data);
+    }
+
+        // public function update_produksi($where,$data,$table){
+        //     $this->db->where($where);
+        //     $this->db->update($table,$data);
+        // } 
 
         public function hapus_produksi($where,$table){
             $this->db->delete($table,$where);
@@ -84,6 +92,9 @@
 
            
         }
+        public function get_penjualan($id_penjualan) {
+        return $this->db->where('id_penjualan', $id_penjualan)->get('penjualan')->row(1);
+    }
 
        public function pembeli(){
             $this->db->select('*');
@@ -92,13 +103,13 @@
             return $query->result();
         }
 
-        public function edit_penjualan($where,$table){      
-            return $this->db->get_where($table,$where);
-        }
+        // public function edit_penjualan($where,$table){      
+        //     return $this->db->get_where($table,$where);
+        // }
 
-        public function update_penjualan($where,$data,$table){
-            $this->db->where($where);
-            $this->db->update($table,$data);
+        public function update_penjualan($data, $id_penjualan){
+
+            return $this->db->where('id_penjualan', $id_penjualan)->update('penjualan', $data);
         } 
 
         public function hapus_penjualan($where,$table){

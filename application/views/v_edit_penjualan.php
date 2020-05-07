@@ -377,20 +377,23 @@
     <hr>
     <hr>
     <form action="<?= base_url() ?>index.php/Produk/updatePenjualan" method="POST" enctype="multipart/form-data">
-    <?php foreach ($penjualan as $p) { ?>
     <table>
   <div class="form-group">
     <tr>
-        <input type="hidden" name="id_penjualan" class="form-control form-control-user" value="<?php echo $p->id_penjualan ?>"></td>
+        <input type="hidden" name="id_penjualan" class="form-control form-control-user" value="<?php echo $penjualan->id_penjualan ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Nama Pembeli</td> 
         <td>
-          <select name="id_pegawai" class="form-control">
+         
             
-            <option value="<?= $p->id_pegawai?>"><?= $p->namaPegawai ?></option>
+            <select name="id_pembeli" class="form-control">
+                  <?php foreach($pembeli as $m): ?>
+                  <option value="<?= $m->id_pembeli?>"><?= $m->nama ?></option>
+                  <?php endforeach; ?>
+              </select>
                   
           </select>
           <!-- <input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"> -->
@@ -401,7 +404,11 @@
     <tr>
         <td>Nama Produk</td> 
         <td>
-          <option value="<?= $p->id_produk?>"><?= $p->namaProduk ?></option>
+          <select name="id_produk" class="form-control">
+                  <?php foreach($produk as $m): ?>
+                  <option value="<?= $m->id_produk?>"><?= $m->nama ?></option>
+                  <?php endforeach; ?>
+              </select>
           <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->
         </td>
     </tr>
@@ -409,25 +416,25 @@
   <div class="form-group">
     <tr>
         <td>Sales</td> 
-        <td><input type="text" name="sales" class="form-control form-control-user" value="<?php echo $p->sales ?>"></td>
+        <td><input type="text" name="sales" class="form-control form-control-user" value="<?php echo $penjualan->sales ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>No Nota</td> 
-        <td><input type="text" name="no_nota" class="form-control form-control-user" value="<?php echo $p->no_nota ?>"></td>
+        <td><input type="text" name="no_nota" class="form-control form-control-user" value="<?php echo $penjualan->no_nota ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>PCS</td> 
-        <td><input type="text" name="pcs" class="form-control form-control-user" value="<?php echo $p->pcs ?>"></td>
+        <td><input type="text" name="pcs" class="form-control form-control-user" value="<?php echo $penjualan->pcs ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Tanggal Penjulan</td> 
-        <td><input type="text" name="tanggal" class="form-control form-control-user" value="<?php echo $p->tanggal ?>"></td>
+        <td><input type="text" name="tanggal" class="form-control form-control-user" value="<?php echo $penjualan->tanggal ?>"></td>
     </tr>
   </div>
 
@@ -439,10 +446,7 @@
         </td>
     </tr>   
     </table>
-    <?php } ?>
-  <?php
-      echo $this->session->flashdata('pesan');
-  ?>
+ 
   </div>
   </div>
   </div>
