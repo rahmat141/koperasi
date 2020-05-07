@@ -397,8 +397,8 @@
             <?php }else{ ?>
             <td>0 jam</td>
             <?php } ?>
-            <td><a href="<?= base_url().'index.php/sekertaris/editKehadiran/'.$data->id_pegawai;?>" class="btn btn-primary">Edit</a></td>
-            <td><a href="<?= base_url().'index.php/sekertaris/hapus_kehadiran/'.$data->id_pegawai;?>" onclick="return confirm('Anda Yakin Menghapus kehadiran ?')" class="btn btn-danger">Hapus</a></td>
+            <td><a href="<?= base_url().'index.php/sekertaris/editKehadiran/'.$data->id_kehadiran;?>" class="btn btn-primary">Edit</a></td>
+            <td><a href="<?= base_url().'index.php/sekertaris/hapus_kehadiran/'.$data->id_kehadiran;?>" onclick="return confirm('Anda Yakin Menghapus kehadiran ?')" class="btn btn-danger">Hapus</a></td>
         </tr>
         <?php $i++; }?>
     </table>

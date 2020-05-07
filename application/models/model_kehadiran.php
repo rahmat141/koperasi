@@ -6,7 +6,7 @@
         }
 
         public function tampil(){
-    		$this->db->select("k.id_pegawai,p.nama,k.tanggal,k.jam_datang,k.jam_pulang, SUBSTRING((timediff(jam_pulang,jam_datang) - jam_kerja),1,1) AS lembur");
+    		$this->db->select("k.id_kehadiran,k.id_pegawai,p.nama,k.tanggal,k.jam_datang,k.jam_pulang, SUBSTRING((timediff(jam_pulang,jam_datang) - jam_kerja),1,1) AS lembur");
     		$this->db->from('kehadiran k');
             $this->db->join('pegawai p',' k.id_pegawai = p.id_pegawai');
     		$query = $this->db->get();
@@ -24,14 +24,17 @@
         	return $this->db->get_where($table,$where);
     	}
 
-    	public function update_kehadiran($where,$data,$table){
-        	$this->db->where($where);
-        	$this->db->update($table,$data);
+    	public function update_kehadiran($data,$id_kehadiran){
+            return $this->db->where('id_kehadiran', $id_kehadiran)->update('kehadiran', $data);
     	} 
 
     	public function hapus_kehadiran($where,$table){
         	$this->db->delete($table,$where);
     	}
+
+        public function get($id_kehadiran) {
+            return $this->db->where('id_kehadiran', $id_kehadiran)->get('kehadiran')->row(1);
+        }
 
         public function get_januari(){
             $this->db->select("k.id_pegawai,p.nama,k.tanggal,k.jam_datang,k.jam_pulang, SUBSTRING((timediff(jam_pulang,jam_datang) - jam_kerja),1,1) AS lembur");

@@ -49,28 +49,27 @@ class sekertaris extends CI_Controller{
         $this->load->view('v_daftarkehadiran',$data);
     }
 
-    public function editKehadiran($id_pegawai){
-        $where = array('id_pegawai' => $id_pegawai);
-        $data['data'] = $this->model_kehadiran->edit_kehadiran($where,'kehadiran')->result();
+    public function editKehadiran($id_kehadiran){
+        //$where = array('id_pegawai' => $id_pegawai);
+        $data['pegawai'] = $this->model_kehadiran->pegawai();
+        $data['data'] = $this->model_kehadiran->get($id_kehadiran);
         $this->load->view('v_edit_kehadiran',$data);
     }
 
     public function update_kehadiran(){
+        $id_kehadiran = $this->input->post('id_kehadiran');
         $id_pegawai = $this->input->post('id_pegawai');
         $tanggal = $this->input->post('tanggal');
         $jam_datang = $this->input->post('jam_datang');
         $jam_pulang = $this->input->post('jam_pulang');
  
         $data = array(
-        'tanggal' => $tanggal,
-        'jam_datang' => $jam_datang,
-        'jam_pulang' => $jam_pulang
+            'id_pegawai' => $id_pegawai,
+            'tanggal' => $tanggal,
+            'jam_datang' => $jam_datang,
+            'jam_pulang' => $jam_pulang
         );
- 
-        $where = array(
-        'id_pegawai' => $id_pegawai
-        ); 
-        $this->model_kehadiran->update_kehadiran($where,$data,'kehadiran');
+        $this->model_kehadiran->update_kehadiran($data,$id_kehadiran);
         redirect('sekertaris/daftarKehadiran');
     }
 

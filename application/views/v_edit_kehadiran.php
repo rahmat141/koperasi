@@ -377,29 +377,35 @@
     <hr>
     <hr>
     <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-    <?php foreach ($data as $u) { ?>
+   
     <table>
   <div class="form-group">
     <tr>
-        <input type="hidden" name="id_pegawai" class="form-control form-control-user" value="<?php echo $u->id_pegawai ?>"></td>
+        <td>Nama</td>
+              <td><select name="id_pegawai" class="form-control">
+                  <?php foreach($pegawai as $p) { ?>
+                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
+                  <?php } ?>
+              </select>
+          </div></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Tanggal</td> 
-        <td><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $u->tanggal ?>"></td>
+        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $u->jam_datang ?>"></td>
+        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
         <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $u->jam_pulang ?>"></td>
+        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
     </tr>
   </div>
     <tr><td></td>
@@ -408,7 +414,7 @@
         </td>
     </tr>   
     </table>
-    <?php } ?>
+  
   <?php
       echo $this->session->flashdata('pesan');
   ?>
