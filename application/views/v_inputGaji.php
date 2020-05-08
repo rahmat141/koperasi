@@ -40,7 +40,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -108,7 +108,7 @@
         </div>
       </li>
 
-       <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapse">
          
           <span>Gudang</span>
@@ -134,11 +134,7 @@
         </a>
         <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/input_pemasukan" style="text-decoration: none">Input Pemasukan</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/input_pengeluaran" style="text-decoration: none">Input Pengeluaran</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/laporan_pemasukan" style="text-decoration: none">Laporan Pemasukan</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/laporan_pengeluaran" style="text-decoration: none">Laporan Pengeluaran</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/tampil_data" style="text-decoration: none">Cashflow</a>
+            <a class="collapse-item" href="<?php echo base_url('index.php/kegiatan/displaykegiatan/'.$this->session->idOrganisasi); ?>" style="text-decoration: none">Kelola Cashflow</a>
             </a>
           </div>
         </div>
@@ -370,57 +366,40 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
 <!--===============================================================================================-->
 <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-<center>
-    <h1>EDIT KEHADIRAN</h1>
-    <hr>
-    <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
-    <table>
-  <div class="form-group">
-    <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
+    <div class="container">
+      <div class="col-xl-12 col-lg-12">
+      <form action="<?= base_url() ?>index.php/Gaji/tambahAksi" method="post">
+          <div class="form-group">
+              <label for="varchar">Nama</label>
+              <select name="id_pegawai" class="form-control">
+                  <?php foreach($pegawai as $m): ?>
+                  <option value="<?= $m->id_pegawai?>"><?= $m->nama ?></option>
+                  <?php endforeach; ?>
               </select>
-          </div></td>
-    </tr>
-  </div>
-  <div class="form-group">
-    <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
-    </tr>
-  </div>
-  <div class="form-group">
-    <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
-    </tr>
-  </div>
-  <div class="form-group">
-    <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
-    </tr>
-  </div>
-    <tr><td></td>
-        <td align="center">
-            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
-        </td>
-    </tr>   
-    </table>
-  
-  <?php
-      echo $this->session->flashdata('pesan');
-  ?>
+          </div>
+          <div class="form-group">
+              <label for="int">Gaji Pokok atau Produksi Per-Pcs</label>
+              <input type="text" class="form-control" name="gapok" id="gapok" placeholder="Gaji pokok"/>
+          </div>
+          <div class="form-group">
+              <label for="int">Lembur </label>
+              <input type="text" class="form-control" name="lembur" id="lembur" placeholder="Lembur" />
+          </div>
+          <div class="form-group">
+              <label for="int">Lainnya</label>
+              <input type="text" class="form-control" name="lainnya" id="lainnya" placeholder="Lainnya" />
+          </div>
+          <div class="form-group">
+              <label for="int">Tanggal</label>
+              <input type="date" class="form-control" name="tgl" id="tgl" placeholder="Tanggal" required />
+          </div>
+          
+          <input type="submit" value="Simpan" class="btn btn-primary">
+          
+      </form>
   </div>
   </div>
-  </div>
+    </div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -437,6 +416,7 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

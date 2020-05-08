@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -373,54 +373,63 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>EDIT KEHADIRAN</h1>
-    <hr>
-    <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
-    <table>
+	<h1>INPUT PRODUK</h1>
+	<hr>
+	<hr>
+	<a href="<?= base_url().'index.php/Produk/daftarProduk'?>" class="btn btn-primary">Lihat Produk</a><br>
+	<form action="<?= base_url() ?>index.php/Produk/simpanProduk" method="POST" enctype="multipart/form-data">
+	<table>
   <div class="form-group">
-    <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
-              </select>
-          </div></td>
-    </tr>
+	<tr>
+		<td>Nama</td>
+		<td><input type="text" name="nama" class="form-control form-control-user"></td>	
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
-    </tr>
+	<tr>
+		<td>Harga</td> 
+		<td><input type="text" name="harga" class="form-control form-control-user"></td>
+	</tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
-    </tr>
+	<tr>
+		<td>Ukuran</td>
+		<td>
+      <select name="ukuran" id="ukuran" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Besar">Besar</option>
+          <option value="Kecil">Kecil</option>
+      </select> 
+    </td>
+	</tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
-    </tr>
+  <tr>
+    <td>Kualitas</td> 
+    <td>
+      <select name="kualitas" id="kualitas" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Bagus">Bagus</option>
+          <option value="BS">BS</option>
+      </select> 
+    </td>
+  </tr>
   </div>
-    <tr><td></td>
-        <td align="center">
-            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
-        </td>
-    </tr>   
-    </table>
-  
-  <?php
+  <br>
+  <div class="form-group">
+  </div>
+	<tr><td></td>
+		<td align="center">
+			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
+		</td>
+	</tr>	
+	</table>
+  	<?php
       echo $this->session->flashdata('pesan');
-  ?>
-  </div>
-  </div>
-  </div>
+  	?>
+ 	</div>
+ 	</div>
+  	</div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -437,6 +446,7 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

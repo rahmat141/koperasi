@@ -32,7 +32,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('asset/images/ormawa/'.$this->session->userdata('logo'))?>" width="65" height="65">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="100" height="100">
         </div>
       </a>
 
@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/Organisasi'?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -58,12 +58,13 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Sarung</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Produksi Sarung</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Sarung</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -71,23 +72,50 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-          <span>Kehadiran</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/pegawai" style="text-decoration: none">Pegawai</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/sekertaris/kehadiran" style="text-decoration: none">Kelola Kehadiran</a>
           </div>
         </div>
       </li>
 
-        <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Kelola Penggajian</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/tambah" style="text-decoration: none">Input Gaji</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/daftarGaji" style="text-decoration: none">Laporan Gaji</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Pembeli</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pembeli/pembeli" style="text-decoration: none">Kelola Pembeli</a>
+           
+          </div>
+        </div>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Gudang</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/stokGudang" style="text-decoration: none">Stok Gudang</a>
            
           </div>
         </div>
@@ -106,7 +134,11 @@
         </a>
         <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo base_url('index.php/kegiatan/displaykegiatan/'.$this->session->idOrganisasi); ?>" style="text-decoration: none">Kelola Cashflow</a>
+          <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/input_pemasukan" style="text-decoration: none">Input Pemasukan</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/input_pengeluaran" style="text-decoration: none">Input Pengeluaran</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/laporan_pemasukan" style="text-decoration: none">Laporan Pemasukan</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/laporan_pengeluaran" style="text-decoration: none">Laporan Pengeluaran</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/tampil_data" style="text-decoration: none">Cashflow</a>
             </a>
           </div>
         </div>
@@ -142,7 +174,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo site_url('sekertaris/searchKehadiran');?>" method="post">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -287,7 +319,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->nama ?></span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url('asset/images/foto/'.$this->session->userdata('foto')); ?>">
+                <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -315,34 +347,29 @@
 
         </nav>
         <!-- End of Topbar -->
-<!--===============================================================================================-->  
-  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
-<!--===============================================================================================-->
-<div class="limiter">
-    <div class="container-login10">
-      <div class="wrap-login10 p-l-55 p-r-55 p-t-65 p-b-50">
     <center>
     <h1>Data Kehadiran</h1>
     <hr><hr>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Bulan
+  </button>
+  
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_januari';?>">Januari</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_februari';?>">Februari</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_maret';?>">Maret</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_april';?>">April</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_mei';?>">Mei</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_juni';?>">Juni</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_juli';?>">Juli</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_agustus';?>">Agustus</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_september';?>">September</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_oktober';?>">Oktober</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_november';?>">November</a>
+    <a class="dropdown-item" href="<?php echo base_url().'index.php/sekertaris/v_desember';?>">Desember</a>
+  </div> 
+  </div>
     <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="1">
        
         <tr>
@@ -357,44 +384,29 @@
         </tr>
         <?php
             $i=1;
-            foreach ($kehadiran as $data) {
+            foreach ($data as $data) {
         ?>
         <tr>
             <td><?php echo $i; ?></td>
             <td><?php echo $data->nama; ?></td>
             <td><?php echo $data->tanggal; ?></td>
-            <td><?php echo $data->jam_datang; ?>:00</td>
-            <td><?php echo $data->jam_pulang; ?>:00</td>
-            <?php if ($data->lembur >= 0) { ?>
+            <td><?php echo $data->jam_datang; ?></td>
+            <td><?php echo $data->jam_pulang; ?></td>
+            <?php if ($data->lembur > 0 ) { ?>
               <td><?php echo $data->lembur; ?> jam</td>
             <?php }else{ ?>
             <td>0 jam</td>
             <?php } ?>
-            <td><a href="<?= base_url().'index.php/sekertaris/editKehadiran/'.$data->id_pegawai;?>" class="btn btn-primary">Edit</a></td>
-            <td><a href="<?= base_url().'index.php/sekertaris/hapus_kehadiran/'.$data->id_pegawai;?>" onclick="return confirm('Anda Yakin Menghapus kehadiran ?')" class="btn btn-danger">Hapus</a></td>
+            <td><a href="<?= base_url().'index.php/sekertaris/editKehadiran/'.$data->id_kehadiran;?>" class="btn btn-primary">Edit</a></td>
+            <td><a href="<?= base_url().'index.php/sekertaris/hapus_kehadiran/'.$data->id_kehadiran;?>" onclick="return confirm('Anda Yakin Menghapus kehadiran ?')" class="btn btn-danger">Hapus</a></td>
         </tr>
         <?php $i++; }?>
     </table>
-     <a href="<?= base_url().'index.php/sekertaris/index'?>" class="btn btn-primary">Input Kehadiran</a>
+     <a href="<?= base_url().'index.php/sekertaris/kehadiran'?>" class="btn btn-primary">Input Kehadiran</a>
     </center>
     </div>
   </div>
   </div>
-<!--===============================================================================================-->
-    <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
-<!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">

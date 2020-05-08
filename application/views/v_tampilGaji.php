@@ -32,7 +32,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('asset/images/ormawa/'.$this->session->userdata('logo'))?>" width="65" height="65">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="100" height="100">
         </div>
       </a>
 
@@ -40,8 +40,8 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/Organisasi'?>">
+       <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url().'index.php/sekertaris'?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -58,12 +58,13 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Sarung</span>
+          <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Produksi Sarung</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Sarung/penjualan_sarung" style="text-decoration: none">Penjualan Sarung</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produk" style="text-decoration: none">Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/produksi" style="text-decoration: none">Produksi Produk</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/penjualan" style="text-decoration: none">Penjualan Produk</a>
           </div>
         </div>
       </li>
@@ -71,10 +72,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapsee">
          
-          <span>Kehadiran</span>
+          <span>Kepegawaian</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/pegawai" style="text-decoration: none">Pegawai</a>
             <a class="collapse-item" href="<?= base_url() ?>index.php/sekertaris/kehadiran" style="text-decoration: none">Kelola Kehadiran</a>
           </div>
         </div>
@@ -87,7 +89,33 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#" style="text-decoration: none">Kelola Penggajian</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/tambah" style="text-decoration: none">Input Gaji</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Gaji/daftarGaji" style="text-decoration: none">Laporan Gaji</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Pembeli</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Pembeli/pembeli" style="text-decoration: none">Kelola Pembeli</a>
+           
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapse">
+         
+          <span>Gudang</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url() ?>index.php/Produk/stokGudang" style="text-decoration: none">Stok Gudang</a>
            
           </div>
         </div>
@@ -142,7 +170,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo site_url('sekertaris/searchKehadiran');?>" method="post">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -287,7 +315,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->nama ?></span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url('asset/images/foto/'.$this->session->userdata('foto')); ?>">
+                <img class="img-profile rounded-circle" src="<?php echo base_url('gambar/bk.png'); ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -315,62 +343,49 @@
 
         </nav>
         <!-- End of Topbar -->
-<center>
-	<h1>Penjualan Sarung</h1>
-	<hr>
-	<hr>
-  <a href="<?= base_url().'index.php/Sarung/daftarPenjualan'?>" class="btn btn-primary">Lihat Penjualan</a><br>
-	<form action="<?= base_url() ?>index.php/Sarung/simpan_penjualan" method="POST" enctype="multipart/form-data">
-	<table>
-  <div class="form-group">
-	<tr>
-		<td>Tanggal</td>
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
-	</tr>
+    <center>
+    <h2>Daftar Gaji Pegawai</h2>
+    <hr><hr>
+    <table class="table">
+       <thead class="thead-dark">
+         <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Produksi Per-Pcs</th>
+            <th>Lembur</th>
+            <th>Lainnya</th>
+            <th>Tanggal</th>
+            <th>Action</th>
+          
+        </tr>
+       </thead>
+        
+        <?php
+            $i=1;
+            foreach ($penggajian as $m) {
+        ?>
+        <tr>
+            <td><?php echo $i; ?></td>
+            <td><?php echo $m->nama; ?></td>
+            <td><?php echo $m->gapok; ?></td>
+            <td><?php echo $m->lembur; ?></td>
+            <td><?php echo $m->lainnya; ?></td>
+            <td><?php echo $m->tgl; ?></td>
+            <td>
+              <a href="<?= base_url().'index.php/Gaji/cetak/'.$m->id_gaji;?>" ><button class="btn btn-light"><i class="fa fa-print"></i></button></a>
+              <a href="<?= base_url().'index.php/Gaji/edit/'.$m->id_gaji;?>" ><button class="btn btn-light"><i class="far fa-edit"></i></button></a>
+              <a href="<?= base_url().'index.php/Gaji/hapus/'.$m->id_gaji;?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+            </td>
+        </tr>
+        <?php $i++; }?>
+    </table>
+     <a href="<?= base_url().'index.php/Gaji/tambah'?>" class="btn btn-primary">Tambah Gaji</a>
+    </center>
+    </div>
   </div>
-  <div class="form-group">
-	<tr>
-		<td>Sales</td> 
-		<td><input type="text" name="sales" class="form-control form-control-user"></td>
-	</tr>
   </div>
-  <div class="form-group">
-	<tr>
-		<td>No Nota</td>
-		<td><input type="text" name="no_Nota" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Item</td>
-		<td><input type="text" name="item" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Qyt</td>
-		<td><input type="text" name="qyt" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Harga/Qyt</td>
-		<td><input type="text" name="harga_perqyt" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Keterangan</td>
-		<td><input type="text" name="keterangan" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Simpan" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-	<footer class="sticky-footer bg-white">
+  <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+  <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy;</span>

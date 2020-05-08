@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -373,54 +373,75 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>EDIT KEHADIRAN</h1>
-    <hr>
-    <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
-    <table>
+	<h1>INPUT PEGAWAI</h1>
+	<hr>
+	<hr>
+	<a href="<?= base_url().'index.php/Pegawai/daftarPegawai'?>" class="btn btn-primary">Lihat Pegawai</a><br>
+	<form action="<?= base_url() ?>index.php/Pegawai/simpanPegawai" method="POST" enctype="multipart/form-data">
+	<table>
   <div class="form-group">
-    <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
-              </select>
-          </div></td>
-    </tr>
+	<tr>
+		<td>Nama</td>
+		<td><input type="text" name="nama" class="form-control form-control-user"></td>	
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
-    </tr>
+	<tr>
+		<td>Alamat</td> 
+    <td><textarea name="alamat" class="form-control form-control-user"></textarea></td>
+		
+	</tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
-    </tr>
+  <tr>
+    <td>No HP</td> 
+    <td><input type="text" name="no_hp" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
-    </tr>
+	<tr>
+		<td>Pekerjaan</td>
+		<td>
+      <select name="pekerjaan" id="pekerjaan" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Mesin 1">Mesin 1</option>
+          <option value="Mesin 2">Mesin 2</option>
+          <option value="Mesin 3">Mesin 3</option>
+          <option value="Mesin 4">Mesin 4</option>
+          <option value="Penjahit">Penjahit</option>
+          <option value="Finishing">Finishing</option>
+          <option value="Packing">Packing</option>
+      </select> 
+    </td>
+	</tr>
   </div>
-    <tr><td></td>
-        <td align="center">
-            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
-        </td>
-    </tr>   
-    </table>
-  
-  <?php
+  <div class="form-group">
+  <tr>
+    <td>Jenis Kelamin</td> 
+    <td>
+      <select name="jenis_kelamin" id="jenis_kelamin" class="form-control form-control-sm">
+          <option value="">---</option>
+          <option value="Laki-Laki">Laki-Laki</option>
+          <option value="Perempuan">Perempuan</option>
+      </select> 
+    </td>
+  </tr>
+  </div>
+  <br>
+  <div class="form-group">
+  </div>
+	<tr><td></td>
+		<td align="center">
+			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
+		</td>
+	</tr>	
+	</table>
+  	<?php
       echo $this->session->flashdata('pesan');
-  ?>
-  </div>
-  </div>
-  </div>
+  	?>
+ 	</div>
+ 	</div>
+  	</div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -437,6 +458,7 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

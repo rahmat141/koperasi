@@ -58,7 +58,7 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -373,51 +373,86 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>EDIT KEHADIRAN</h1>
+    <h1>EDIT PENJUALAN</h1>
     <hr>
     <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
+    <form action="<?= base_url() ?>index.php/Produk/updatePenjualan" method="POST" enctype="multipart/form-data">
     <table>
   <div class="form-group">
     <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
+        <input type="hidden" name="id_penjualan" class="form-control form-control-user" value="<?php echo $penjualan->id_penjualan ?>"></td>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+        <td>Nama Pembeli</td> 
+        <td>
+         
+            
+            <select name="id_pembeli" class="form-control">
+                  <?php foreach($pembeli as $m): ?>
+                  <option value="<?= $m->id_pembeli?>"><?= $m->nama ?></option>
+                  <?php endforeach; ?>
               </select>
-          </div></td>
+                  
+          </select>
+          <!-- <input type="text" name="namaPegawai" class="form-control form-control-user" value="<?php echo $p->namaPegawai ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
+        <td>Nama Produk</td> 
+        <td>
+          <select name="id_produk" class="form-control">
+                  <?php foreach($produk as $m): ?>
+                  <option value="<?= $m->id_produk?>"><?= $m->nama,' ',$m->ukuran,' ',$m->kualitas ?></option>
+                  <?php endforeach; ?>
+              </select>
+          <!-- <input type="text" name="namaProduk" class="form-control form-control-user" value="<?php echo $p->namaProduk ?>"> -->
+        </td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
+        <td>Sales</td> 
+        <td><input type="text" name="sales" class="form-control form-control-user" value="<?php echo $penjualan->sales ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
+        <td>No Nota</td> 
+        <td><input type="text" name="no_nota" class="form-control form-control-user" value="<?php echo $penjualan->no_nota ?>"></td>
     </tr>
   </div>
+  <div class="form-group">
+    <tr>
+        <td>PCS</td> 
+        <td><input type="text" name="pcs" class="form-control form-control-user" value="<?php echo $penjualan->pcs ?>"></td>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+        <td>Keterangan</td> 
+        <td><input type="text" name="keterangan" class="form-control form-control-user" value="<?php echo $penjualan->keterangan ?>"></td>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+        <td>Tanggal Penjulan</td> 
+        <td><input type="text" name="tanggal" class="form-control form-control-user" value="<?php echo $penjualan->tanggal ?>"></td>
+    </tr>
+  </div>
+
+  
+  
     <tr><td></td>
         <td align="center">
             <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
         </td>
     </tr>   
     </table>
-  
-  <?php
-      echo $this->session->flashdata('pesan');
-  ?>
+ 
   </div>
   </div>
   </div>

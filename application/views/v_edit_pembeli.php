@@ -58,7 +58,7 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+          <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -373,48 +373,43 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>EDIT KEHADIRAN</h1>
+    <h1>EDIT PEMBELI</h1>
     <hr>
     <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
+    <form action="<?= base_url() ?>index.php/Pembeli/updatePembeli" method="POST" enctype="multipart/form-data">
+    <?php foreach ($pembeli as $p) { ?>
     <table>
   <div class="form-group">
     <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
-              </select>
-          </div></td>
+        <input type="hidden" name="id_pembeli" class="form-control form-control-user" value="<?php echo $p->id_pembeli ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
+        <td>Nama</td> 
+        <td><input type="text" name="nama" class="form-control form-control-user" value="<?php echo $p->nama ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
+        <td>Alamat</td> 
+        <td><input type="text" name="alamat" class="form-control form-control-user" value="<?php echo $p->alamat ?>"></td>
     </tr>
   </div>
   <div class="form-group">
     <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
+        <td>No Hp</td> 
+        <td><input type="text" name="no_hp" class="form-control form-control-user" value="<?php echo $p->no_hp ?>"></td>
     </tr>
   </div>
+  
     <tr><td></td>
         <td align="center">
             <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
         </td>
     </tr>   
     </table>
-  
+    <?php } ?>
   <?php
       echo $this->session->flashdata('pesan');
   ?>

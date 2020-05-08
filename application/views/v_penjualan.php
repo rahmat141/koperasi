@@ -82,7 +82,7 @@
         </div>
       </li>
 
-         <li class="nav-item">
+  <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapse">
          
           <span>Penggajian</span>
@@ -95,7 +95,7 @@
         </div>
       </li>
 
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapse">
          
           <span>Pembeli</span>
@@ -373,54 +373,79 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>EDIT KEHADIRAN</h1>
-    <hr>
-    <hr>
-    <form action="<?= base_url() ?>index.php/sekertaris/update_kehadiran" method="POST" enctype="multipart/form-data">
-   
-    <table>
+  <h1>INPUT PENJUALAN</h1>
+  <hr>
+  <hr>
+  <a href="<?= base_url().'index.php/Produk/daftarPenjualan'?>" class="btn btn-primary">Lihat Penjualan</a><br>
+  <form action="<?= base_url() ?>index.php/Produk/simpanPenjualan" method="POST" enctype="multipart/form-data">
+  <table>
   <div class="form-group">
-    <tr>
-        <td>Nama</td>
-              <td><select name="id_pegawai" class="form-control">
-                  <?php foreach($pegawai as $p) { ?>
-                  <option value="<?= $p->id_pegawai?>"><?= $p->nama ?></option>
-                  <?php } ?>
-              </select>
-          </div></td>
-    </tr>
+  <tr>
+    <td>Nama Pembeli</td>
+    <td><select class="form-control" id="id_pembeli" name="id_pembeli">
+            <?php foreach($pembeli as $row){
+
+              echo '<option value="'.$row->id_pembeli.'">'.$row->nama.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Tanggal</td> 
-        <td><input type="hidden" name="id_kehadiran" value="<?php echo $data->id_kehadiran ?>"><input type="date" name="tanggal" class="form-control form-control-user" value="<?php echo $data->tanggal ?>"></td>
-    </tr>
+  <tr>
+    <td>Nama Produk</td>
+
+    <td><select class="form-control" id="id_produk" name="id_produk">
+      
+            <?php foreach($produk as $row){
+              echo '<option value="'.$row->id_produk.'">'.$row->nama.' '.$row->ukuran.' '.$row->kualitas.'</option>';
+            }
+            ?> </select>
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Datang</td>
-        <td><input type="time" name="jam_datang" class="form-control form-control-user" value="<?php echo $data->jam_datang ?>"></td>
-    </tr>
+  <tr>
+    <td>Sales</td> 
+    <td><input type="text" name="sales" class="form-control form-control-user"></td>
+  </tr>
   </div>
   <div class="form-group">
-    <tr>
-        <td>Jam Pulang</td>
-        <td><input type="time" name="jam_pulang" class="form-control form-control-user" value="<?php echo $data->jam_pulang ?>"></td>
-    </tr>
+  <tr>
+    <td>No Nota</td>
+    <td><input type="text" name="no_nota" class="form-control form-control-user"></td>
+  </tr>
   </div>
-    <tr><td></td>
-        <td align="center">
-            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Edit" style="width: 100%">
-        </td>
-    </tr>   
-    </table>
-  
-  <?php
+  <div class="form-group">
+  <tr>
+    <td>PCS</td>
+    <td><input type="text" name="pcs" class="form-control form-control-user"></td>
+  </tr>
+  </div>
+  <div class="form-group">
+  <tr>
+    <td>Tanggal Transaksi</td>
+    <td><input type="date" name="tanggal" class="form-control form-control-user"></td>
+  </tr>
+  </div>
+  <div class="form-group">
+  <tr>
+    <td>Keterangan</td>
+    <td><input type="keterangan" name="keterangan" class="form-control form-control-user"></td>
+  </tr>
+  </div>
+  <div class="form-group">
+  </div>
+  <tr><td></td>
+    <td align="center">
+      <input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Submit" style="width: 100%">
+    </td>
+  </tr> 
+  </table>
+    <?php
       echo $this->session->flashdata('pesan');
-  ?>
+    ?>
   </div>
   </div>
-  </div>
+    </div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -437,6 +462,7 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
