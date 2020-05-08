@@ -378,7 +378,7 @@
               </select>
           </div>
           <div class="form-group">
-              <label for="int">Gaji Pokok</label>
+              <label for="int">Gaji Pokok atau Produksi Per-Pcs</label>
               <input type="text" class="form-control" name="gapok" id="gapok" placeholder="Gaji pokok"/>
           </div>
           <div class="form-group">

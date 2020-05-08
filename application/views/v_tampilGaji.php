@@ -351,7 +351,7 @@
          <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Gaji pokok</th>
+            <th>Produksi Per-Pcs</th>
             <th>Lembur</th>
             <th>Lainnya</th>
             <th>Tanggal</th>

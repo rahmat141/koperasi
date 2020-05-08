@@ -380,7 +380,7 @@
           
           <input type="hidden" name="id_gaji" value="<?php echo $penggajian->id_gaji ?>">
           <div class="form-group">
-              <label for="int">Gaji Pokok</label>
+              <label for="int">Gaji Pokok atau Produksi Per-Pcs</label>
               <input type="text" class="form-control" name="gapok" id="gapok" placeholder="Gaji pokok" value="<?php echo $penggajian->gapok ?>"/>
           </div>
           <div class="form-group">
@@ -393,7 +393,7 @@
           </div>
           <div class="form-group">
               <label for="int">Tanggal</label>
-              <input type="date" class="form-control" name="tgl" id="tgl" placeholder="Tanggal" required />
+              <input type="date" class="form-control" name="tgl" id="tgl" placeholder="Tanggal" value="<?php echo $penggajian->tgl ?>" required />
           </div>
           
           <input type="submit" name="submit" value="Simpan" class="btn btn-primary">

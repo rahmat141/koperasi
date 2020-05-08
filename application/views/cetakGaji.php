@@ -77,7 +77,7 @@
 			<tr>
 				<th>1</th>
 				<td>Gaji Pokok</td>
-				<td>Rp. <?php echo number_format($penggajian->gapok) ?></td>
+				<td>Rp. <?php echo number_format($penggajian->gapok*500) ?></td>
 			</tr>
 			<tr>
 				<th>2</th>
@@ -94,7 +94,7 @@
 				<th colspan="2">TOTAL DITERIMA</th>
 				<th>Rp. 
 					<?php 
-					$total = $penggajian->gapok+$penggajian->lembur+$penggajian->lainnya;
+					$total = $penggajian->gapok*500 +$penggajian->lembur+$penggajian->lainnya;
 					echo number_format($total);
 					 ?>
 				</th>
