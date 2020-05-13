@@ -412,33 +412,36 @@
     <script src="main.js"></script>
 </head> -->
 <body>
-<center>
-<h3>Pack</h3>
-<?php echo form_open('pack_controller/aksi'); ?>
-     <form method='GET' enctype="multipart/form-data">
-            <table border="1">
-                <tr>
-                    <td>Kode Barang</td>
-                    <td>Nama Barang</td>
-                    <td>Kelola</td>
-                </tr>
+  <center>
+    <h2>Data Pack</h2>
+    <hr><hr>
+    <?php echo form_open('pack_controller/aksi'); ?>
+        <form method='GET' enctype="multipart/form-data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Kelola</th>
+                    </tr>
+                </thead>
                 <?php foreach($pack as $x) { ?>
                 <tr>
                     <td><?php echo $x->id_brg_pack;?></td>
-                    <td><?php echo $x->nama_barang;?></td>
+                    <td><?php echo $x->nama_barang; ?></td>
                     <td>
-                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" class="btn btn-warning btn-sm text-light">Hapus</a>
+                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
                     </td>
                 </tr>
-                <?php } ?>
+            <?php } ?>
             </table>
-            <a href="<?= base_url().'index.php/pack_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
-        </form>
+                <a href="<?= base_url().'index.php/pack_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
+  </center>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; HMDSI 2019</span>
+            <span>Copyright &copy; AWS Textile</span>
           </div>
         </div>
       </footer>

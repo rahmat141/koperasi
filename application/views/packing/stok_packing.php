@@ -407,28 +407,31 @@
     <script src="main.js"></script>
 </head> -->
 <body>
-<center>
-<h3>Stok Opname Barang Pack</h3>
-<?php echo form_open('packing_controller/stok_packing'); ?>
-     <form method='GET' enctype="multipart/form-data">
-            <table border="1">
-                <tr>
-                    <td>Nama Barang</td>
-                    <td>Jumlah</td>
-                </tr>
+    <center>
+    <h2>Stok Opname Barang Pack</h2>
+    <hr><hr>
+    <?php echo form_open('packing_controller/stok_packing'); ?>
+        <form method='GET' enctype="multipart/form-data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                    </tr>
+                </thead>
                 <?php foreach($packing as $x) { ?>
                 <tr>
-                    <td><?php echo $x->nama_barang;?></td>
+                    <td><?php echo $x->nama_barang; ?></td>
                     <td><?php echo $x->Jumlah;?></td>
                 </tr>
-                <?php } ?>
+            <?php } ?>
             </table>
-        </form>
+ </center>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; HMDSI 2019</span>
+            <span>Copyright &copy; AWS Textile</span>
           </div>
         </div>
       </footer>

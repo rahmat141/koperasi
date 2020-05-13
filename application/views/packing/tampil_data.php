@@ -1,78 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pemasukan Barang Packing</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <center>
-        <h1>Pemasukan Barang Packing</h1>
-        <?php echo form_open('packing_controller/aksi'); ?>
-        <form method='GET' enctype="multipart/form-data">
-            <table border="1">
-                <tr>
-                    <td>Nama Barang</td>
-                    <td>Jumlah</td>
-                    <td>Tanggal Masuk</td>
-                    <td>Kelola</td>
-                </tr>
-                <?php foreach($packing as $x) { ?>
-                <tr>
-                    <td><?php echo $x->nama_barang;?></td>
-                    <td><?php echo $x->jumlah;?></td>
-                    <td><?php echo $x->tgl_masuk;?></td>
-                </tr>
-                <?php } ?>
-            </table>
-            <a href="<?= base_url().'index.php/packing_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
-        </form>
-    </center>
-</body>
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>pack</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <center>
-        <h1>Data Barang</h1>
-        <?php echo form_open('pack_controller/aksi'); ?>
-        <form method='GET' enctype="multipart/form-data">
-            <table border="1">
-                <tr>
-                    <td>Kode Barang</td>
-                    <td>Nama Barang</td>
-                    <td>Kelola</td>
-                </tr>
-                <?php foreach($pack as $x) { ?>
-                <tr>
-                    <td><?php echo $x->id_brg_pack;?></td>
-                    <td><?php echo $x->nama_barang;?></td>
-                    <td>
-                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" class="btn btn-warning btn-sm text-light">Hapus</a>
-                    </td>
-                </tr>
-                <?php } ?>
-            </table>
-            <a href="<?= base_url().'index.php/pack_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
-        </form>
-    </center>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -449,32 +374,38 @@
     <script src="main.js"></script>
 </head> -->
 <body>
-<center>
-<h3>Pemasukan Barang Pack</h3>
-<?php echo form_open('packing_controller/aksi'); ?>
-     <form method='GET' enctype="multipart/form-data">
-            <table border="1">
+    <center>
+    <h2>Pemasukan Barang Pack</h2>
+    <hr><hr>
+    <?php echo form_open('packing_controller/aksi'); ?>
+        <form method='GET' enctype="multipart/form-data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Jumlah (pcs)</th>
+                        <th>Tanggal Masuk</th>
+                        <!-- <th>Kelola</th>           -->
+                    </tr>
+                </thead>
+           <?php foreach($packing as $x) { ?>
                 <tr>
-                    <td>Nama Barang</td>
-                    <td>Jumlah</td>
-                    <td>Tanggal Masuk</td>
-                    <td>Kelola</td>
+                    <td><?php echo $x->nama_barang; ?></td>
+                    <td><?php echo $x->jumlah; ?></td>
+                    <td><?php echo $x->tgl_masuk; ?></td>
+                    <!-- <td>
+                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_packing) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+                    </td> -->
                 </tr>
-                <?php foreach($packing as $x) { ?>
-                <tr>
-                    <td><?php echo $x->nama_barang;?></td>
-                    <td><?php echo $x->jumlah;?></td>
-                    <td><?php echo $x->tgl_masuk;?></td>
-                </tr>
-                <?php } ?>
+            <?php } ?>
             </table>
-            <a href="<?= base_url().'index.php/packing_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
-        </form>
+                <a href="<?= base_url().'index.php/packing_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
+    </center>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; HMDSI 2019</span>
+            <span>Copyright &copy; AWS Textile</span>
           </div>
         </div>
       </footer>
