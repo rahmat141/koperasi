@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 07:19 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Generation Time: May 13, 2020 at 09:44 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,6 +70,61 @@ CREATE TABLE `kehadiran` (
 
 INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `jam_datang`, `jam_pulang`) VALUES
 (7, 9, '2020-05-05', '08:00:00', '07:00:00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pack`
+--
+
+CREATE TABLE `pack` (
+  `id_brg_pack` varchar(255) NOT NULL,
+  `nama_barang` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pack`
+--
+
+INSERT INTO `pack` (`id_brg_pack`, `nama_barang`) VALUES
+('P-001', 'Dus Al-Arsy'),
+('P-002', 'Dus Atlantis'),
+('P-003', 'Dus Gajah Asia'),
+('P-004', 'Dus Putih'),
+('P-005', 'Plastik Al-Arsy'),
+('P-006', 'Plastik Atlantis'),
+('P-007', 'Plastik Gajah Asia'),
+('P-008', 'Cap Al-Arsy'),
+('P-009', 'Cap Atlantis'),
+('P-010', 'Cap Gajah Asia'),
+('P-011', 'Lakban'),
+('P-012', 'Lem');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packing`
+--
+
+CREATE TABLE `packing` (
+  `id_packing` int(11) NOT NULL,
+  `id_brg_pack` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tgl_masuk` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `packing`
+--
+
+INSERT INTO `packing` (`id_packing`, `id_brg_pack`, `jumlah`, `tgl_masuk`) VALUES
+(1, 'P-001', 100, '2020-05-01'),
+(2, 'P-002', 200, '2020-05-02'),
+(3, 'P-003', 500, '2020-05-02'),
+(4, 'P-001', 1200, '2020-05-09'),
+(5, 'P-002', 2000, '2020-05-09'),
+(6, 'P-003', 2000, '2020-05-09'),
+(7, 'P-001', 100, '2020-05-09');
 
 -- --------------------------------------------------------
 
@@ -229,6 +284,19 @@ ALTER TABLE `kehadiran`
   ADD KEY `fk_kehadiran` (`id_pegawai`);
 
 --
+-- Indexes for table `pack`
+--
+ALTER TABLE `pack`
+  ADD PRIMARY KEY (`id_brg_pack`);
+
+--
+-- Indexes for table `packing`
+--
+ALTER TABLE `packing`
+  ADD PRIMARY KEY (`id_packing`),
+  ADD KEY `id_brg_pack` (`id_brg_pack`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -286,6 +354,12 @@ ALTER TABLE `kehadiran`
   MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `packing`
+--
+ALTER TABLE `packing`
+  MODIFY `id_packing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -330,6 +404,12 @@ ALTER TABLE `produksi`
 --
 ALTER TABLE `kehadiran`
   ADD CONSTRAINT `fk_kehadiran` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
+
+--
+-- Constraints for table `packing`
+--
+ALTER TABLE `packing`
+  ADD CONSTRAINT `packing_ibfk_1` FOREIGN KEY (`id_brg_pack`) REFERENCES `pack` (`id_brg_pack`);
 
 --
 -- Constraints for table `penggajian`
