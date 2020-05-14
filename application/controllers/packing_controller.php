@@ -100,8 +100,9 @@
 		}
 
 		public function stok_packing() {
-			
-		 	$data1['packing'] = $this->packing_model->updateJumlah()->result();
+			 $data1['packing'] = $this->packing_model->updateJumlah()->result();
+			 $data1['penjualan'] = $this->packing_model->prod_keluar()->result();
+
 		 	$this->load->view('packing/stok_packing', $data1);
 		}
 	}
