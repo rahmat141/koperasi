@@ -385,8 +385,9 @@
                   <div class="text">
                     <center><img src="<?php echo base_url('gambar/bk.png')?>" width="100" height="100"><br><br>
                     <b>Jumlah Pegawai = <?php foreach ($pegawai as $key) { ?>
-                      <?php echo $key->jumlah_pegawai;?></b>
-                    <?php } ?></center>
+                      <?php echo $key->jumlah_pegawai;?></b><br>
+                    <?php } ?>
+                    <b><a class="collapse-item" href="<?= base_url() ?>index.php/Pegawai/daftarPegawai" style="text-decoration: none">-> Lihat Pegawai <-</a></b></center>
                   </div>
                 </div>
               </div>
@@ -404,9 +405,7 @@
                 <div class="text">
                   <div class="text">
                     <center><img src="<?php echo base_url('gambar/stok.png')?>" width="100" height="100"><br><br>
-                    <b>Jumlah Stok Gudang = <?php foreach ($stok as $key) { ?>
-                      <?php echo $key->jumlah;?></b>
-                    <?php } ?></center>
+                    <b><a class="collapse-item" href="<?= base_url() ?>index.php/Produk/stokGudang" style="text-decoration: none"><br>-> Lihat Stok Gudang <-</a></b>
                   </div>
                 </div>
               </div>
@@ -423,8 +422,9 @@
                   <div class="text">
                     <center><img src="<?php echo base_url('gambar/saldo.png')?>" width="100" height="100"><br><br>
                     <b>Jumlah Saldo = <?php foreach ($saldo as $key) { ?>
-                      Rp <?php echo $key->saldo_akhir;?></b>
-                    <?php } ?></center>
+                      Rp <?php echo $key->saldo_akhir;?></b><br>
+                    <?php } ?>
+                    <b><a class="collapse-item" href="<?= base_url() ?>index.php/Cashflow/tampil_data" style="text-decoration: none">-> Lihat Detail Saldo <-</a></b></center>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,7 @@ class sekertaris extends CI_Controller{
 	}
 
 	public function index(){
-        $data['pegawai'] = $this->model_pegawai->tampil_pegawai();
+        $data['pegawai'] = $this->model_pegawai->tampil_pegawai2();
         $data['saldo'] = $this->Model_cashflow->getTotal()->result();
         $data['stok'] = $this->model_produk->tampil_stok2();
 		$this->load->view('dashboard',$data);
