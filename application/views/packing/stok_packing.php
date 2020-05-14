@@ -416,13 +416,15 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Nama Barang</th>
-                        <th>Jumlah</th>
+                        <th>Jumlah Masuk (pcs)</th>
+                        <!-- <th>Jumlah Keluar (pcs)</th> -->
                     </tr>
                 </thead>
                 <?php foreach($packing as $x) { ?>
                 <tr>
                     <td><?php echo $x->nama_barang; ?></td>
                     <td><?php echo $x->Jumlah;?></td>
+                    <!-- <td><?php echo $x->pcs?></td> -->
                 </tr>
             <?php } ?>
             </table>
