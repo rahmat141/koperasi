@@ -370,86 +370,76 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-4 col-lg-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"><?= $this->session->namaOrganisasi?></h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                   
-                  </div>
+                  <h6 class="m-0 font-weight-bold text-primary">Pegawai</h6>
                 </div>
+                <br>
                 <!-- Card Body -->
                 <div class="text">
                   <div class="text">
-                    Organisasi Mahasiswa adalah wadah untuk penyaluran bakat buat KEMA untuk menyalurkan potensi-potensi yang ada pada diri kita. Selain potensi dalam akademik, HMDSI juga tempat belajar bagaimana mengasah potensi non-akademik yang ada pada diri kita.
+                    <center><img src="<?php echo base_url('gambar/bk.png')?>" width="100" height="100"><br><br>
+                    <b>Jumlah Pegawai = <?php foreach ($pegawai as $key) { ?>
+                      <?php echo $key->jumlah_pegawai;?></b>
+                    <?php } ?></center>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-4 col-lg-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Visi dan Misi</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
+                  <h6 class="m-0 font-weight-bold text-primary">Stok</h6>
                 </div>
+                <br>
                 <!-- Card Body -->
                 <div class="text">
                   <div class="text">
-                    <b>Visi</b><br>
-
-                    Menjadi research and entrepreneurial university pada tahun 2023, yang berperan aktif dalam pengembangan teknologi, sains dan seni berbasis teknologi informasi<br>
-
-                    <b>Misi</b><br>
-
-                    1. Menyelenggarakan dan mengembangkan pendidikan berstandar internasional berbasis teknologi informasi.<br>
-                    2. Mengembangkan, menyebarluaskan dan menerapkan teknologi, sains dan seni yang diakui secara internasional<br>
-                    3. Memanfaatkan teknologi, sains dan seni untuk kesejahteraan dan kemajuan peradaban bangsa melalui pengembangan kompetensi entrepreneurial
+                    <center><img src="<?php echo base_url('gambar/stok.png')?>" width="100" height="100"><br><br>
+                    <b>Jumlah Stok Gudang = <?php foreach ($stok as $key) { ?>
+                      <?php echo $key->jumlah;?></b>
+                    <?php } ?></center>
                   </div>
-                 
+                </div>
               </div>
             </div>
-          </div>
+          <div class="col-xl-4 col-lg-6">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Saldo</h6>
+                </div>
+                <br>
+                <!-- Card Body -->
+                <div class="text">
+                  <div class="text">
+                    <center><img src="<?php echo base_url('gambar/saldo.png')?>" width="100" height="100"><br><br>
+                    <b>Jumlah Saldo = <?php foreach ($saldo as $key) { ?>
+                      Rp <?php echo $key->saldo_akhir;?></b>
+                    <?php } ?></center>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
+        
              
         <!-- /.container-fluid -->
 
-      </div>
+     
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy;</span>
-          </div>
-        </div>
-      </footer>
+     
       <!-- End of Footer -->
 
     </div>

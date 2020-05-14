@@ -6,7 +6,7 @@
         }
 
         public function tampil_pegawai(){
-    		$this->db->select('id_pegawai,nama,pekerjaan, jenis_kelamin, alamat,no_hp');
+    		$this->db->select('count(id_pegawai) as jumlah_pegawai, id_pegawai,nama,pekerjaan, jenis_kelamin, alamat,no_hp');
     		$this->db->from('pegawai');
     		$query = $this->db->get();
     		return $query->result();
