@@ -20,7 +20,7 @@ class Model_cashflow extends CI_Model{
         return $this->db->get_where($table,$where);
     }
 
-    public function update_kas($where,$data,$table){
+    public function update_data($where,$data,$table){
         $this->db->where($where);
         $this->db->update($table,$data);
     } 
@@ -83,11 +83,13 @@ class Model_cashflow extends CI_Model{
          $query = $this->db->get();
          return $query;
     }
-    public function cetakData($tgl_awal,$tgl_akhir){
+    public function cetakData($where,$where2){
         $this->db->from('cashflow');
-        $this->db->where('tanggal >=',$tgl_awal);
-        $this->db->where('tanggal <=',$tgl_akhir);
+        $this->db->where('tanggal >=', $where);
+        $this->db->where('tanggal <=', $where2);
+
         $query = $this->db->get();
+        // $query = 'SELECT * FROM cashflow WHERE tanggal BETWEEN $tgl_awal AND $tgl_akhir';
         return $query;
     }
 
@@ -102,7 +104,7 @@ class Model_cashflow extends CI_Model{
 
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 01');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -111,7 +113,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 02');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -120,7 +122,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 03');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -129,7 +131,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 04');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -138,7 +140,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 05');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -147,7 +149,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 06');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -156,7 +158,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 07');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }
@@ -165,7 +167,7 @@ class Model_cashflow extends CI_Model{
         $this->db->select('id_kas, FORMAT(pemasukan_kas,0) AS pemasukan_kas, FORMAT(pengeluaran_kas,0) as pengeluaran_kas, keterangan, tanggal, idOrganisasi');
         $this->db->from('kas');
         $this->db->where('MONTH(tanggal) = 08');
-        $this->db->WHERE('idOrganisasi',$where);
+        // $this->db->WHERE('idOrganisasi',$where);
         $query = $this->db->get();
         return $query;
     }

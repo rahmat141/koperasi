@@ -373,33 +373,32 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>INPUT PEMASUKAN</h1>
+	<h1>EDIT PENGELUARAN</h1>
 	<hr>
   <hr>
   <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
+  <?php foreach ($data as $key){ ?>
 	<!-- <a href="<?= base_url().'index.php/Produk/daftarProduk'?>" class="btn btn-primary">Lihat Produk</a><br> -->
-	<form action="<?= base_url() ?>index.php/Cashflow/simpan_pemasukan" method="POST" enctype="multipart/form-data">
+	<form action="<?= base_url() ?>index.php/Cashflow/update_pengeluaran/" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
 	<tr>
-    <!-- <?php foreach($data as $key){ ?> -->
-    
-    <!-- <?php } ?> -->
+    <input type="hidden" name="id_transaksi" value="<?php echo $key->id_transaksi; ?>">
 		<td>Tanggal</td>
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>	
+		<td><input type="date" name="tanggal" class="form-control form-control-user" value="<?= $key->tanggal; ?>"></td>	
   </tr>
   </div>
   <div class="form-group">
 	<tr>
 		<td>Nama Transaksi</td> 
-		<td><input type="text" name="nama_transaksi" class="form-control form-control-user"></td>
+		<td><input type="text" name="nama_transaksi" class="form-control form-control-user" value="<?= $key->nama_transaksi; ?>"></td>
 	</tr>
   </div>
   <div class="form-group">
 	<tr>
-		<td>Jumlah Pemasukan</td>
+		<td>Jumlah Pengeluaran</td>
 		<td>
-      <input type="text" name="pemasukan" class="form-control form-control-user">
+      <input type="text" name="pengeluaran" class="form-control form-control-user" value="<?= $key->kredit; ?>">
     </td>
 	</tr>
   </div>
@@ -407,7 +406,7 @@
   <tr>
     <td>Kategori</td> 
     <td>
-    <input type="text" name="kategori" class="form-control form-control-user">
+    <input type="text" name="kategori" class="form-control form-control-user" value="<?= $key->kategori; ?>">
     </td>
   </tr>
   </div>
@@ -420,6 +419,7 @@
 		</td>
 	</tr>	
 	</table>
+  <?php } ?>
   <script>
     $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 </script>

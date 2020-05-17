@@ -378,12 +378,13 @@
   <hr>
   <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
   <?php foreach ($data as $key){ ?>
-	<!-- <a href="<?= base_url().'index.php/Produk/daftarProduk'?>" class="btn btn-primary">Lihat Produk</a><br> -->
-	<form action="<?= base_url() ?>index.php/Cashflow/simpan_pemasukan" method="POST" enctype="multipart/form-data">
+	<!-- <a href="<?= base_url().'index.php/Produk/daftarProduk/'?>" class="btn btn-primary">Lihat Produk</a><br> -->
+	<form action="<?= base_url() ?>index.php/Cashflow/update_pemasukan/" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
 	<tr>
-		<td>Tanggal</td>
+    <td>Tanggal</td>
+    <input type="hidden" name="id_transaksi" value="<?php echo $key->id_transaksi; ?>">
 		<td><input type="date" name="tanggal" class="form-control form-control-user" value="<?= $key->tanggal; ?>"></td>	
   </tr>
   </div>
