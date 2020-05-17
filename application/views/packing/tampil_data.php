@@ -29,10 +29,10 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <!-- Sidebar - Brand -->
+        <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div>
-        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="100" height="100">
+        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="65" height="65">
         </div>
       </a>
 
@@ -134,7 +134,6 @@
           </div>
         </div>
       </li>
-
 
       <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -361,95 +360,52 @@
 
         </nav>
         <!-- End of Topbar -->
-<!--===============================================================================================-->  
-  <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
-<!--===============================================================================================-->
-<div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-<center>
-	<h1>KEHADIRAN PEGAWAI</h1>
-	<hr>
-	<hr>
-	<a href="<?= base_url().'index.php/sekertaris/daftarKehadiran'?>" class="btn btn-primary">Lihat Kehadiran</a><br>
-	<form action="<?= base_url() ?>index.php/sekertaris/simpan_kehadiran" method="POST" enctype="multipart/form-data">
-	<table>
-  <div class="form-group">
-	<tr>
-		<td>Nama</td>
-		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
-            <?php foreach($pegawai as $row){
-              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
-            }
-            ?> </select>
-  </tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Tanggal</td> 
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-	<tr>
-		<td>Jam Datang</td>
-		<td><input type="time" name="jam_datang" class="form-control form-control-user"></td>
-	</tr>
-  </div>
-  <div class="form-group">
-  </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Hadir" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-  	<?php
-      echo $this->session->flashdata('pesan');
-  	?>
- 	</div>
- 	</div>
-  	</div>
-  <!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
-  <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
-<!--===============================================================================================-->
-  <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
 
-  <footer class="sticky-footer bg-white">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head> -->
+<body>
+    <center>
+    <h2>Pemasukan Barang Pack</h2>
+    <hr><hr>
+    <?php echo form_open('packing_controller/aksi'); ?>
+        <form method='GET' enctype="multipart/form-data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Jumlah (pcs)</th>
+                        <th>Tanggal Masuk</th>
+                        <!-- <th>Kelola</th>           -->
+                    </tr>
+                </thead>
+           <?php foreach($packing as $x) { ?>
+                <tr>
+                    <td><?php echo $x->nama_barang; ?></td>
+                    <td><?php echo $x->jumlah; ?></td>
+                    <td><?php echo $x->tgl_masuk; ?></td>
+                    <!-- <td>
+                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_packing) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+                    </td> -->
+                </tr>
+            <?php } ?>
+            </table>
+                <a href="<?= base_url().'index.php/packing_controller/tambah'?>" class="btn btn-primary">Tambah Data</a>
+    </center>
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy;</span>
+            <span>Copyright &copy; AWS Textile</span>
           </div>
         </div>
       </footer>
@@ -486,20 +442,20 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url().'asset/masuk/vendor/jquery/jquery.min.js'?>"></script>
-  <script src="<?php echo base_url().'asset/masuk/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/jquery/jquery.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?php echo base_url().'asset/masuk/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url().'asset/masuk/js/sb-admin-2.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/sb-admin-2.min.js'?>"></script>
 
   <!-- Page level plugins -->
-  <script src="<?php echo base_url().'asset/masuk/vendor/chart.js/Chart.min.js'?>"></script>
+  <script src="<?php echo base_url().'asset/vendor/chart.js/Chart.min.js'?>"></script>
 
   <!-- Page level custom scripts -->
-  <script src="<?php echo base_url().'asset/masuk/js/demo/chart-area-demo.js'?>"></script>
-  <script src="<?php echo base_url().'asset/masuk/js/demo/chart-pie-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/demo/chart-area-demo.js'?>"></script>
+  <script src="<?php echo base_url().'asset/js/demo/chart-pie-demo.js'?>"></script>
 </body>
 </html>

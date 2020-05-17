@@ -1,53 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <?= stick_template('resources/meta') ?>
+
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animate/animate.css'?>">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/css-hamburgers/hamburgers.min.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/animsition/css/animsition.min.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/select2/select2.min.css'?>">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.css'?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/util.css'?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/css/main.css'?>">
+<!--===============================================================================================-->
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="javascript:void(0);"><b>AWS Textile</b></a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg"><?= $this->session->flashdata('registration_message') ?></p>
-        <?= form_open('auth/login/create_session'); ?>
-            <div class="form-group">
-                <?= form_input('user_auth', set_value('user_auth'), ['class' => 'form-control', 'placeholder' => 'Username or Email']) ?>
-                <?= form_error('user_auth') ?>
-            </div>
-            <div class="form-group">
-                <?= form_password('password', NULL, ['class' => 'form-control', 'placeholder' => 'Password']) ?>
-                <?= form_error('password') ?>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 col-md-offset-8">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                </div>
-            </div>
-            <div class="form-group">
-                
-            </div>
-        <?= form_close() ?>
+<body>
+    <?php if ($this->session->flashdata('pesan')) { ?>
+        <div class="alert alert-danger">
+            <?php echo $this->session->flashdata('pesan'); ?>
+        </div>
+    <?php } ?>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                <form class="login100-form validate-form" action="<?= base_url() ?>index.php/Login/aksi_login" method="POST">
+                    <span class="login100-form-title p-b-10">
+                        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="200" height="200">
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                        <input class="input100" type="text" name="username" placeholder="username">
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
 
-        <a href="#">I forgot my password</a><br>
-        <a href="<?= site_url('auth/register') ?>" class="text-center">Register a new membership</a>
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="password" placeholder="password">
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
 
+                    <div class="container-login100-form-btn m-t-20">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                </form>
+                <br>
+            </div>
+        </div>
     </div>
-    <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
-<?php if(NULL !== ($this->session->flashdata('login_failure_message'))): ?>
-<div class="alert alert-warning alert-dismissible floating-alert login-fail-alert-js" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Login Failed!</strong> <?= $this->session->flashdata('login_failure_message') ?>.
-</div>
-<?php endif; ?>
-<!-- jQuery 3 -->
-<script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?= base_url() ?>assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- our own javascript -->
-<script src="<?= base_url() ?>assets/js/app.js"></script>
+    
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/animsition/js/animsition.min.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/popper.js'?>"></script>
+    <script src="<?php echo base_url().'asset/login/vendor/bootstrap/js/bootstrap.min.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/select2/select2.min.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/moment.min.js'?>"></script>
+    <script src="<?php echo base_url().'asset/login/vendor/daterangepicker/daterangepicker.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
+<!--===============================================================================================-->
+    <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
+
 </body>
 </html>
+    

@@ -1,3 +1,37 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <center>
+        <h1>Data Barang</h1>
+        <?php echo form_open('pack_controller/aksi'); ?>
+        <form method='POST' enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>Kode Barang</td>
+                    <td>:</td>
+                    <td> <input type="text" name="id_brg_pack" placeholder="Masukkan kode barang"></td>
+                </tr>
+                <tr>
+                    <td>Nama Barang</td>
+                    <td>:</td>
+                    <td><input type="text" name="nama_barang" placeholder="Masukkan nama barang"></td>
+                </tr>
+            </table>
+            <input type="submit" name="submit" class="tombol">
+        </form>
+    </center>
+</body>
+</html>
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +92,7 @@
       <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseTwo">
          
-          <span>Kelola Produk</span>
+         <span>Kelola Produk</span>
         </a>
         <div id="collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -387,48 +421,41 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-	<h1>KEHADIRAN PEGAWAI</h1>
-	<hr>
-	<hr>
-	<a href="<?= base_url().'index.php/sekertaris/daftarKehadiran'?>" class="btn btn-primary">Lihat Kehadiran</a><br>
-	<form action="<?= base_url() ?>index.php/sekertaris/simpan_kehadiran" method="POST" enctype="multipart/form-data">
-	<table>
+    <h1>Input Data Barang</h1>
+    <hr>
+    <hr>
+    <?php echo form_open('pack_controller/aksi'); ?>
+    <form method='POST' enctype="multipart/form-data">
+    <table>
   <div class="form-group">
-	<tr>
-		<td>Nama</td>
-		<td><select class="form-control" id="id_pegawai" name="id_pegawai">
-            <?php foreach($pegawai as $row){
-              echo '<option value="'.$row->id_pegawai.'">'.$row->nama.'</option>';
-            }
-            ?> </select>
-  </tr>
+    <tr>
+        <td>Kode Barang</td> 
+            <td>
+                <input type="text" name="id_brg_pack" class="form-control form-control-user" placeholder="Masukkan kode barang">
+            </td>
+        </td>
+    </tr>
   </div>
   <div class="form-group">
-	<tr>
-		<td>Tanggal</td> 
-		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>
-	</tr>
+    <tr>
+        <td>Nama Barang</td> 
+            <td>
+                <input type="text" name="nama_barang" class="form-control form-control-user" placeholder="Masukkan nama barang">
+            </td>
+        </td>
+    </tr>
+    </tr>
   </div>
-  <div class="form-group">
-	<tr>
-		<td>Jam Datang</td>
-		<td><input type="time" name="jam_datang" class="form-control form-control-user"></td>
-	</tr>
+    <tr><td></td>
+        <td align="center">
+            <input type="submit" name="submit" class="btn btn-success btn-user btn-block" style="width: 100%">
+        </td>
+    </tr>   
+    </table>
+    </form>
   </div>
-  <div class="form-group">
   </div>
-	<tr><td></td>
-		<td align="center">
-			<input type="submit" name="submit" class="btn btn-success btn-user btn-block" value="Hadir" style="width: 100%">
-		</td>
-	</tr>	
-	</table>
-  	<?php
-      echo $this->session->flashdata('pesan');
-  	?>
- 	</div>
- 	</div>
-  	</div>
+  </div>
   <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/vendor/jquery/jquery-3.2.1.min.js'?>"></script>
 <!--===============================================================================================-->
@@ -445,7 +472,6 @@
   <script src="<?php echo base_url().'asset/login/vendor/countdowntime/countdowntime.js'?>"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url().'asset/login/js/main.js'?>"></script>
-
   <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

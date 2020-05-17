@@ -147,6 +147,28 @@
         return $query->result();
     }
 
+    public function tampil_stok2(){
+
+        $this->db->SELECT('pr.nama, pr.ukuran, pr.kualitas, SUM(pen.pcs) as pengeluaran,
+                            (
+                                SELECT sum(prod.jumlah)
+                                from produksi prod
+                                JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai)
+                                where prod.id_produk = pr.id_produk and pg.pekerjaan="Finishing"
+                                GROUP by prod.id_produk
+                            ) as pemasukan,
+                            (( SELECT sum(prod.jumlah)
+                            from produksi prod
+                            JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai)
+                            where prod.id_produk = pr.id_produk and pg.pekerjaan="Finishing"
+                            GROUP by prod.id_produk)-SUM(pen.pcs)) as jumlah');
+        $this->db->from('produk pr');
+        $this->db->join('penjualan pen',' pen.id_produk = pr.id_produk');
+        $this->db->group_by('pr.id_produk');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     //################################## Detail Pemasukan Gudang #######################
 
     public function rincian_gudang(){

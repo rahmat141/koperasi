@@ -5,11 +5,17 @@ class sekertaris extends CI_Controller{
 		parent::__construct();
 		$this->load->helper(array('form', 'url','file'));
         $this->load->model('model_kehadiran');
+        $this->load->model('model_pegawai');
+        $this->load->model('model_produk');
+        $this->load->model('Model_cashflow');
         $this->load->library('form_validation');
 	}
 
 	public function index(){
-		$this->load->view('dashboard');
+        $data['pegawai'] = $this->model_pegawai->tampil_pegawai2();
+        $data['saldo'] = $this->Model_cashflow->getTotal()->result();
+        $data['stok'] = $this->model_produk->tampil_stok2();
+		$this->load->view('dashboard',$data);
 	}
 
     public function kehadiran(){
