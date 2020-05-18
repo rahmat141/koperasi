@@ -152,9 +152,15 @@ class Produk extends CI_Controller{
                         'keterangan' => $keterangan
                         
                     );
-
-        $this->model_produk->insert_penjualan($data,"penjualan");
-        redirect('Produk/daftarPenjualan');
+        $query = "SELECT pr.namat, pr.ukuran, pr.kualitas, SUM(pen.pcs) as pengeluaran, ( SELECT sum(prod.jumlah) from produksi prod JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai) where prod.id_produk = pr.id_produk and pg.pekerjaan='Finishing' GROUP by prod.id_produk ) as pemasukan, (( SELECT sum(prod.jumlah) from produksi prod JOIN pegawai pg ON (pg.id_pegawai = prod.id_pegawai) where prod.id_produk = pr.id_produk and pg.pekerjaan='Finishing' GROUP by prod.id_produk)-SUM(pen.pcs)) as jumlah FROM produk pr JOIN penjualan pen ON pen.id_produk = pr.id_produk GROUP BY pr.id_produk";
+        if ($query == False  ) {
+            $data['produk'] = $this->model_produk->produk();
+            $data['pembeli'] = $this->model_produk->pembeli();
+            $this->load->view('v_penjualan',$data);
+        }else{
+            $this->model_produk->insert_penjualan($data,"penjualan");
+            redirect('Produk/daftarPenjualan');
+        }
     }
 
     public function daftarPenjualan(){
