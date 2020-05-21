@@ -5,7 +5,7 @@
             parent::__construct();
             $this->load->helper(array('form', 'url','file'));
             $this->load->model('Model_cashflow');
-            $this->load->library('form_validation');
+            $this->load->library('form_validation','session');
 
         }
         public function index(){
@@ -13,6 +13,10 @@
         }
 
         public function input_pemasukan(){
+            // $where = array('id'=>$id);
+            // $data['data'] = $this->Model_cashflow->edit_data($where, 'cashflow')->result();
+                // $this->load->view('input_kegiatan',$data);
+                // print_r($data);
             $this->load->view('input_pemasukan');
         }
         public function input_pengeluaran(){
@@ -162,6 +166,7 @@
         }
 
         public function laporan_pemasukan(){
+            // $data['id'] = $this->Model_cashflow->
             $data['data'] = $this->Model_cashflow->getPemasukan()->result();
             $data['total'] = $this->Model_cashflow->getTotalPemasukan()->result();
             // print_r($data);

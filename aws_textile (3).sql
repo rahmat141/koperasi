@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Bulan Mei 2020 pada 01.12
+-- Waktu pembuatan: 21 Bulan Mei 2020 pada 16.36
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -34,9 +34,16 @@ CREATE TABLE `cashflow` (
   `nama_transaksi` varchar(255) COLLATE utf8_bin NOT NULL,
   `debit` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
-  `kategori` varchar(255) COLLATE utf8_bin NOT NULL,
-  `id` int(11) NOT NULL
+  `kategori` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `cashflow`
+--
+
+INSERT INTO `cashflow` (`id_transaksi`, `tanggal`, `nama_transaksi`, `debit`, `kredit`, `kategori`) VALUES
+(8, '2020-05-01', 'Hasil Penjualan dari Apit', 2000000, 0, 'sas'),
+(9, '2020-06-02', '30 batang besi 10', 0, 1950000, 'Besi bagus');
 
 -- --------------------------------------------------------
 
@@ -262,7 +269,6 @@ INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produ
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -271,8 +277,8 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'umah', 'umah123');
+INSERT INTO `user` (`username`, `password`) VALUES
+('umah', 'umah123');
 
 --
 -- Indexes for dumped tables
@@ -282,8 +288,7 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 -- Indeks untuk tabel `cashflow`
 --
 ALTER TABLE `cashflow`
-  ADD PRIMARY KEY (`id_transaksi`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id_transaksi`);
 
 --
 -- Indeks untuk tabel `kehadiran`
@@ -347,12 +352,6 @@ ALTER TABLE `produksi`
   ADD KEY `fk_sarung` (`id_produk`);
 
 --
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -360,7 +359,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `cashflow`
 --
 ALTER TABLE `cashflow`
-  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `kehadiran`
@@ -413,12 +412,6 @@ ALTER TABLE `produksi`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `cashflow`
---
-ALTER TABLE `cashflow`
-  ADD CONSTRAINT `cashflow_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kehadiran`
