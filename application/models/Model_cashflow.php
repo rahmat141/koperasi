@@ -43,10 +43,10 @@ class Model_cashflow extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
-    public function getPemasukan(){
+    public function getPemasukan($where){
         $this->db->select('id_transaksi,nama_transaksi, FORMAT(debit,0) AS Debit, kategori, DATE_FORMAT(tanggal,"%d-%m-%Y") AS tanggal');
         $this->db->from('cashflow');
-        // $this->db->where('idOrganisasi',$where);
+        $this->db->where('id',$where);
         
         $this->db->order_by('id_transaksi', 'ASC');
         $query = $this->db->get();
@@ -54,11 +54,11 @@ class Model_cashflow extends CI_Model{
             return $query;
         //}
     }
-    public function getPengeluaran(){
+    public function getPengeluaran($where){
         $this->db->select('id_transaksi,nama_transaksi, FORMAT(kredit,0) AS Kredit, kategori, DATE_FORMAT(tanggal,"%d-%m-%Y") AS tanggal');
         $this->db->from('cashflow');
         $this->db->where('kredit > 0');
-        // $this->db->where('idOrganisasi',$where);
+        $this->db->where('id',$where);
         
         $this->db->order_by('id_transaksi', 'ASC');
         $query = $this->db->get();

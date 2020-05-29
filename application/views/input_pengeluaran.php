@@ -294,6 +294,9 @@
 	<form action="<?= base_url() ?>index.php/Cashflow/simpan_pengeluaran" method="POST" enctype="multipart/form-data">
 	<table>
   <div class="form-group">
+  <?php foreach($data as $key){ ?> 
+        <input type="hidden" name="id" value="<?php echo $key->id;?>">
+    <?php } ?>
 	<tr>
 		<td>Tanggal</td>
 		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>	

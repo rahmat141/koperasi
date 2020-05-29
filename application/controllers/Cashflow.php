@@ -12,15 +12,20 @@
             $this->load->view('home');
         }
 
-        public function input_pemasukan(){
+        public function input_pemasukan($id){
             // $where = array('id'=>$id);
             // $data['data'] = $this->Model_cashflow->edit_data($where, 'cashflow')->result();
                 // $this->load->view('input_kegiatan',$data);
                 // print_r($data);
-            $this->load->view('input_pemasukan');
+            $where = array('id'=>$id);
+            $data['data'] = $this->Model_cashflow->edit_data($where, 'user')->result();
+            $this->load->view('input_pemasukan',$data);
         }
-        public function input_pengeluaran(){
-            $this->load->view('input_pengeluaran');
+        public function input_pengeluaran($id){
+            // $this->load->view('input_pengeluaran');
+            $where = array('id'=>$id);
+            $data['data'] = $this->Model_cashflow->edit_data($where, 'user')->result();
+            $this->load->view('input_pengeluaran',$data);
         }
 
 
@@ -39,11 +44,13 @@
                 $nama_transaksi = $this->input->post('nama_transaksi');
                 $pemasukan= $this->input->post('pemasukan');
                 $kategori = $this->input->post('kategori');
+                $id = $this->input->post('id');
 
                 $data   = array('tanggal' => $tanggal,
                         'nama_transaksi' => $nama_transaksi,
                         'debit' => $pemasukan,
-                        'kategori' => $kategori
+                        'kategori' => $kategori,
+                        'id' => $id
                         );
                 $this->Model_cashflow->insert($data,'cashflow');
                 $this->session->set_flashdata('msg',
@@ -51,7 +58,7 @@
                 <h4>Berhasil</h4>
                 <p> Anda berhasil input data pemasukan</p>
                 </div>');
-                $this->load->view('input_pemasukan');
+                redirect('Cashflow/input_pemasukan/'.$this->session->id);
                 
             }
         }
@@ -70,11 +77,13 @@
                 $nama_transaksi = $this->input->post('nama_transaksi');
                 $pemasukan= $this->input->post('pengeluaran');
                 $kategori = $this->input->post('kategori');
+                $id = $this->input->post('id');
 
                 $data   = array('tanggal' => $tanggal,
                         'nama_transaksi' => $nama_transaksi,
                         'kredit' => $pemasukan,
-                        'kategori' => $kategori
+                        'kategori' => $kategori,
+                        'id' => $id
                         );
                 $this->Model_cashflow->insert($data,'cashflow');
                 $this->session->set_flashdata('msg',
@@ -82,7 +91,8 @@
                 <h4>Berhasil</h4>
                 <p> Anda berhasil input data pengeluaran</p>
                 </div>');
-                $this->load->view('input_pengeluaran');
+                // $this->load->view('input_pengeluaran');
+                redirect('Cashflow/input_pengeluaran/'.$this->session->id);
                 
             }
         }
@@ -118,7 +128,7 @@
                 <p> Anda berhasil input data pemasukan</p>
                 </div>');
                 // $this->load->view('edit_pemasukan');
-                redirect('Cashflow/laporan_pemasukan');
+                redirect('Cashflow/laporan_pemasukan/'.$this->session->id);
                 
             // }
         }
@@ -153,7 +163,7 @@
                 <h4>Berhasil</h4>
                 <p> Anda berhasil input data pengeluaran</p>
                 </div>');
-                redirect('Cashflow/laporan_pengeluaran');
+                redirect('Cashflow/laporan_pengeluaran/'.$this->session->id);
                 
             // }
         }
@@ -165,16 +175,16 @@
             $this->load->view('tampil_cashflow',$data);
         }
 
-        public function laporan_pemasukan(){
+        public function laporan_pemasukan($where){
             // $data['id'] = $this->Model_cashflow->
-            $data['data'] = $this->Model_cashflow->getPemasukan()->result();
-            $data['total'] = $this->Model_cashflow->getTotalPemasukan()->result();
+            $data['data'] = $this->Model_cashflow->getPemasukan($where)->result();
+            $data['total'] = $this->Model_cashflow->getTotalPemasukan($where)->result();
             // print_r($data);
             $this->load->view('laporan_pemasukan',$data);
         }
-        public function laporan_pengeluaran(){
-            $data['data'] = $this->Model_cashflow->getPengeluaran()->result();
-            $data['total'] = $this->Model_cashflow->getTotalPengeluaran()->result();
+        public function laporan_pengeluaran($where){
+            $data['data'] = $this->Model_cashflow->getPengeluaran($where)->result();
+            $data['total'] = $this->Model_cashflow->getTotalPengeluaran($where)->result();
             // print_r($data);
             $this->load->view('laporan_pengeluaran',$data);
         }

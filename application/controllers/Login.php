@@ -16,7 +16,7 @@ class Login extends CI_Controller{
 		if (!$this->session->username) {
 			redirect('Login/login');
 		}
-		redirect('sekertaris');
+		redirect('sekertaris/index/'.$this->session->id);
 	}
 
 	public function login(){
@@ -40,6 +40,7 @@ class Login extends CI_Controller{
 			if ($user) {
 				$this->session->set_userdata(
 					array(
+						'id'			=> $user[0]->id,
 						'username'		=> $user[0]->username,
 						'password'		=> $user[0]->password));
 				redirect('/Login');

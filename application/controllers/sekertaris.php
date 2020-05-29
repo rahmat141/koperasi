@@ -8,15 +8,23 @@ class sekertaris extends CI_Controller{
         $this->load->model('model_pegawai');
         $this->load->model('model_produk');
         $this->load->model('Model_cashflow');
+        $this->load->model('login_model');
         $this->load->library('form_validation');
 	}
 
 	public function index(){
+        // $where=array('id' => $this->session->userdata('id'));
+        // $id = $this->login_model->view_where('user',$where)->result();
+        // $this->session->set_userdata('user', $id);
+        // redirect('sekertaris/show/'.$this->session->user);
         $data['pegawai'] = $this->model_pegawai->tampil_pegawai2();
         $data['saldo'] = $this->Model_cashflow->getTotal()->result();
         $data['stok'] = $this->model_produk->tampil_stok2();
 		$this->load->view('dashboard',$data);
-	}
+    }
+    public function show(){
+        
+    }
 
     public function kehadiran(){
         $data['pegawai'] = $this->model_kehadiran->pegawai();

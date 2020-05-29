@@ -278,7 +278,7 @@
 <h3>Laporan Pemasukan</h3>
 </center>
     <!-- <?php echo anchor('inventaris/inventaris/','Tambah Data'); ?> -->
-    <a  href="<?= base_url('index.php/Cashflow/input_pemasukan/'.$this->session->userdata('id')); ?>" style="text-decoration: none" class="btn btn-success">Input Pemasukan</a>
+    <a  href="<?= base_url('index.php/Cashflow/input_pemasukan/'.$this->session->id); ?>" style="text-decoration: none" class="btn btn-success">Input Pemasukan</a>
     <!-- <a class="btn btn-success" href="<?php echo base_url('index.php/kegiatan/simpan/'.$this->session->idOrganisasi); ?>" style="text-decoration: none">Pengajuan Kegiatan</a> -->
     <div class="card-body">
       

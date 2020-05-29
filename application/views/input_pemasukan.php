@@ -295,9 +295,9 @@
 	<table>
   <div class="form-group">
 	<tr>
-    <!-- <?php foreach($data as $key){ ?> -->
-    
-    <!-- <?php } ?> -->
+    <?php foreach($data as $key){ ?> 
+        <input type="hidden" name="id" value="<?php echo $key->id;?>">
+    <?php } ?>
 		<td>Tanggal</td>
 		<td><input type="date" name="tanggal" class="form-control form-control-user"></td>	
   </tr>
