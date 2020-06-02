@@ -211,6 +211,11 @@
             $data['data'] = $this->Model_cashflow->edit_pemasukan($where,'cashflow')->result();
             $this->load->view('edit_pemasukan',$data);
         }
+        public function hapus($id){
+            $where = array('id_transaksi'=>$id);
+            $this->Model_cashflow->hapus_data($where,'cashflow');
+            redirect('cashflow/laporan_pemasukan/'.$this->session->id);
+        }
         public function edit_pengeluaran($id){
             $where = array('id_transaksi' => $id);
             $data['data'] = $this->Model_cashflow->edit_pengeluaran($where,'cashflow')->result();

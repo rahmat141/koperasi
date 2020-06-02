@@ -46,6 +46,7 @@ class Model_cashflow extends CI_Model{
     public function getPemasukan($where){
         $this->db->select('id_transaksi,nama_transaksi, FORMAT(debit,0) AS Debit, kategori, DATE_FORMAT(tanggal,"%d-%m-%Y") AS tanggal');
         $this->db->from('cashflow');
+        $this->db->where('debit > 0');
         $this->db->where('id',$where);
         
         $this->db->order_by('id_transaksi', 'ASC');
@@ -95,7 +96,7 @@ class Model_cashflow extends CI_Model{
         // $query = 'SELECT * FROM cashflow WHERE tanggal BETWEEN $tgl_awal AND $tgl_akhir';
         return $query;
     }
-    public function hapus_kas($where,$table){
+    public function hapus_data($where,$table){
         $this->db->delete($table,$where);
     }
 //Bulan Untuk Kas

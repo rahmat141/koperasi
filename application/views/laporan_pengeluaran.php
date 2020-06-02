@@ -307,7 +307,7 @@
               <td><?php echo $key->kategori; ?></td>
               <td>
               <a href="<?php echo site_url('Cashflow/edit_pengeluaran/'.$key->id_transaksi); ?>" class="btn btn-primary btn-sm"  style="height: 30px; width: 60px">Edit</a>
-              <!-- <a href="<?php echo site_url('Cashflow/hapus_pengeluaran/'.$key->id_transaksi); ?>" onclick="return confirm('Anda yakin mau menghapus kegiatan ini ?')" class="btn btn-danger btn-sm" style="height: 30px; width:60px">Hapus</a>     -->
+              <a href="<?php echo site_url('Cashflow/hapus/'.$key->id_transaksi); ?>" onclick="return confirm('Anda yakin mau menghapus kegiatan ini ?')" class="btn btn-danger btn-sm" style="height: 30px; width:60px">Hapus</a>    
               <!-- <a href="<?php echo site_url('Lpj/lpj/'.$key->id_transaksi); ?>" class="btn btn-success btn-sm" style="height: 30px; width: 60px">LPJ</a>   -->
               </td>
           </tr>

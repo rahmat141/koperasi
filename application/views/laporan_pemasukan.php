@@ -303,11 +303,11 @@
               <td><?php echo $key->tanggal; ?></td>
               <td><?php echo $key->nama_transaksi; ?></td>
               <td>Rp.<?php echo $key->Debit; ?></td>
-              <!-- <td>Rp.<?php echo $key->Kredit; ?></td> -->
+             
               <td><?php echo $key->kategori; ?></td>
               <td>
               <a href="<?php echo site_url('Cashflow/edit_pemasukan/'.$key->id_transaksi); ?>" class="btn btn-primary btn-sm"  style="height: 30px; width: 60px">Edit</a>
-              <!-- <a href="<?php echo site_url('Cashflow/hapus_pemasukan/'.$key->id_transaksi); ?>" onclick="return confirm('Anda yakin mau menghapus kegiatan ini ?')" class="btn btn-danger btn-sm" style="height: 30px; width:60px">Hapus</a>     -->
+              <a href="<?php echo site_url('Cashflow/hapus/'.$key->id_transaksi); ?>" onclick="return confirm('Anda yakin mau menghapus kegiatan ini ?')" class="btn btn-danger btn-sm" style="height: 30px; width:60px">Hapus</a>    
               <!-- <a href="<?php echo site_url('Lpj/lpj/'.$key->id_transaksi); ?>" class="btn btn-success btn-sm" style="height: 30px; width: 60px">LPJ</a>   -->
               </td>
           </tr>
