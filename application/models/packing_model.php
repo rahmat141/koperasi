@@ -4,6 +4,7 @@
 			$this->db->select('pc.nama_barang, p.jumlah,p.tgl_masuk');
 			$this->db->from('packing p');
 			$this->db->join('pack pc','p.id_brg_pack = pc.id_brg_pack');
+			$this->db->join('issuing i', 'pc.id_brg_pack = i.id_brg_pack');
 
 			$query = $this->db->get();
 			return $query;
@@ -37,9 +38,9 @@
 		}
 
 		function updateJumlah() {
-			return $query = $this->db->query('SELECT pack.nama_barang, SUM(packing.jumlah) AS "Jumlah"
-											  FROM pack JOIN packing
-											  ON pack.id_brg_pack = packing.id_brg_pack
+			return $query = $this->db->query('SELECT pack.nama_barang, SUM(packing.jumlah)-SUM(issuing.jumlah) AS "Stok"
+											  FROM pack JOIN packing ON pack.id_brg_pack = packing.id_brg_pack
+											  JOIN issuing ON pack.id_brg_pack = issuing.id_brg_pack
 											  GROUP BY pack.id_brg_pack');
 		}
 

@@ -445,6 +445,7 @@
             <td>
                 <select name="nama_barang" class="form-control">
                     <?php foreach ($issuing as $x) { ?>
+                      <!-- <input type="hidden" name="id_issuing" class="form-control form-control-user" value="<?php echo $x->id_issuing ?>"></td> -->
                          <option value="<?php echo $x->id_brg_pack; ?>"><?php echo $x->nama_barang; ?></option>
                     <?php } ?>
                 </select>
