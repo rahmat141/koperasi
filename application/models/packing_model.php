@@ -43,12 +43,12 @@
 											  GROUP BY pack.id_brg_pack');
 		}
 
-		function prod_keluar() {
-			return $query = $this->db->query('SELECT SUM(penjualan.pcs) AS "pcs"
-											  FROM penjualan JOIN produk
-											  ON  penjualan.id_produk = produk.id_produk
-											  GROUP BY produk.id_produk');
-		}
+		// function prod_keluar() {
+		// 	return $query = $this->db->query('SELECT SUM(penjualan.pcs) AS "pcs"
+		// 									  FROM penjualan JOIN produk
+		// 									  ON  penjualan.id_produk = produk.id_produk
+		// 									  GROUP BY produk.id_produk');
+		// }
 
 		// function stokAkhir() {
 		// 	return $query = $this->db->query('SELECT FORMAT(SUM(jumlah)-SUM(pcs)

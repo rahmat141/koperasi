@@ -25,7 +25,6 @@
 					'id_brg_pack' => $id_brg_pack,
 					'nama_barang' => $nama_barang
 			);
-
 			$this->form_validation->set_rules('id_brg_pack', 'Kode Barang', 'required');
 			$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
 

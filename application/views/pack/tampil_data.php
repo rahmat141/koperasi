@@ -430,7 +430,7 @@
                     <td><?php echo $x->id_brg_pack;?></td>
                     <td><?php echo $x->nama_barang; ?></td>
                     <td>
-                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
                     </td>
                 </tr>
             <?php } ?>
