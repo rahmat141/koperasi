@@ -45,7 +45,6 @@
 					$data = array(
 						    'id_issuing'  => $id_issuing,
 							'id_brg_pack' => $nama_barang,
-							'nama_barang' => $nama_barang,
 							'jumlah'	  => $jumlah,
 							'tgl_keluar'  => $tgl_keluar
 					);			

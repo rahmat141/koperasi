@@ -466,7 +466,7 @@
     <tr>
         <td>Tanggal Keluar</td> 
             <td>
-                <input type="date" name="tgl_masuk" class="form-control form-control-user" placeholder="Masukkan tanggal keluar">
+                <input type="date" name="tgl_keluar" class="form-control form-control-user" placeholder="Masukkan tanggal keluar">
             </td>
         </td>
     </tr>
