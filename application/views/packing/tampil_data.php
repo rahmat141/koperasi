@@ -129,8 +129,9 @@
         <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/pack_controller/lihat" style="text-decoration: none">Data Pack</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/lihat" style="text-decoration: none">Pemasukan Barang Pack</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/stok_packing" style="text-decoration: none">Stok Opname Barang Pack</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/lihat" style="text-decoration: none">Receiving</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/issuing_controller/lihat" style="text-decoration: none">Issuing</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/stok_packing" style="text-decoration: none">Stock Opname</a>
           </div>
         </div>
       </li>
@@ -375,7 +376,7 @@
 </head> -->
 <body>
     <center>
-    <h2>Pemasukan Barang Pack</h2>
+    <h2>Receiving Data</h2>
     <hr><hr>
     <?php echo form_open('packing_controller/aksi'); ?>
         <form method='GET' enctype="multipart/form-data">
@@ -394,7 +395,7 @@
                     <td><?php echo $x->jumlah; ?></td>
                     <td><?php echo $x->tgl_masuk; ?></td>
                     <!-- <td>
-                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_packing) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+                        <a href="<?= site_url('packing_controller/hapus/'. $x->id_packing) ?>" onclick="return confirm('Anda Yakin Menghapus gaji ?')" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
                     </td> -->
                 </tr>
             <?php } ?>

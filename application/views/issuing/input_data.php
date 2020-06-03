@@ -433,7 +433,7 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 <center>
-    <h1>Input Data Barang</h1>
+    <h1>Input Data Issuing</h1>
     <hr>
     <hr>
     <?php echo form_open('issuing_controller/aksi'); ?>
@@ -444,7 +444,7 @@
         <td>Nama Barang</td> 
             <td>
                 <select name="nama_barang" class="form-control">
-                    <?php foreach ($packing as $x) { ?>
+                    <?php foreach ($issuing as $x) { ?>
                          <option value="<?php echo $x->id_brg_pack; ?>"><?php echo $x->nama_barang; ?></option>
                     <?php } ?>
                 </select>
@@ -464,9 +464,9 @@
   </div>
   <div class="form-group">
     <tr>
-        <td>Tanggal Masuk</td> 
+        <td>Tanggal Keluar</td> 
             <td>
-                <input type="date" name="tgl_masuk" class="form-control form-control-user" placeholder="Masukkan tanggal masuk">
+                <input type="date" name="tgl_masuk" class="form-control form-control-user" placeholder="Masukkan tanggal keluar">
             </td>
         </td>
     </tr>

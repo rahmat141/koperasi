@@ -26,13 +26,13 @@
 			// 		'id_brg_pack' => $id_brg_pack,
 			// 		'nama_barang' => $nama_barang,
 			// 		'jumlah'	  => $jumlah,
-			// 		'tgl_masuk'	  => $tgl_masuk
+			// 		'tgl_keluar'	  => $tgl_masuk
 			// );
 
 			// $this->form_validation->set_rules('id_brg_pack', 'Kode Barang', 'required');
 			$this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
 			$this->form_validation->set_rules('jumlah', 'Jumlah Barang', 'required');
-			$this->form_validation->set_rules('tgl_masuk', 'Tanggal Masuk', 'required');
+			$this->form_validation->set_rules('tgl_keluar', 'Tanggal Masuk', 'required');
 
 				if ($this->form_validation->run() != FALSE) {
 
@@ -40,16 +40,16 @@
 					$id_brg_pack = $this->input->post('id_brg_pack');
 					$nama_barang = $this->input->post('nama_barang');
 					$jumlah		 = $this->input->post('jumlah');
-					$tgl_masuk	 = $this->input->post('tgl_masuk');
+					$tgl_keluar	 = $this->input->post('tgl_keluar');
 
 					$data = array(
 						    'id_issuing'  => $id_issuing,
 							'id_brg_pack' => $nama_barang,
-							// 'nama_barang' => $nama_barang,
+							'nama_barang' => $nama_barang,
 							'jumlah'	  => $jumlah,
-							'tgl_masuk' => $tgl_masuk
+							'tgl_keluar'  => $tgl_keluar
 					);			
-					print_r($data);
+					// print_r($data);
 					$this->issuing_model->input_data($data);
 					redirect('issuing_controller/lihat');
 				}
@@ -76,14 +76,14 @@
 			$id_brg_pack = $this->input->post('id_brg_pack');
 			//$nama_barang = $this->input->post('nama_barang');
 			$jumlah		 = $this->input->post('jumlah');
-			$tgl_masuk	 = $this->input->post('tgl_masuk');
+			$tgl_keluar	 = $this->input->post('tgl_keluar');
 
 			$data = array(
 					'id_issuing'  => $id_issuing,
 					'id_brg_pack' => $id_brg_pack,
 					//'nama_barang' => $nama_barang,
 					'jumlah'	  => $jumlah,
-					'tgl_masuk'	  => $tgl_masuk
+					'tgl_keluar'	  => $tgl_keluar
 			);
 
 			$where = array('id_issuing' => $id_issuing);

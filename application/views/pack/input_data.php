@@ -161,10 +161,11 @@
           <span>Packing</span>
         </a>
         <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
+        <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/pack_controller/lihat" style="text-decoration: none">Data Pack</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/lihat" style="text-decoration: none">Pemasukan Barang Pack</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/stok_packing" style="text-decoration: none">Stok Opname Barang Pack</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/lihat" style="text-decoration: none">Receiving</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/issuing_controller/lihat" style="text-decoration: none">Issuing</a>
+            <a class="collapse-item" href="<?= base_url() ?>index.php/packing_controller/stok_packing" style="text-decoration: none">Stock Opname</a>
           </div>
         </div>
       </li>
