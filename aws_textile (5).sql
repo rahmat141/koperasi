@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD:aws_textile (5).sql
 -- Waktu pembuatan: 03 Jun 2020 pada 17.42
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
+=======
+-- Generation Time: Jun 03, 2020 at 05:45 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
+>>>>>>> e2158504fc86ce7ab6ea63e997695738a0f186e0:aws_textile.sql
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -403,6 +409,7 @@ ALTER TABLE `cashflow`
   MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+<<<<<<< HEAD:aws_textile (5).sql
 -- AUTO_INCREMENT untuk tabel `issuing`
 --
 ALTER TABLE `issuing`
@@ -410,6 +417,15 @@ ALTER TABLE `issuing`
 
 --
 -- AUTO_INCREMENT untuk tabel `kehadiran`
+=======
+-- AUTO_INCREMENT for table `issuing`
+--
+ALTER TABLE `issuing`
+  MODIFY `id_issuing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `kehadiran`
+>>>>>>> e2158504fc86ce7ab6ea63e997695738a0f186e0:aws_textile.sql
 --
 ALTER TABLE `kehadiran`
   MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;

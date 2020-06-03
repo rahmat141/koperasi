@@ -11,7 +11,6 @@
 <body>
     <center>
         <h1>Data Barang</h1>
-        <?php echo form_open('pack_controller/aksi'); ?>
         <form method='GET' enctype="multipart/form-data">
             <table border="1">
                 <tr>
@@ -416,7 +415,6 @@
   <center>
     <h2>Data Pack</h2>
     <hr><hr>
-    <?php echo form_open('pack_controller/aksi'); ?>
         <form method='GET' enctype="multipart/form-data">
             <table class="table">
                 <thead class="thead-dark">
@@ -431,7 +429,7 @@
                     <td><?php echo $x->id_brg_pack;?></td>
                     <td><?php echo $x->nama_barang; ?></td>
                     <td>
-                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" ><button class="btn btn-light"><i class="fa fa-trash"></i></button>  </a>
+                        <a href="<?= site_url('pack_controller/hapus/'. $x->id_brg_pack) ?>" ><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php } ?>
