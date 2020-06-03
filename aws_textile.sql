@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 05:45 PM
+-- Generation Time: Jun 03, 2020 at 06:11 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -59,14 +59,6 @@ CREATE TABLE `issuing` (
   `jumlah` int(11) NOT NULL,
   `tgl_keluar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `issuing`
---
-
-INSERT INTO `issuing` (`id_issuing`, `id_brg_pack`, `jumlah`, `tgl_keluar`) VALUES
-(1, 'P-001', 20, '2020-05-20'),
-(2, 'P-002', 100, '2020-05-20');
 
 -- --------------------------------------------------------
 
