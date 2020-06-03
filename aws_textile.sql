@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Bulan Mei 2020 pada 05.35
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Generation Time: Jun 03, 2020 at 05:15 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cashflow`
+-- Table structure for table `cashflow`
 --
 
 CREATE TABLE `cashflow` (
@@ -39,7 +39,7 @@ CREATE TABLE `cashflow` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data untuk tabel `cashflow`
+-- Dumping data for table `cashflow`
 --
 
 INSERT INTO `cashflow` (`id_transaksi`, `tanggal`, `nama_transaksi`, `debit`, `kredit`, `kategori`, `id`) VALUES
@@ -50,7 +50,28 @@ INSERT INTO `cashflow` (`id_transaksi`, `tanggal`, `nama_transaksi`, `debit`, `k
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kehadiran`
+-- Table structure for table `issuing`
+--
+
+CREATE TABLE `issuing` (
+  `id_issuing` int(11) NOT NULL,
+  `id_brg_pack` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tgl_keluar` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `issuing`
+--
+
+INSERT INTO `issuing` (`id_issuing`, `id_brg_pack`, `jumlah`, `tgl_keluar`) VALUES
+(1, 'P-001', 20, '2020-05-20'),
+(2, 'P-002', 100, '2020-05-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kehadiran`
 --
 
 CREATE TABLE `kehadiran` (
@@ -63,7 +84,7 @@ CREATE TABLE `kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kehadiran`
+-- Dumping data for table `kehadiran`
 --
 
 INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `jam_datang`, `jam_pulang`) VALUES
@@ -72,7 +93,7 @@ INSERT INTO `kehadiran` (`id_kehadiran`, `id_pegawai`, `tanggal`, `jam_kerja`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pack`
+-- Table structure for table `pack`
 --
 
 CREATE TABLE `pack` (
@@ -81,7 +102,7 @@ CREATE TABLE `pack` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pack`
+-- Dumping data for table `pack`
 --
 
 INSERT INTO `pack` (`id_brg_pack`, `nama_barang`) VALUES
@@ -101,7 +122,7 @@ INSERT INTO `pack` (`id_brg_pack`, `nama_barang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `packing`
+-- Table structure for table `packing`
 --
 
 CREATE TABLE `packing` (
@@ -112,7 +133,7 @@ CREATE TABLE `packing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `packing`
+-- Dumping data for table `packing`
 --
 
 INSERT INTO `packing` (`id_packing`, `id_brg_pack`, `jumlah`, `tgl_masuk`) VALUES
@@ -122,12 +143,13 @@ INSERT INTO `packing` (`id_packing`, `id_brg_pack`, `jumlah`, `tgl_masuk`) VALUE
 (4, 'P-001', 1200, '2020-05-09'),
 (5, 'P-002', 2000, '2020-05-09'),
 (6, 'P-003', 2000, '2020-05-09'),
-(7, 'P-001', 100, '2020-05-09');
+(7, 'P-001', 100, '2020-05-09'),
+(8, 'P-001', 100, '2020-06-01');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -140,7 +162,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
@@ -151,7 +173,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nama`, `pekerjaan`, `jenis_kelamin`, `alam
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembeli`
+-- Table structure for table `pembeli`
 --
 
 CREATE TABLE `pembeli` (
@@ -162,7 +184,7 @@ CREATE TABLE `pembeli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pembeli`
+-- Dumping data for table `pembeli`
 --
 
 INSERT INTO `pembeli` (`id_pembeli`, `nama`, `alamat`, `no_hp`) VALUES
@@ -171,7 +193,7 @@ INSERT INTO `pembeli` (`id_pembeli`, `nama`, `alamat`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penggajian`
+-- Table structure for table `penggajian`
 --
 
 CREATE TABLE `penggajian` (
@@ -184,7 +206,7 @@ CREATE TABLE `penggajian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `penggajian`
+-- Dumping data for table `penggajian`
 --
 
 INSERT INTO `penggajian` (`id_gaji`, `id_pegawai`, `gapok`, `lembur`, `lainnya`, `tgl`) VALUES
@@ -193,7 +215,7 @@ INSERT INTO `penggajian` (`id_gaji`, `id_pegawai`, `gapok`, `lembur`, `lainnya`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penjualan`
+-- Table structure for table `penjualan`
 --
 
 CREATE TABLE `penjualan` (
@@ -208,7 +230,7 @@ CREATE TABLE `penjualan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penjualan`
+-- Dumping data for table `penjualan`
 --
 
 INSERT INTO `penjualan` (`id_penjualan`, `id_produk`, `id_pembeli`, `sales`, `tanggal`, `no_nota`, `pcs`, `keterangan`) VALUES
@@ -219,7 +241,7 @@ INSERT INTO `penjualan` (`id_penjualan`, `id_produk`, `id_pembeli`, `sales`, `ta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -231,7 +253,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
@@ -241,7 +263,7 @@ INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `ukuran`, `kualitas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produksi`
+-- Table structure for table `produksi`
 --
 
 CREATE TABLE `produksi` (
@@ -253,7 +275,7 @@ CREATE TABLE `produksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produksi`
+-- Dumping data for table `produksi`
 --
 
 INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produksi`, `jumlah`) VALUES
@@ -267,7 +289,7 @@ INSERT INTO `produksi` (`id_produksi`, `id_pegawai`, `id_produk`, `tanggal_produ
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -277,7 +299,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
@@ -288,53 +310,60 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 --
 
 --
--- Indeks untuk tabel `cashflow`
+-- Indexes for table `cashflow`
 --
 ALTER TABLE `cashflow`
   ADD PRIMARY KEY (`id_transaksi`),
   ADD KEY `fk_id` (`id`);
 
 --
--- Indeks untuk tabel `kehadiran`
+-- Indexes for table `issuing`
+--
+ALTER TABLE `issuing`
+  ADD PRIMARY KEY (`id_issuing`),
+  ADD KEY `id_brg_pack` (`id_brg_pack`);
+
+--
+-- Indexes for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD PRIMARY KEY (`id_kehadiran`),
   ADD KEY `fk_kehadiran` (`id_pegawai`);
 
 --
--- Indeks untuk tabel `pack`
+-- Indexes for table `pack`
 --
 ALTER TABLE `pack`
   ADD PRIMARY KEY (`id_brg_pack`);
 
 --
--- Indeks untuk tabel `packing`
+-- Indexes for table `packing`
 --
 ALTER TABLE `packing`
   ADD PRIMARY KEY (`id_packing`),
   ADD KEY `id_brg_pack` (`id_brg_pack`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indeks untuk tabel `pembeli`
+-- Indexes for table `pembeli`
 --
 ALTER TABLE `pembeli`
   ADD PRIMARY KEY (`id_pembeli`);
 
 --
--- Indeks untuk tabel `penggajian`
+-- Indexes for table `penggajian`
 --
 ALTER TABLE `penggajian`
   ADD PRIMARY KEY (`id_gaji`),
   ADD KEY `fk_gaji` (`id_pegawai`);
 
 --
--- Indeks untuk tabel `penjualan`
+-- Indexes for table `penjualan`
 --
 ALTER TABLE `penjualan`
   ADD PRIMARY KEY (`id_penjualan`),
@@ -342,13 +371,13 @@ ALTER TABLE `penjualan`
   ADD KEY `fk_pembeli` (`id_pembeli`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `produksi`
+-- Indexes for table `produksi`
 --
 ALTER TABLE `produksi`
   ADD PRIMARY KEY (`id_produksi`),
@@ -356,106 +385,112 @@ ALTER TABLE `produksi`
   ADD KEY `fk_sarung` (`id_produk`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cashflow`
+-- AUTO_INCREMENT for table `cashflow`
 --
 ALTER TABLE `cashflow`
   MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `kehadiran`
+-- AUTO_INCREMENT for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
   MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `packing`
+-- AUTO_INCREMENT for table `packing`
 --
 ALTER TABLE `packing`
-  MODIFY `id_packing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_packing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `pembeli`
+-- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
   MODIFY `id_pembeli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `penggajian`
+-- AUTO_INCREMENT for table `penggajian`
 --
 ALTER TABLE `penggajian`
   MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `penjualan`
+-- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
   MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `produksi`
+-- AUTO_INCREMENT for table `produksi`
 --
 ALTER TABLE `produksi`
   MODIFY `id_produksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `cashflow`
+-- Constraints for table `cashflow`
 --
 ALTER TABLE `cashflow`
   ADD CONSTRAINT `cashflow_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `kehadiran`
+-- Constraints for table `issuing`
+--
+ALTER TABLE `issuing`
+  ADD CONSTRAINT `issuing_ibfk_1` FOREIGN KEY (`id_brg_pack`) REFERENCES `pack` (`id_brg_pack`);
+
+--
+-- Constraints for table `kehadiran`
 --
 ALTER TABLE `kehadiran`
   ADD CONSTRAINT `fk_kehadiran` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
--- Ketidakleluasaan untuk tabel `packing`
+-- Constraints for table `packing`
 --
 ALTER TABLE `packing`
   ADD CONSTRAINT `packing_ibfk_1` FOREIGN KEY (`id_brg_pack`) REFERENCES `pack` (`id_brg_pack`);
 
 --
--- Ketidakleluasaan untuk tabel `penggajian`
+-- Constraints for table `penggajian`
 --
 ALTER TABLE `penggajian`
   ADD CONSTRAINT `fk_gaji` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
 
 --
--- Ketidakleluasaan untuk tabel `penjualan`
+-- Constraints for table `penjualan`
 --
 ALTER TABLE `penjualan`
   ADD CONSTRAINT `fk_pembeli` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`),
   ADD CONSTRAINT `fk_penjualan` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Ketidakleluasaan untuk tabel `produksi`
+-- Constraints for table `produksi`
 --
 ALTER TABLE `produksi`
   ADD CONSTRAINT `fk_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
