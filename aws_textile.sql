@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 05:15 PM
+-- Generation Time: Jun 03, 2020 at 05:45 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -399,6 +399,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `cashflow`
   MODIFY `id_transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `issuing`
+--
+ALTER TABLE `issuing`
+  MODIFY `id_issuing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kehadiran`
