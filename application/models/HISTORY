@@ -1,0 +1,15 @@
+login 
+register
+rekap simpanan //supervisor
+lihat data simpanan
+edit data simpanan
+hapus data simpanan
+lihat anggota //petugas
+status anggota
+cek riwayat simpanan 
+cek riwayat pengambilan simpanan 
+menginputkan dan mencetak simpanan agt
+cek data simpanan //anggota
+cek data riwayat pengambilan
+edit akun 
+cetak bukti simpanan

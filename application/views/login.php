@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
-    <link rel="icon" type="izmage/png" href="<?php echo base_url().'asset/login/images/icons/favicon.ico'?>"/>
+    <link rel="icon" href="<?php echo base_url().'asset/foto/logokoperasibaru.jpg'?>"/>
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'asset/login/vendor/bootstrap/css/bootstrap.min.css'?>">
 <!--===============================================================================================-->
@@ -29,18 +29,15 @@
 <!--===============================================================================================-->
 </head>
 <body>
-    <?php if ($this->session->flashdata('pesan')) { ?>
-        <div class="alert alert-danger">
-            <?php echo $this->session->flashdata('pesan'); ?>
-        </div>
-    <?php } ?>
-    
+    <?php
+      echo $this->session->flashdata('sukses');
+    ?>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
                 <form class="login100-form validate-form" action="<?= base_url() ?>index.php/Login/aksi_login" method="POST">
                     <span class="login100-form-title p-b-10">
-                        <img src="<?php echo base_url('gambar/1_b_al7C5p26tbZG4sy-CWqw.png')?>" width="200" height="200">
+                        Login Anggota
                     </span>
                     <div class="wrap-input100 validate-input" data-validate = "Username is required">
                         <input class="input100" type="text" name="username" placeholder="username">
@@ -61,6 +58,14 @@
                 </form>
                 <br>
             </div>
+            <br>
+                <?php if ($this->session->flashdata('pesan')) { ?>
+                    <div class="alert alert-danger">
+                <?php echo $this->session->flashdata('pesan'); ?>
+                    </div>
+                <?php } ?>
+            <a href="<?= base_url()?>index.php/Login/login_petugas"><b>Petugas? Login disini</b></a><br/>
+            <a href="<?= base_url()?>index.php/Login/register">Belum Terdaftar? daftar disini</a>
         </div>
     </div>
     
