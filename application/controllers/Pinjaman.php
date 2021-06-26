@@ -18,6 +18,16 @@ class Pinjaman extends CI_Controller
         $this->load->view('form_pinjaman', $data);
     }
 
+    public function readNotif()
+    {
+        $where = $this->input->post('untuk');
+        $read = $this->input->post('is_read');
+
+        $this->db->set('is_read', $read);
+        $this->db->where('untuk', $where);
+        $this->db->update('notifikasi');
+    }
+
     public function simpan_pinjaman()
     {
 
@@ -229,6 +239,14 @@ class Pinjaman extends CI_Controller
                             'jaminan_stnk' => $jaminan_stnk,
                             'jaminan_foto' => $jaminan_foto,
                         );
+
+                        $notif = [
+                            'notif' => 'Ada peminjaman baru',
+                            'dari' => $id_anggota,
+                            'untuk' => 'petugas',
+                            'tipe' => 'approval'
+                        ];
+                        $this->model_pinjaman->insert($notif, 'notifikasi');
 
                         $this->model_pinjaman->insert($data, 'pinjaman');
                         //$this->model_pinjaman->insert($data, 'histori_pinjaman');
@@ -448,6 +466,15 @@ class Pinjaman extends CI_Controller
             'id_pinjaman' => $id_pinjaman,
         );
         $this->model_pinjaman->update_pinjaman($where, $data, 'pinjaman');
+
+        $notif = [
+            'notif' => 'Peminjaman anda diterima',
+            'dari' => 'petugas',
+            'untuk' => $id_anggota,
+            'tipe' => 'accept'
+        ];
+        $this->model_pinjaman->insert($notif, 'notifikasi');
+
         $this->model_pinjaman->insert($data2, 'histori_pinjaman');
         redirect('Pinjaman/acc_pinjaman');
     }
@@ -459,12 +486,20 @@ class Pinjaman extends CI_Controller
         redirect('Pinjaman/show_pinjaman/' . $this->session->id_anggota);
     }
 
-    public function tolak($id_pinjaman)
+    public function tolak($id_pinjaman, $id_anggota)
     {
         $data = array(
             'status' => 'Declined',
         );
         $where = array('id_pinjaman' => $id_pinjaman);
+
+        $notif = [
+            'notif' => 'Peminjaman anda ditolak',
+            'dari' => 'petugas',
+            'untuk' => $id_anggota,
+            'tipe' => 'decline'
+        ];
+        $this->model_pinjaman->insert($notif, 'notifikasi');
 
         $this->model_pinjaman->update_pinjaman($where, $data, 'pinjaman');
 

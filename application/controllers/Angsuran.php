@@ -108,6 +108,7 @@ class Angsuran extends CI_Controller
         $angsuran = $this->input->post('angsuran');
         $tanggal_angsuran = $this->input->post('tanggal_angsuran');
         $denda = $this->input->post('denda');
+        $jml_denda = $this->input->post('jml_denda');
 
         if ($denda == 0) {
             $data = array(
@@ -116,7 +117,7 @@ class Angsuran extends CI_Controller
         } else {
             $data = array(
                 'angsuran' => $angsuran - $nominal,
-                'denda' => $denda
+                'denda' => $denda + $jml_denda
             );
         }
         $where = array(

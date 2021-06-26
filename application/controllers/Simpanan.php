@@ -379,6 +379,16 @@ class Simpanan extends CI_Controller{
         $this->load->view('v_jaminan_anggota',$data);
     }
 
+    public function readNotif()
+    {
+        $where = $this->input->post('untuk');
+        $read = $this->input->post('is_read');
+
+        $this->db->set('is_read', $read);
+        $this->db->where('untuk', $where);
+        $this->db->update('notifikasi');
+    }
+
     public function lihat_statusanggota(){
         $data['anggota'] = $this->model_simpanan->tampil_statusanggota();
         $this->load->view('v_statusanggota',$data);

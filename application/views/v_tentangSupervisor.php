@@ -124,7 +124,7 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <li class="nav-item dropdown no-arrow mx-1" hidden>
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -173,7 +173,7 @@
             </li>
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <li class="nav-item dropdown no-arrow mx-1" hidden>
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
@@ -295,7 +295,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	<div class="col-lg-6">
+	<div class="col-sm">
 
 <!-- Collapsable Card Example -->
                             <div class="card shadow mb-2">
@@ -307,7 +307,11 @@
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
                                     <div class="card-body" align="justify-content-center">
-                                      <label><strong>BUNGA BIRAENG</strong> merupakan sebuah Sistem Informasi Manajemen Koperasi Simpan Pinjam. Software ini dibuat untuk memudahkan transaksi simpan pinjam di koperasi uppks bunga biraeng. Koperasi UPPKS merupakan koperasi wanita yang terdiri dari 5 orang pengurus yang bertempat di Kabupaten Gowa, Sulawesi Selatan</label>
+                                    <center><img src="<?= base_url().'asset/foto/logokoperasibaru.jpg' ?>" style="width: 5rem; height: 5rem;"></center><br>
+                                    <label><strong>BUNGA BIRAENG</strong> merupakan sebuah Sistem Informasi Manajemen Koperasi Simpan Pinjam. Software ini dibuat untuk memudahkan transaksi simpan pinjam di koperasi uppks bunga biraeng. Koperasi UPPKS merupakan koperasi wanita yang terdiri dari 5 orang pengurus yang bertempat di Kabupaten Gowa, Sulawesi Selatan</label>
+                                      <h5>Kontak Kami :</h5>
+                                      <p>085242730820</p>
+                                      <p>Alamat : Jl. Anassappu Desa Bontobiraeng Selatan, Kec. Bontonompo, Kab. Gowa, Sulawesi Selatan, 92153</p>
                                     </div>
                                 </div>
                             </div>

@@ -24,6 +24,8 @@ class Dashboard extends CI_Controller
         $data['simpananW'] = $this->model_simpanan->total_simpanWajib($where);
         $data['simpananP'] = $this->model_simpanan->total_simpanPokok($where);
         $data['total_angsuran'] = $this->model_pinjaman->getAngsuranOnGOing($where);
+        $data['notifikasi'] = $this->model_pinjaman->getNotif($where);
+        $data['countNotif'] = $this->model_pinjaman->getNotifNotRead($where);
         $this->load->view('v_dashboard', $data);
     }
 
@@ -38,7 +40,20 @@ class Dashboard extends CI_Controller
         $data['anggota'] = $this->model_simpanan->laporan_anggota_petugas();
         $data['anggota2'] = $this->model_simpanan->laporan_anggota_petugas2();
         $data['anggota3'] = $this->model_simpanan->laporan_anggota_petugas3();
+        $petugas = 'petugas';
+        $data['notifikasi'] = $this->model_pinjaman->getNotif($petugas);
+        $data['countNotif'] = $this->model_pinjaman->getNotifNotRead($petugas);
         $this->load->view('v_dashboard_petugas', $data);
+    }
+
+    public function readNotif()
+    {
+        $where = $this->input->post('untuk');
+        $read = $this->input->post('is_read');
+
+        $this->db->set('is_read', $read);
+        $this->db->where('untuk', $where);
+        $this->db->update('notifikasi');
     }
 
     public function dashboard_supervisor()

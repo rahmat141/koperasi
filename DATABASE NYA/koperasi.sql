@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2021 at 06:49 AM
+-- Generation Time: Jun 26, 2021 at 08:21 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -81,7 +81,7 @@ INSERT INTO `anggota` (`id_anggota`, `username`, `password`, `nama`, `nik`, `ema
 (41, 'dayana', '123', 'Dayana', 2147483647, 'dayana11@gmail.com', 81243165, 'Rusia', '3952368b6e7fcea975f4b84eeb7d85c5.jpg', '', '', 'Perempuan', 1),
 (42, 'aqua', '123', 'Aqua', 235235, 'aqua88@gmail.com', 2147483647, 'Jl pendekar no 11', '9f5601a04a4a7d6b6db3ff8c166104ba.jpg', '', '', 'Laki-laki', 1),
 (43, 'citra', '123', 'Citra Skolastika', 2147483647, 'citra@gmail.com', 2147483647, 'Jl Bojongsoang no 1', '4daf58763e97812d4a79d7ce841294f2.jpg', '', '', 'Perempuan', 1),
-(44, 'fredd', '1234', 'Freddy', 2147483647, 'fredy@gmail.com', 2147483647, 'Bandung Permata', '32e2ea42bb722b3ffb98b7b39495f7ef.png', '', '', 'Laki-laki', 2),
+(44, 'fredd', '1234', 'Freddy', 2147483647, 'fredy@gmail.com', 2147483647, 'Bandung Permata', '32e2ea42bb722b3ffb98b7b39495f7ef.png', '', '', 'Laki-laki', 1),
 (45, 'fredi', '123', 'bebas', 2110254512, 'fredi@mail.com', 2165154, 'Bandung Permata', 'c9457596e8f47d7e65a2f2403b90271b.jpg', '', '', 'Laki-laki', 2);
 
 -- --------------------------------------------------------
@@ -102,11 +102,24 @@ CREATE TABLE `angsuran` (
 --
 
 INSERT INTO `angsuran` (`id_angsuran`, `nominal`, `tanggal_angsuran`, `id_pinjaman`) VALUES
-(25, 93333, '2021-05-07', 43),
-(26, 500000, '2021-06-10', 51),
-(27, 1605000, '2021-06-20', 54),
-(28, 500000, '2021-06-21', 55),
-(29, 1700000, '2021-06-22', 55);
+(42, 516667, '2021-06-24', 57),
+(43, 508334, '2021-06-25', 57),
+(44, 500000, '2021-06-25', 57),
+(45, 491667, '2021-06-25', 57),
+(46, 483334, '2021-06-27', 57),
+(47, 475000, '2021-06-28', 57),
+(48, 466667, '2021-06-29', 57),
+(49, 458334, '2021-06-30', 57),
+(50, 450000, '2021-07-01', 57),
+(51, 441667, '2021-07-02', 57),
+(52, 433334, '2021-07-02', 57),
+(53, 424996, '2021-07-03', 57),
+(54, 1060000, '2021-07-25', 58),
+(55, 1040000, '2021-06-30', 58),
+(56, 1020000, '2021-07-01', 58),
+(61, 1120000, '2021-06-25', 61),
+(62, 1100000, '2021-07-01', 61),
+(63, 4200000, '2021-07-01', 61);
 
 -- --------------------------------------------------------
 
@@ -131,12 +144,37 @@ CREATE TABLE `histori_pinjaman` (
 --
 
 INSERT INTO `histori_pinjaman` (`id_history`, `jml_pinjaman`, `status`, `tenor`, `plafon`, `bunga`, `tgl_pinjaman`, `id_anggota`, `id_pinjaman`) VALUES
-(34, 500000, 'Accepted', '2021-11-07', '0', 2, '2021-05-07', 13, 43),
-(35, 500000, 'Accepted', '2021-11-07', '0', 2, '2021-05-07', 13, 43),
-(36, 1500000, 'Accepted', '2021-12-11', '0', 2, '2021-06-11', 7, 51),
-(37, 1500000, 'Cleared', '2021-12-20', '0', 2, '2021-06-20', 11, 54),
-(38, 2000000, 'Accepted', '2021-11-21', '0', 2, '2021-06-21', 11, 55),
-(39, 2000000, 'Accepted', '2021-11-21', '0', 2, '2021-06-21', 11, 55);
+(44, 5000000, 'Cleared', '2022-06-25', '0', 2, '2021-06-25', 2, 57),
+(45, 3000000, 'Cleared', '2021-09-25', '0', 2, '2021-06-25', 2, 58),
+(47, 5000000, 'Accepted', '2021-11-26', '0', 2, '2021-06-26', 44, 60),
+(48, 6000000, 'Cleared', '2021-11-20', '0', 2, '2021-05-20', 2, 61),
+(49, 5500000, 'Accepted', '2021-11-28', '0', 2, '2021-06-28', 2, 62);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `id_notif` int(11) NOT NULL,
+  `notif` varchar(255) NOT NULL,
+  `dari` varchar(50) NOT NULL DEFAULT '',
+  `untuk` varchar(50) NOT NULL DEFAULT '',
+  `tipe` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_read` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notifikasi`
+--
+
+INSERT INTO `notifikasi` (`id_notif`, `notif`, `dari`, `untuk`, `tipe`, `created_at`, `is_read`) VALUES
+(1, 'Ada peminjaman baru', '2', 'petugas', 'approval', '2021-06-25 19:04:55', 1),
+(4, 'Peminjaman anda diterima', 'petugas', '2', 'accept', '2021-06-25 20:02:14', 1),
+(5, 'Ada peminjaman baru', '9', 'petugas', 'approval', '2021-06-25 20:28:50', 1),
+(6, 'Peminjaman anda ditolak', 'petugas', '9', 'decline', '2021-06-25 20:29:36', 1);
 
 -- --------------------------------------------------------
 
@@ -190,12 +228,12 @@ CREATE TABLE `pinjaman` (
 --
 
 INSERT INTO `pinjaman` (`id_pinjaman`, `jml_pinjaman`, `status`, `angsuran`, `tenor`, `plafon`, `bunga`, `denda`, `tgl_pinjaman`, `id_anggota`, `jenis_jaminan`, `jaminan_ktp`, `jaminan_surat`, `jaminan_pajak`, `jaminan_stnk`, `jaminan_foto`, `taksiran_jaminan`) VALUES
-(43, 500000, 'Accepted', 416667, '2021-11-07', 0, 2, 0, '2021-05-07', 13, 'Tanah', '1620364045-avatar-2.jpg', '1620364045-333.jpg', '1620364045-444.jpg', NULL, NULL, 600000),
-(51, 1500000, 'Accepted', 1105000, '2021-12-11', 0, 2, 0, '2021-06-11', 7, 'Tanah', '1623327124-bpkb.jpg', '1623327124-jtp.jpg', '1623327124-stnk.jpg', NULL, NULL, NULL),
-(52, 1000000, 'On Going', 1060000, '2021-11-11', 0, 2, 0, '2021-06-11', 2, 'Kendaraan', '1623327164-jtp.jpg', '1623327164-bpkb.jpg', NULL, '1623327164-stnk.jpg', '1623327164-foto.jpg', NULL),
-(53, 1200000, 'On Going', 1272000, '2021-11-12', 0, 2, 0, '2021-06-12', 9, 'Tanah', '1623395068-jtp.jpg', '1623395068-bpkb.jpg', '1623395068-stnk.jpg', NULL, NULL, NULL),
-(54, 1500000, 'Cleared', 0, '2021-12-20', 0, 2, 0, '2021-06-20', 11, 'Tanah', '1624108806-jtp.jpg', '1624108806-bpkb.jpg', '1624108806-stnk.jpg', NULL, NULL, NULL),
-(55, 2000000, 'Accepted', -80000, '2021-11-21', 0, 2, 0, '2021-06-21', 11, 'Tanah', '1624109158-jtp.jpg', '1624109158-stnk.jpg', '1624109158-bpkb.jpg', NULL, NULL, NULL);
+(57, 5000000, 'Cleared', 0, '2022-06-25', 0, 2, 0, '2021-06-25', 2, 'Tanah', '1624475756-jtp.jpg', '1624475756-bpkb.jpg', '1624475756-stnk.jpg', NULL, NULL, NULL),
+(58, 3000000, 'Cleared', 0, '2021-09-25', 0, 2, 0, '2021-06-25', 2, 'Tanah', '1624475977-jtp.jpg', '1624475977-bpkb.jpg', '1624475977-stnk.jpg', NULL, NULL, NULL),
+(60, 5000000, 'Accepted', 5300000, '2021-11-26', 0, 2, 0, '2021-06-26', 44, 'Tanah', '1624569939-jtp.jpg', '1624569939-bpkb.jpg', '1624569939-stnk.jpg', NULL, NULL, NULL),
+(61, 6000000, 'Cleared', 0, '2021-11-20', 0, 2, 50000, '2021-05-20', 2, 'Tanah', '1624570844-jtp.jpg', '1624570844-bpkb.jpg', '1624570844-stnk.jpg', NULL, NULL, NULL),
+(62, 5500000, 'Accepted', 5830000, '2021-11-28', 0, 2, 0, '2021-06-28', 2, 'Tanah', '1624647895-jtp.jpg', '1624647895-bpkb.jpg', '1624647895-stnk.jpg', NULL, NULL, NULL),
+(63, 2000000, 'Declined', 2120000, '2021-11-27', 0, 2, 0, '2021-06-27', 9, 'Tanah', '1624652930-jtp.jpg', '1624652930-bpkb.jpg', '1624652930-stnk.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -428,6 +466,12 @@ ALTER TABLE `histori_pinjaman`
   ADD KEY `histori_pinjaman_ibfk_2` (`id_pinjaman`);
 
 --
+-- Indexes for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`id_notif`);
+
+--
 -- Indexes for table `petugas`
 --
 ALTER TABLE `petugas`
@@ -481,13 +525,19 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `angsuran`
 --
 ALTER TABLE `angsuran`
-  MODIFY `id_angsuran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_angsuran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `histori_pinjaman`
 --
 ALTER TABLE `histori_pinjaman`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `petugas`
@@ -499,7 +549,7 @@ ALTER TABLE `petugas`
 -- AUTO_INCREMENT for table `pinjaman`
 --
 ALTER TABLE `pinjaman`
-  MODIFY `id_pinjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_pinjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `riwayat_simpanan`

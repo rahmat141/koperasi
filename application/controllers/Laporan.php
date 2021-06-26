@@ -27,4 +27,13 @@ class Login extends CI_Controller
 		$data['simpananW'] = $this->model_simpanan->total_simpanWajib($where);
 		$this->load->view('v_laporan', $data);
 	}
+	public function readNotif()
+    {
+        $where = $this->input->post('untuk');
+        $read = $this->input->post('is_read');
+
+        $this->db->set('is_read', $read);
+        $this->db->where('untuk', $where);
+        $this->db->update('notifikasi');
+    }
 }

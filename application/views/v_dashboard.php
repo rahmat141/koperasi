@@ -127,27 +127,39 @@
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php $ida = $this->session->id_anggota;  ?>
+              <a class="nav-link dropdown-toggle" href="#" onclick="read(<?= $ida ?>)" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">1</span>
+                <span class="badge badge-danger badge-counter"><?= $countNotif ?></span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Notifikasi
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                
+                <?php foreach ($notifikasi as $key => $value) { 
+                  if ($value->tipe == 'approval' && $value->is_read == 0) { ?>
+                    <a class="dropdown-item d-flex align-items-center" href="<?= base_url('pinjaman/acc_pinjaman') ?>">
+                  <?php }elseif($value->tipe == 'accept' && $value->is_read == 0){?>
+                    <a class="dropdown-item d-flex align-items-center" href="<?= base_url('Pinjaman/show_pinjaman/').$ida ?>">
+                  <?php }elseif($value->tipe == 'decline' && $value->is_read == 0){?>
+                    <a class="dropdown-item d-flex align-items-center" href="<?= base_url('Pinjaman/show_pinjaman/').$ida ?>">
+                  <?php }else{ ?>
+                    <a class="dropdown-item d-flex align-items-center text-gray-500" href="#">
+                  <?php } ?>
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">
                       <i class="fas fa-file-alt text-white"></i>
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    <div class="small text-gray-500"><?= $value->created_at ?></div>
+                    <span class="font-weight-bold"><?= $value->notif ?></span>
                   </div>
                 </a>
+                <?php } ?>
                 <!-- <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a> -->
               </div>
             </li>
@@ -199,6 +211,7 @@
            <div class="row">
            <div class="col-xl-4 col-lg-6">
               <div class="card shadow mb-4">
+              <!-- <?= var_dump($notifikasi) ?> -->
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Pinjaman</h6>
@@ -368,6 +381,24 @@
   <script src="<?php echo base_url().'asset/masuk/js/demo/chart-pie-demo.js'?>"></script>
 
   <script type="text/javascript">
+      function read(id){
+          console.log('ok');
+          $.ajax({
+            url : 'Dashboard/readNotif',
+            type : 'post',
+            data : {
+              'is_read': 1,
+              'untuk' : id
+            },
+            dataType: 'json',
+            succees: function(response){
+              console.log('dibaca '+response);
+            },
+            error: function(error){
+              console.log(error);
+            }
+          })
+        }
       // Pie Chart Example
         var ctx = document.getElementById("myPieChart");
         var myPieChart = new Chart(ctx, {

@@ -45,6 +45,7 @@ echo $this->session->flashdata('sukses');
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                <center><img src="<?= base_url().'asset/foto/logokoperasibaru.jpg' ?>" style="width: 5rem; height: 5rem;"></center>
                     <form class="login100-form validate-form" action="<?=base_url()?>index.php/Login/aksi_login"
                         method="POST">
                         <span class="login100-form-title p-b-10">

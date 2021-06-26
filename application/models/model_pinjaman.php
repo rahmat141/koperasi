@@ -112,10 +112,25 @@ class model_pinjaman extends CI_Model
         return $query->result();
     }
 
-    // public function jmlAngsuran($id_anggota)
-    // {
-    //     # code...
-    // }
+    public function getNotif($where)
+    {
+        $this->db->select("*");
+        $this->db->from('notifikasi');
+        $this->db->where('untuk', $where);
+        $this->db->limit(5);
+        $this->db->order_by('created_at', 'DESC');
+        return $this->db->get()->result();
+    }
+
+    public function getNotifNotRead($where)
+    {
+        $this->db->select("*");
+        $this->db->from('notifikasi');
+        $this->db->where('untuk', $where);
+        $this->db->where('is_read', 0);
+        $query = $this->db->count_all_results();
+        return $query;
+    }
 
     public function getAngsuranOnGOing($id_anggota)
     {
