@@ -411,7 +411,7 @@
 				<script src="<?php echo base_url() . 'asset/js/demo/chart-area-demo.js' ?>"></script>
 				<script src="<?php echo base_url() . 'asset/js/demo/chart-pie-demo.js' ?>"></script>
 				<script>
-				function Comma(Num) { //function to add commas to textboxes
+				function Comma(Num) { 
 					Num += '';
 					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
 					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
@@ -451,9 +451,6 @@
 						$('#tgl_bayar-m').html('melebihi tanggal bayar dikenakan denda');
 						$('#denda').val(50000);
 					}
-					/* day = date.getDate();
-					month = date.getMonth() + 1;
-					year = date.getFullYear(); */
 				});
 
 				</script>

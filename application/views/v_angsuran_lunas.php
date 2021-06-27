@@ -312,21 +312,22 @@
 												</tr>
 											</div>
 											<?php
+											$tgl_bayar[] = '';
+											$tgl_harus_bayar = '';
+											$tgl_angsuran = $p->tgl_pinjaman;
 											$tglskrg = date("Y-m-d");
 											$date1 = date_create($p->tgl_pinjaman);
-											$date2 = date_create($tglskrg);
+											$date2 = date_create($p->tenor);
 											$diff = date_diff($date1, $date2);
-											$tgl_bayar = strtotime("next month", strtotime($p->tgl_pinjaman));
-											$tgl_bayar = date('Y-m-d', $tgl_bayar);
-											if ($tglskrg > $tgl_bayar) {
-												while ($tgl_bayar < $tglskrg) {
-													$tgl_bayar = strtotime("next month", strtotime($tgl_bayar));
-													$tgl_bayar = date('Y-m-d', $tgl_bayar);
-												}
-												$denda = (50000 * ($diff->m - $jml_angsuran));
-											} else {
-												$denda = 0;
+											for ($i=0; $i <= $diff->m; $i++) { 
+												$tgl_bayar[$i] = date('Y-m-d', strtotime("next month", strtotime($tgl_angsuran)));
+												$tgl_angsuran = $tgl_bayar[$i];
 											}
+											for ($i=0; $i <= $jml_angsuran; $i++) { 
+												$tgl_harus_bayar = $tgl_bayar[$i];
+											}
+											echo 'Tanggal Bayar Angsuran : '. $tgl_harus_bayar;
+											// echo $tgl_harus_bayar;
 											?>
 											<div class="form-group">
 												<tr>
@@ -337,14 +338,14 @@
 											<div class="form-group">
 												<tr>
 													<td>Denda</td>
-													<td><input type="text" name="denda" class="form-control form-control-user" value=
-													<?php if($denda < 0){ echo 0; }else{ echo $denda; } ?> readonly></td>
+													<td><input type="text" id="denda" name="denda" class="form-control form-control-user" value='0' readonly></td>
 												</tr>
 											</div>
 											<div class="form-group">
 												<tr>
 													<td>Tanggal Bayar</td>
-													<td><input type="date" name="tanggal_angsuran" class="form-control form-control-user" required></td>
+													<td><input type="date" id="tgl_bayar" name="tanggal_angsuran" class="form-control form-control-user" required>
+													<span id="tgl_bayar-m" style="color: red;" hidden></span></td>
 												</tr>
 											</div>
 											<tr>
@@ -401,6 +402,50 @@
 				<!-- Page level custom scripts -->
 				<script src="<?php echo base_url() . 'asset/js/demo/chart-area-demo.js' ?>"></script>
 				<script src="<?php echo base_url() . 'asset/js/demo/chart-pie-demo.js' ?>"></script>
+				<script>
+				function Comma(Num) { 
+					Num += '';
+					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+					x = Num.split('.');
+					x1 = x[0];
+					x2 = x.length > 1 ? '.' + x[1] : '';
+					var rgx = /(\d+)(\d{3})/;
+					while (rgx.test(x1))
+						x1 = x1.replace(rgx, '$1' + ',' + '$2');
+					return x1 + x2;
+				}
+				$('#nominalv').on('input', function(){
+					var isi = this.value;
+					var nominal = $('#nominal').val();
+					var required = $('#angsuran').val();
+					var alert = $('input-m');
+					nominal = parseFloat(isi.replace(/,/g, ''));
+					if (nominal < required) {
+						$('#nominal-m').removeAttr('hidden');
+						$('#nominal-m').show('hidden');
+					}else{
+						$('#nominal-m').hide();
+						$('#nominal').val(nominal);
+					}
+					// console.log($('#angsuran').val(nominal));
+				});
+
+				$('#tgl_bayar').on('change', function(){
+					var date = this.value;
+					var tgl_angsuran = '<?= $tgl_harus_bayar ?>'
+					if (date <= tgl_angsuran) {
+						$('#tgl_bayar-m').hide();
+						$('#denda').val(0);
+					}else{
+						$('#tgl_bayar-m').removeAttr('hidden');
+						$('#tgl_bayar-m').show('hidden');
+						$('#tgl_bayar-m').html('melebihi tanggal bayar dikenakan denda');
+						$('#denda').val(50000);
+					}
+				});
+
+				</script>
 </body>
 
 </html>
