@@ -15,6 +15,18 @@
             return $query->result();
     	}
 
+        public function tampilAngsuranAccepted($where)
+        {
+            $this->db->select("id_angsuran, ap.id_pinjaman,nominal,tanggal_angsuran,ang.id_anggota, tgl_pinjaman, jml_pinjaman, tenor, ap.angsuran");
+            $this->db->from('angsuran a');
+            $this->db->join('pinjaman ap','a.id_pinjaman = ap.id_pinjaman');
+            $this->db->join('anggota ang','ap.id_anggota = ang.id_anggota');
+            $this->db->where('ang.id_anggota',$where);
+            $this->db->where('ap.status', 'Accepted');
+            $query = $this->db->get();
+            return $query->result();
+        }
+
          public function tampil_angsuranPetugas($where){
             $this->db->select("nama,id_angsuran,ap.id_pinjaman,nominal,tanggal_angsuran,ang.id_anggota");
             $this->db->from('angsuran a');

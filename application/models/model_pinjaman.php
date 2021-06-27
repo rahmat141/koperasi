@@ -143,6 +143,17 @@ class model_pinjaman extends CI_Model
         return $query;
     }
 
+    public function getDataAngsuranOnGOing($id_anggota)
+    {
+        $this->db->select("sum(nominal) as total_setor");
+        $this->db->from('pinjaman p');
+        $this->db->join('angsuran a', 'p.id_pinjaman = a.id_pinjaman');
+        $this->db->where('p.id_anggota', $id_anggota);
+        $this->db->where('p.status', 'Accepted');
+        $query = $this->db->get()->result();
+        return $query;
+    }
+
     public function pinjaman()
     {
         $this->db->select('*');

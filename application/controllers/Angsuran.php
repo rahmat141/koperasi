@@ -73,17 +73,13 @@ class Angsuran extends CI_Controller
             $tgl_mulai = $getLastPinjaman['tgl_pinjaman'];
             $tgl_selesai = $getLastPinjaman['tenor'];
         }
-
         //convert
         $timeStart = strtotime($tgl_mulai);
         $timeEnd = strtotime($tgl_selesai);
-
         // Menambah bulan ini + semua bulan pada tahun sebelumnya
         $numBulan = 1 + (date("Y", $timeEnd) - date("Y", $timeStart)) * 12;
-
         // hitung selisih bulan
         $numBulan += date("m", $timeEnd) - date("m", $timeStart);
-
         $data['bulann'] = $numBulan;
         $data['data_pinjaman'] = null;
         if (!$getLastPinjaman) {
@@ -154,7 +150,7 @@ class Angsuran extends CI_Controller
     public function show_angsuran($where)
     {
         $where = $this->session->id_anggota;
-        $data['angsuran'] = $this->model_angsuran->tampil_angsuran($where);
+        $data['angsuran'] = $this->model_angsuran->tampilAngsuranAccepted($where);
 
         $this->load->view('v_daftarangsuran', $data);
     }

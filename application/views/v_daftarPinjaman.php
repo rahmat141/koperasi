@@ -123,7 +123,7 @@
                             </div>
                         </li>
 
-                        
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -177,10 +177,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <b>Total Angsuran: </b>
-                                <?php
-                                        foreach ($totalAngsuran as $total) { ?>
-                                    <b class="text-success">Rp <?php echo number_format($total->total, 2, ',', '.'); ?></b>
+                                <b>Sisa Pinjaman: </b>
+                                <?php foreach ($pinjaman as $total) { ?>
+                                    <?php
+                                    $sisa_pinjaman = $total->jml_pinjaman;
+                                    $tgl_pinjam  = date_create($total->tgl_pinjaman);
+                                    $tenor = date_create($total->tenor);
+                                    $diff = date_diff($tgl_pinjam, $tenor);
+                                    $bulan = $diff->m;
+                                    $angsuran = round($total->jml_pinjaman / $bulan, 0);
+                                    for ($i = 0; $i < $jml_angsuran; $i++) {
+                                        $sisa_pinjaman = $sisa_pinjaman - $angsuran;
+                                    }
+
+                                    ?>
+                                    <b class="text-success">Rp <?php echo number_format($sisa_pinjaman, 2, ',', '.'); ?></b>
                                 <?php } ?>
                             </td>
                         </tr>
@@ -190,7 +201,7 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Daftar Pinjaman</h6>
                         </div>
-                        <!-- <?= var_dump($pinjaman) ?> -->
+                        <!-- <?= var_dump($dataAngsuran) ?> -->
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -201,6 +212,7 @@
                                             <th>Jumlah Pinjaman</th>
                                             <th>Tanggal Pengembalian</th>
                                             <th>Bunga</th>
+                                            <th>Sisa Pinjaman</th>
                                             <th>Total Setoran</th>
                                             <th>Total Denda</th>
                                             <th>Status</th>
@@ -223,9 +235,21 @@
                                                 } ?>
                                             </td>
                                             <td><?php echo $data->bunga; ?>%</td>
-                                            <!-- <td>Rp<?php echo number_format($data->angsuran + $data->denda, 2, ',', '.'); ?></td> -->
-                                            <td>Rp<?php echo number_format($data->angsuran, 2, ',', '.'); ?></td>
 
+                                            <?php
+                                            $sisa_pinjaman = $data->jml_pinjaman;
+                                            $tgl_pinjam  = date_create($data->tgl_pinjaman);
+                                            $tenor = date_create($data->tenor);
+                                            $diff = date_diff($tgl_pinjam, $tenor);
+                                            $bulan = $diff->m;
+                                            $angsuran = round($data->jml_pinjaman / $bulan, 0);
+                                            for ($i = 0; $i < $jml_angsuran; $i++) {
+                                                $sisa_pinjaman = $sisa_pinjaman - $angsuran;
+                                            }
+
+                                            ?>
+                                            <td>Rp<?php echo number_format($sisa_pinjaman, 2, ',', '.') ?></td>
+                                            <td>Rp<?php echo number_format($data->angsuran, 2, ',', '.'); ?></td>
                                             <?php
                                             $tglskrg = date("Y-m-d");
                                             $date1 = date_create($data->tgl_pinjaman);
@@ -239,17 +263,9 @@
                                                     $tgl_bayar = date('Y-m-d', $tgl_bayar);
                                                 }
                                                 $denda = (50000 * ($diff->m - $jml_angsuran));
-                                                // $this->db->query('  UPDATE pinjaman
-                                                //                     SET denda = ' . $denda . '
-                                                //                     WHERE id_pinjaman = ' . $data->id_pinjaman);
                                             } else {
                                                 $denda = 0;
-                                                // $this->db->query('  UPDATE pinjaman
-                                                //                     SET denda = ' . $denda . '
-                                                //                     WHERE id_pinjaman = ' . $data->id_pinjaman);
                                             }
-                                            // echo $diff->m - $jml_angsuran . ' bulan ';
-                                            // echo 'Bayar Sebelum Tanggal ' . substr($tgl_bayar, -2);
                                             echo 'Bayar Sebelum Tanggal ' . $tgl_bayar;
                                             echo ' sekarang tanggal ' . $tglskrg;
                                             ?>

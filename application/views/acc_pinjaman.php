@@ -216,14 +216,14 @@
 													<?php if ($data->status == "On Going") { ?>
 														<input type="submit" name="submit" class="btn btn-primary" value="Accept" style="width: 100%">
 													<?php } else { ?>
-														<input type="submit" name="submit" class="btn btn-primary" value="Accept" style="width: 100%" disabled>
+														<input type="submit" name="submit" class="btn btn-primary" value="Accept" style="width: 100%">
 													<?php } ?>
 											</td>
 											<td>
 												<?php if ($data->status == "On Going") { ?>
 													<a href="<?= base_url() . 'index.php/Pinjaman/tolak/' . $data->id_pinjaman . '/' . $data->id_anggota?>" class="btn btn-danger">Deny</a>
 												<?php } else { ?>
-													<button href="<?= base_url() . 'index.php/Pinjaman/tolak/' . $data->id_pinjaman . '/' . $data->id_anggota?>" class="btn btn-danger" disabled>Deny</button>
+													<button href="<?= base_url() . 'index.php/Pinjaman/tolak/' . $data->id_pinjaman . '/' . $data->id_anggota?>" class="btn btn-danger">Deny</button>
 												<?php } ?>
 
 											</td>

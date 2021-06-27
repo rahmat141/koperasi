@@ -323,6 +323,7 @@ class Pinjaman extends CI_Controller
             $data['pinjaman'] = $this->model_pinjaman->tampil_pinjaman($where);
         }
         $data['jml_angsuran'] = $this->model_pinjaman->getAngsuranOnGOing($where);
+        $data['dataAngsuran'] = $this->model_pinjaman->getDataAngsuranOnGOing($where);
         $this->load->view('v_daftarPinjaman', $data);
     }
 
