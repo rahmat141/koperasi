@@ -432,6 +432,7 @@
 					if (nominal < required) {
 						$('#nominal-m').removeAttr('hidden');
 						$('#nominal-m').show('hidden');
+						$('#nominal').val('');
 					}else{
 						$('#nominal-m').hide();
 						$('#nominal').val(nominal);

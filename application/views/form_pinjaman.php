@@ -204,7 +204,9 @@
                             <form action="<?= base_url() ?>index.php/Pinjaman/simpan_pinjaman" method="POST" enctype='multipart/form-data'>
                                 <div class="card-body">
                                     <label>Jumlah Pinjaman</label>
-                                    <input type="number" class="form-control" name="jml_pinjaman" required="" placeholder="Masukkan Jumlah Pinjaman"><br>
+                                    <input type="text" id="jml_pinjamanv" onkeyup="javascript:this.value=Comma(this.value);" class="form-control" name="jml_pinjamanv" pattern="^[0-9,]*$" title="Inputan harus angka" required="" placeholder="Masukkan Jumlah Pinjaman">
+                                    <input type="number" id="jml_pinjaman" class="form-control" name="jml_pinjaman" required="" placeholder="Masukkan Jumlah Pinjaman" hidden>
+                                    <br>
                                     <label>Tanggal Pinjaman</label>
                                     <input type="date" class="form-control" required name="tgl_pinjaman"><br>
 
@@ -223,20 +225,20 @@
                                     <label for="jaminan">Jaminan</label>
                                     <select class="form-control" id="jaminan" name="jaminan">
                                         <option disabled selected>Pilih Jaminan</option>
-                                        <option value="Tanah">Surat Tanah</option>
+                                        <option value="Tanah">Sertifikat Tanah</option>
                                         <option value="Kendaraan">Kendaraan</option>
                                     </select><br>
 
                                     <div id="file-bukti">
-                                        <div class="input-group mb-3" id="div_ktp" hidden>
+                                        <!-- <div class="input-group mb-3" id="div_ktp" hidden>
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="inputGroupFileAddon01">Foto KTP</span>
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="file_ktp" name="f_ktp" aria-describedby="inputGroupFileAddon01" required>
+                                                <input type="file" class="custom-file-input" id="file_ktp" name="f_ktp" aria-describedby="inputGroupFileAddon01">
                                                 <label class="custom-file-label" id="file-label-ktp" for="file">Unggah file atau foto</label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="input-group mb-3" id="div_surat" hidden>
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text label_surat" id="inputGroupFileAddon02" id="label_surat">Surat</span>
@@ -346,6 +348,25 @@
             <script src="<?php echo base_url() . 'asset/js/demo/chart-area-demo.js' ?>"></script>
             <script src="<?php echo base_url() . 'asset/js/demo/chart-pie-demo.js' ?>"></script>
             <script>
+                function Comma(Num) { 
+					Num += '';
+					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+					Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+					x = Num.split('.');
+					x1 = x[0];
+					x2 = x.length > 1 ? '.' + x[1] : '';
+					var rgx = /(\d+)(\d{3})/;
+					while (rgx.test(x1))
+						x1 = x1.replace(rgx, '$1' + ',' + '$2');
+					return x1 + x2;
+				}
+                $('#jml_pinjamanv').on('input', function(){
+					var isi = this.value;
+					var nominal = $('#jml_pinjaman').val();
+					nominal = parseFloat(isi.replace(/,/g, ''));
+                    $('#jml_pinjaman').val(nominal);
+					// console.log($('#angsuran').val(nominal));
+				});
                 $(document).ready(function() {
                     $('#file_ktp').on('change', function(e) {
                         var filename = e.target.files[0].name;
@@ -375,17 +396,17 @@
 
                     $('#jaminan').on('change', function() {
                         if ($(this).val() === 'Tanah') {
-                            $('div #div_ktp').prop('hidden', false);
+                            // $('div #div_ktp').prop('hidden', false);
                             $('div #div_surat').prop('hidden', false);
                             $('div #div_pajak').prop('hidden', false);
                             $('div #div_stnk').prop('hidden', true);
                             $('div #div_foto').prop('hidden', true);
-                            $('.label_surat').html('Surat Tanah');
+                            $('.label_surat').html('Sertifikat Tanah');
                             $('#file_pajak').prop('required', true);
                             $('#file_stnk').prop('required', false);
                             $('#foto_barang').prop('required', false);
                         } else if ($(this).val() === 'Kendaraan') {
-                            $('div #div_ktp').prop('hidden', false);
+                            // $('div #div_ktp').prop('hidden', false);
                             $('div #div_surat').prop('hidden', false);
                             $('div #div_stnk').prop('hidden', false);
                             $('div #div_foto').prop('hidden', false);

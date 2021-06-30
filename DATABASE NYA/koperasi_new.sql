@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2021 at 08:21 AM
+-- Generation Time: Jun 27, 2021 at 12:30 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,9 +32,9 @@ CREATE TABLE `anggota` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `nik` int(11) NOT NULL,
+  `nik` text NOT NULL,
   `email` varchar(255) NOT NULL,
-  `no_hp` int(12) NOT NULL,
+  `no_hp` text NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `ktp` varchar(255) NOT NULL,
   `bpkb` varchar(255) NOT NULL,
@@ -48,41 +48,41 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `username`, `password`, `nama`, `nik`, `email`, `no_hp`, `alamat`, `ktp`, `bpkb`, `stnk`, `jenis_kelamin`, `status_anggota`) VALUES
-(2, 'eben', '123', 'Eben Ezer sibarani', 8345785, 'ebenezer@gmail.com', 214748364, 'Bida Ayu', 'ktp.jpg', '7703b79a9480c6937b9d150455e1210c.jpg', '47b8807ed53fe14bf91c2864fd241e1c.jpg', 'Laki-laki', 1),
-(7, 'Joan', '321', 'Joan Gray', 520200020, 'joangray12@gmail.com', 87654, 'Batam Kepri', '', '', '', 'Laki-laki', 1),
-(9, 'firman', '123', 'Firmansyah Arnold', 67678687, 'firmannsyah@gmail.com', 0, 'Semarang', 'c36218d156495147ee75da9993e4fdd0.png', '8a9c28e6060c1045d76d59291a22d8c5.png', 'f9eca82f6832c69b8b18f37e5e421414.png', 'Laki-laki', 1),
-(10, 'tes', 'tes', 'tes', 67678687, 'tes@gmail.com', 0, 'cibinong', 'e1f42c8b3cf73abe94651c10af7d83c4.jpg', '', '', 'Laki-laki', 1),
-(11, 'albert', '123', 'Albert Frans Kevin', 214576246, 'albert@gmail.com', 82211, 'Batam', 'faf089201ee8cf626af8fa49a2f52dea.jpg', 'cc2fa33f5bca8414b672f44241352de0.jpeg', '48d087b11530eb69e95cc3beed93e7e9.jpg', 'Laki-laki', 1),
-(13, 'andre', '123', 'Andre Parhusip', 235235, 'andre@gmail.com', 8212231, 'bougenvilee', '7767ad53caa58f68fa804ae2e847ab2d.jpg', '', '', 'Laki-laki', 1),
-(14, 'niken', '123', 'Niken Pragaluh', 1515565, 'niken@gmail.com', 7812333, 'Bali', '686e2f717a070b2db55d54f7fd6ffef4.jpg', '', '', 'Perempuan', 1),
-(16, 'sandona', '123', 'sandona', 1222211, 'sandona@gmail.com', 812455, 'dekat sandona', '0fdb9c2333393c1f4f8bf49dbecdb15e.jpg', '', '', 'Laki-laki', 1),
-(18, 'nadia', '123', 'Nadia', 235235, 'nadia@gmail.com', 2147483647, 'Batam, Kepulauan Riau,', '8eeee2aa89f9bdfa77ffb7dc69167f9c.jpg', '', '', 'Perempuan', 2),
-(19, 'hariadi', '123', 'Hariadi Arfah', 2323232, 'hariadi@gmail.com', 2147483647, 'Makasssar', '1d24949d471678499317b7eb80f1e3b7.jpg', '', '', 'Laki-laki', 1),
-(21, 'bunga', '123', 'bunga c', 1233, 'bunga@gmail.com', 81233, 'jkt', '531325be029634f97f08f0ae9aa013be.jpeg', '', '', 'Perempuan', 2),
-(22, 'tandu', '123', 'tandu', 123331, 'tandu@gmail.com', 81231, 'bali', '47df241ba17d0d5304b9140e63d6c3d5.jpg', '', '', 'Laki-laki', 1),
-(23, 'jono', '123', 'Bang Jono', 123411, 'jono@gmail.com', 8123456, 'Afrika', '1564a1ad392dbc1b52d5f90f57ed8351.jpg', '', '', 'Laki-laki', 1),
-(24, 'valentino', '123', 'valentino', 123312, 'valentino@gmail.com', 812331, 'Jakarta', 'aed71b9ed9b2c5edd2002a978393cd0e.jpeg', '', '', 'Laki-laki', 1),
-(25, 'sutris', '123', 'Sutris', 12331, 'sutris@gmail.com', 81231, 'Batam', 'cae4ff703568837670cc11b68affc33b.jpg', '', '', 'Laki-laki', 2),
-(26, 'sumitro', '123', 'Sumitro', 123123, 'sumitro@gmail.com', 812312, 'Batam', '3a10d7f6aa4ae364356eeacfbf8e8e45.jpg', '', '', 'Laki-laki', 1),
-(27, 'kevin', '123', 'Kevin Sihotang', 2147483647, 'kevin@gmail.com', 2147483647, 'Batam, Kepulauan Riau,', '27c8604e24eee2c5e0c52a88724e6876.jpg', '', '', 'Laki-laki', 1),
-(28, 'judika', '123', 'Judika', 2147483647, 'judika@gmail.com', 812311, 'Medan', '11584a9028b666d09e3ac6cd813ec567.jpg', '', '', 'Laki-laki', 1),
-(29, 'hendrik', '123', 'Hendrik', 2147483647, 'hendrik@gmail.com', 812311, 'Batam', 'b81da51cd7579d793e94d9b8a389927f.jpg', '', '', 'Laki-laki', 1),
-(30, 'jago', '123', 'Bang Jago', 2147483647, 'jago@gmail.com', 812312, 'Amerika', '99bdae264434d4610b0518237fd9a275.jpeg', '', '', 'Laki-laki', 2),
-(31, 'sukijah', '123', 'Sukijah', 235235, 'sukijah@gmail.com', 81231, 'Papua', '257028c9353eef6de8630196542c6583.jpg', '', '', 'Perempuan', 1),
-(32, 'nurhayati', '123', 'Nurhayati', 2147483647, 'nurhayati@gmail.com', 2147483647, 'Batam, Kepulauan Riau,', '603dae5ac9c6e558fa57403ee17d4c95.jpg', '', '', 'Perempuan', 2),
-(33, 'januari', '123', 'Januari', 2147483647, 'januari@gmail.com', 2147483647, 'Jawa Timur', '8823ad1fc401a1febf8149f60e4920bf.jpg', '', '', 'Laki-laki', 1),
-(34, 'joshua', '123', 'Joshua', 2147483647, 'joshua@gmail.com', 2147483647, 'Kalideres', 'c2747580470966f1e5d8c7becc8c6854.png', '', '', 'Laki-laki', 1),
-(35, 'cecil', '123', 'Cecilia', 2147483647, 'cecil23@gmail.com', 2147483647, 'Amerika', '1553638843570591304cd78856664e29.jpg', '', '', 'Perempuan', 1),
-(36, 'eli', '123', 'Elifrans', 1662721853, 'elifrans@gmail.com', 2147483647, 'Maumere', '8a39519dfb62d3c825ee5ab239e30c65.jpg', '', '', 'Laki-laki', 1),
-(37, 'nikolas', '123', 'Nikolas', 2147483647, 'nikolassinaga1@gmail.com', 2147483647, 'Batu Aji', 'ab64d40edaa84ce645716a3e42f272b1.png', '', '', 'Laki-laki', 1),
-(38, 'jono', '123', 'Jono', 2147483647, 'albertsihotang58@gmail.com', 2147483647, 'Batam, Kepulauan Riau,', '130a7152b503a3617ebe6d2ed95283bf.jpg', '', '', 'Laki-laki', 1),
-(39, 'tiara', '123', 'Tiara Andini', 2147483647, 'tiara@gmail.com', 81231147, 'Kediri', 'de18d4d9d0cc87eb32b7f03edb7b1070.jpg', '', '', 'Perempuan', 1),
-(40, 'syahrini', '123', 'Syahrini', 2147483647, 'syahrini88@gmail.com', 2147483647, 'Afghanistan', 'c921c48ec05bec441b0788e59e141d0c.jpg', '', '', 'Perempuan', 2),
-(41, 'dayana', '123', 'Dayana', 2147483647, 'dayana11@gmail.com', 81243165, 'Rusia', '3952368b6e7fcea975f4b84eeb7d85c5.jpg', '', '', 'Perempuan', 1),
-(42, 'aqua', '123', 'Aqua', 235235, 'aqua88@gmail.com', 2147483647, 'Jl pendekar no 11', '9f5601a04a4a7d6b6db3ff8c166104ba.jpg', '', '', 'Laki-laki', 1),
-(43, 'citra', '123', 'Citra Skolastika', 2147483647, 'citra@gmail.com', 2147483647, 'Jl Bojongsoang no 1', '4daf58763e97812d4a79d7ce841294f2.jpg', '', '', 'Perempuan', 1),
-(44, 'fredd', '1234', 'Freddy', 2147483647, 'fredy@gmail.com', 2147483647, 'Bandung Permata', '32e2ea42bb722b3ffb98b7b39495f7ef.png', '', '', 'Laki-laki', 1),
-(45, 'fredi', '123', 'bebas', 2110254512, 'fredi@mail.com', 2165154, 'Bandung Permata', 'c9457596e8f47d7e65a2f2403b90271b.jpg', '', '', 'Laki-laki', 2);
+(2, 'eben', '123', 'Eben Ezer sibarani', '8345785', 'ebenezer@gmail.com', '214748364', 'Bida Ayu', 'ktp.jpg', '7703b79a9480c6937b9d150455e1210c.jpg', '47b8807ed53fe14bf91c2864fd241e1c.jpg', 'Laki-laki', 1),
+(7, 'Joan', '321', 'Joan Gray', '520200020', 'joangray12@gmail.com', '87654', 'Batam Kepri', '', '', '', 'Laki-laki', 1),
+(9, 'firman', '123', 'Firmansyah Arnold', '67678687', 'firmannsyah@gmail.com', '0', 'Semarang', 'c36218d156495147ee75da9993e4fdd0.png', '8a9c28e6060c1045d76d59291a22d8c5.png', 'f9eca82f6832c69b8b18f37e5e421414.png', 'Laki-laki', 1),
+(10, 'tes', 'tes', 'tes', '67678687', 'tes@gmail.com', '0', 'cibinong', 'e1f42c8b3cf73abe94651c10af7d83c4.jpg', '', '', 'Laki-laki', 1),
+(11, 'albert', '123', 'Albert Frans Kevin', '214576246', 'albert@gmail.com', '82211', 'Batam', 'faf089201ee8cf626af8fa49a2f52dea.jpg', 'cc2fa33f5bca8414b672f44241352de0.jpeg', '48d087b11530eb69e95cc3beed93e7e9.jpg', 'Laki-laki', 1),
+(13, 'andre', '123', 'Andre Parhusip', '235235', 'andre@gmail.com', '8212231', 'bougenvilee', '7767ad53caa58f68fa804ae2e847ab2d.jpg', '', '', 'Laki-laki', 1),
+(14, 'niken', '123', 'Niken Pragaluh', '1515565', 'niken@gmail.com', '7812333', 'Bali', '686e2f717a070b2db55d54f7fd6ffef4.jpg', '', '', 'Perempuan', 1),
+(16, 'sandona', '123', 'sandona', '1222211', 'sandona@gmail.com', '812455', 'dekat sandona', '0fdb9c2333393c1f4f8bf49dbecdb15e.jpg', '', '', 'Laki-laki', 1),
+(18, 'nadia', '123', 'Nadia', '235235', 'nadia@gmail.com', '2147483647', 'Batam, Kepulauan Riau,', '8eeee2aa89f9bdfa77ffb7dc69167f9c.jpg', '', '', 'Perempuan', 2),
+(19, 'hariadi', '123', 'Hariadi Arfah', '2323232', 'hariadi@gmail.com', '2147483647', 'Makasssar', '1d24949d471678499317b7eb80f1e3b7.jpg', '', '', 'Laki-laki', 1),
+(21, 'bunga', '123', 'bunga c', '1233', 'bunga@gmail.com', '81233', 'jkt', '531325be029634f97f08f0ae9aa013be.jpeg', '', '', 'Perempuan', 2),
+(22, 'tandu', '123', 'tandu', '123331', 'tandu@gmail.com', '81231', 'bali', '47df241ba17d0d5304b9140e63d6c3d5.jpg', '', '', 'Laki-laki', 1),
+(23, 'jono', '123', 'Bang Jono', '123411', 'jono@gmail.com', '8123456', 'Afrika', '1564a1ad392dbc1b52d5f90f57ed8351.jpg', '', '', 'Laki-laki', 1),
+(24, 'valentino', '123', 'valentino', '123312', 'valentino@gmail.com', '812331', 'Jakarta', 'aed71b9ed9b2c5edd2002a978393cd0e.jpeg', '', '', 'Laki-laki', 1),
+(25, 'sutris', '123', 'Sutris', '12331', 'sutris@gmail.com', '81231', 'Batam', 'cae4ff703568837670cc11b68affc33b.jpg', '', '', 'Laki-laki', 2),
+(26, 'sumitro', '123', 'Sumitro', '123123', 'sumitro@gmail.com', '812312', 'Batam', '3a10d7f6aa4ae364356eeacfbf8e8e45.jpg', '', '', 'Laki-laki', 1),
+(27, 'kevin', '123', 'Kevin Sihotang', '2147483647', 'kevin@gmail.com', '2147483647', 'Batam, Kepulauan Riau,', '27c8604e24eee2c5e0c52a88724e6876.jpg', '', '', 'Laki-laki', 1),
+(28, 'judika', '123', 'Judika', '2147483647', 'judika@gmail.com', '812311', 'Medan', '11584a9028b666d09e3ac6cd813ec567.jpg', '', '', 'Laki-laki', 1),
+(29, 'hendrik', '123', 'Hendrik', '2147483647', 'hendrik@gmail.com', '812311', 'Batam', 'b81da51cd7579d793e94d9b8a389927f.jpg', '', '', 'Laki-laki', 1),
+(30, 'jago', '123', 'Bang Jago', '2147483647', 'jago@gmail.com', '812312', 'Amerika', '99bdae264434d4610b0518237fd9a275.jpeg', '', '', 'Laki-laki', 2),
+(31, 'sukijah', '123', 'Sukijah', '235235', 'sukijah@gmail.com', '81231', 'Papua', '257028c9353eef6de8630196542c6583.jpg', '', '', 'Perempuan', 1),
+(32, 'nurhayati', '123', 'Nurhayati', '2147483647', 'nurhayati@gmail.com', '2147483647', 'Batam, Kepulauan Riau,', '603dae5ac9c6e558fa57403ee17d4c95.jpg', '', '', 'Perempuan', 2),
+(33, 'januari', '123', 'Januari', '2147483647', 'januari@gmail.com', '2147483647', 'Jawa Timur', '8823ad1fc401a1febf8149f60e4920bf.jpg', '', '', 'Laki-laki', 1),
+(34, 'joshua', '123', 'Joshua', '2147483647', 'joshua@gmail.com', '2147483647', 'Kalideres', 'c2747580470966f1e5d8c7becc8c6854.png', '', '', 'Laki-laki', 1),
+(35, 'cecil', '123', 'Cecilia', '2147483647', 'cecil23@gmail.com', '2147483647', 'Amerika', '1553638843570591304cd78856664e29.jpg', '', '', 'Perempuan', 1),
+(37, 'nikolas', '123', 'Nikolas', '2147483647', 'nikolassinaga1@gmail.com', '2147483647', 'Batu Aji', 'ab64d40edaa84ce645716a3e42f272b1.png', '', '', 'Laki-laki', 1),
+(38, 'jono', '123', 'Jono', '2147483647', 'albertsihotang58@gmail.com', '2147483647', 'Batam, Kepulauan Riau,', '130a7152b503a3617ebe6d2ed95283bf.jpg', '', '', 'Laki-laki', 1),
+(39, 'tiara', '123', 'Tiara Andini', '2147483647', 'tiara@gmail.com', '81231147', 'Kediri', 'de18d4d9d0cc87eb32b7f03edb7b1070.jpg', '', '', 'Perempuan', 1),
+(40, 'syahrini', '123', 'Syahrini', '2147483647', 'syahrini88@gmail.com', '2147483647', 'Afghanistan', 'c921c48ec05bec441b0788e59e141d0c.jpg', '', '', 'Perempuan', 2),
+(41, 'dayana', '123', 'Dayana', '2147483647', 'dayana11@gmail.com', '81243165', 'Rusia', '3952368b6e7fcea975f4b84eeb7d85c5.jpg', '', '', 'Perempuan', 1),
+(42, 'aqua', '123', 'Aqua', '235235', 'aqua88@gmail.com', '2147483647', 'Jl pendekar no 11', '9f5601a04a4a7d6b6db3ff8c166104ba.jpg', '', '', 'Laki-laki', 1),
+(43, 'citra', '123', 'Citra Skolastika', '2147483647', 'citra@gmail.com', '2147483647', 'Jl Bojongsoang no 1', '4daf58763e97812d4a79d7ce841294f2.jpg', '', '', 'Perempuan', 1),
+(45, 'fredi', '123', 'bebas', '2110254512', 'fredi@mail.com', '2165154', 'Bandung Permata', 'c9457596e8f47d7e65a2f2403b90271b.jpg', '', '', 'Laki-laki', 2),
+(46, 'bryan', '1234', 'Bryan', '1231234235', 'bryan@gmail.com', '123412342', 'Bandung Permata', '5ed1543bb4d3951a313d8991c899eab9.jpg', '', '', 'Laki-laki', 2),
+(48, 'fredd', '123', 'Freddy', '2147483647', 'fredy@mail.com', '2147483647', 'Bandung', 'abfdcf94d88496e9b907156fd0d6cae8.jpg', '', '', 'Laki-laki', 2);
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,14 @@ INSERT INTO `angsuran` (`id_angsuran`, `nominal`, `tanggal_angsuran`, `id_pinjam
 (56, 1020000, '2021-07-01', 58),
 (61, 1120000, '2021-06-25', 61),
 (62, 1100000, '2021-07-01', 61),
-(63, 4200000, '2021-07-01', 61);
+(63, 4200000, '2021-07-01', 61),
+(64, 1210000, '2021-06-28', 62),
+(65, 1188000, '2021-07-01', 62),
+(66, 1166000, '2021-07-31', 62),
+(69, 1210000, '2021-07-27', 64),
+(70, 1188000, '2021-09-01', 64),
+(71, 1166000, '2021-10-01', 64),
+(72, 1936000, '2021-10-30', 64);
 
 -- --------------------------------------------------------
 
@@ -146,9 +153,9 @@ CREATE TABLE `histori_pinjaman` (
 INSERT INTO `histori_pinjaman` (`id_history`, `jml_pinjaman`, `status`, `tenor`, `plafon`, `bunga`, `tgl_pinjaman`, `id_anggota`, `id_pinjaman`) VALUES
 (44, 5000000, 'Cleared', '2022-06-25', '0', 2, '2021-06-25', 2, 57),
 (45, 3000000, 'Cleared', '2021-09-25', '0', 2, '2021-06-25', 2, 58),
-(47, 5000000, 'Accepted', '2021-11-26', '0', 2, '2021-06-26', 44, 60),
 (48, 6000000, 'Cleared', '2021-11-20', '0', 2, '2021-05-20', 2, 61),
-(49, 5500000, 'Accepted', '2021-11-28', '0', 2, '2021-06-28', 2, 62);
+(49, 5500000, 'Cleared', '2021-11-28', '0', 2, '2021-06-28', 2, 62),
+(50, 5500000, 'Cleared', '2021-11-30', '0', 2, '2021-06-30', 2, 64);
 
 -- --------------------------------------------------------
 
@@ -174,7 +181,9 @@ INSERT INTO `notifikasi` (`id_notif`, `notif`, `dari`, `untuk`, `tipe`, `created
 (1, 'Ada peminjaman baru', '2', 'petugas', 'approval', '2021-06-25 19:04:55', 1),
 (4, 'Peminjaman anda diterima', 'petugas', '2', 'accept', '2021-06-25 20:02:14', 1),
 (5, 'Ada peminjaman baru', '9', 'petugas', 'approval', '2021-06-25 20:28:50', 1),
-(6, 'Peminjaman anda ditolak', 'petugas', '9', 'decline', '2021-06-25 20:29:36', 1);
+(6, 'Peminjaman anda ditolak', 'petugas', '9', 'decline', '2021-06-25 20:29:36', 1),
+(7, 'Ada peminjaman baru', '2', 'petugas', 'approval', '2021-06-27 07:55:55', 1),
+(8, 'Peminjaman anda diterima', 'petugas', '2', 'accept', '2021-06-27 07:56:15', 0);
 
 -- --------------------------------------------------------
 
@@ -230,10 +239,10 @@ CREATE TABLE `pinjaman` (
 INSERT INTO `pinjaman` (`id_pinjaman`, `jml_pinjaman`, `status`, `angsuran`, `tenor`, `plafon`, `bunga`, `denda`, `tgl_pinjaman`, `id_anggota`, `jenis_jaminan`, `jaminan_ktp`, `jaminan_surat`, `jaminan_pajak`, `jaminan_stnk`, `jaminan_foto`, `taksiran_jaminan`) VALUES
 (57, 5000000, 'Cleared', 0, '2022-06-25', 0, 2, 0, '2021-06-25', 2, 'Tanah', '1624475756-jtp.jpg', '1624475756-bpkb.jpg', '1624475756-stnk.jpg', NULL, NULL, NULL),
 (58, 3000000, 'Cleared', 0, '2021-09-25', 0, 2, 0, '2021-06-25', 2, 'Tanah', '1624475977-jtp.jpg', '1624475977-bpkb.jpg', '1624475977-stnk.jpg', NULL, NULL, NULL),
-(60, 5000000, 'Accepted', 5300000, '2021-11-26', 0, 2, 0, '2021-06-26', 44, 'Tanah', '1624569939-jtp.jpg', '1624569939-bpkb.jpg', '1624569939-stnk.jpg', NULL, NULL, NULL),
 (61, 6000000, 'Cleared', 0, '2021-11-20', 0, 2, 50000, '2021-05-20', 2, 'Tanah', '1624570844-jtp.jpg', '1624570844-bpkb.jpg', '1624570844-stnk.jpg', NULL, NULL, NULL),
-(62, 5500000, 'Accepted', 5830000, '2021-11-28', 0, 2, 0, '2021-06-28', 2, 'Tanah', '1624647895-jtp.jpg', '1624647895-bpkb.jpg', '1624647895-stnk.jpg', NULL, NULL, NULL),
-(63, 2000000, 'Declined', 2120000, '2021-11-27', 0, 2, 0, '2021-06-27', 9, 'Tanah', '1624652930-jtp.jpg', '1624652930-bpkb.jpg', '1624652930-stnk.jpg', NULL, NULL, NULL);
+(62, 5500000, 'Cleared', 0, '2021-11-28', 0, 2, 50000, '2021-06-28', 2, 'Tanah', '1624647895-jtp.jpg', '1624647895-bpkb.jpg', '1624647895-stnk.jpg', NULL, NULL, NULL),
+(63, 2000000, 'Declined', 2120000, '2021-11-27', 0, 2, 0, '2021-06-27', 9, 'Tanah', '1624652930-jtp.jpg', '1624652930-bpkb.jpg', '1624652930-stnk.jpg', NULL, NULL, NULL),
+(64, 5500000, 'Cleared', 0, '2021-11-30', 0, 2, 100000, '2021-06-30', 2, 'Tanah', '1624780555-jtp.jpg', '1624780555-bpkb.jpg', '1624780555-stnk.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -384,7 +393,6 @@ INSERT INTO `simpanan` (`id_simpanan`, `nominal`, `tanggal_simpanan`, `id_anggot
 (141, 40000, '2021-04-20', 11, 2, '2021-04-20 03:52:03'),
 (142, 35000, '2021-04-20', 34, 3, '2021-04-20 15:56:56'),
 (143, 35500, '2021-04-20', 35, 3, '2021-04-20 16:04:46'),
-(144, 35000, '2021-04-21', 36, 3, '2021-04-20 16:08:19'),
 (145, -13, '2021-04-21', 24, 1, '2021-04-21 07:07:45'),
 (146, 50000, '2021-04-21', 2, 2, '2021-04-21 07:25:03'),
 (147, 50000, '2021-04-21', 2, 2, '2021-04-21 07:26:31'),
@@ -519,25 +527,25 @@ ALTER TABLE `tipe_simpanan`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `angsuran`
 --
 ALTER TABLE `angsuran`
-  MODIFY `id_angsuran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_angsuran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `histori_pinjaman`
 --
 ALTER TABLE `histori_pinjaman`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `petugas`
@@ -549,7 +557,7 @@ ALTER TABLE `petugas`
 -- AUTO_INCREMENT for table `pinjaman`
 --
 ALTER TABLE `pinjaman`
-  MODIFY `id_pinjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_pinjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `riwayat_simpanan`
@@ -602,7 +610,7 @@ ALTER TABLE `histori_pinjaman`
 -- Constraints for table `pinjaman`
 --
 ALTER TABLE `pinjaman`
-  ADD CONSTRAINT `pinjaman_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`);
+  ADD CONSTRAINT `pinjaman_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `riwayat_simpanan`
@@ -614,8 +622,8 @@ ALTER TABLE `riwayat_simpanan`
 -- Constraints for table `simpanan`
 --
 ALTER TABLE `simpanan`
-  ADD CONSTRAINT `fk_tipe` FOREIGN KEY (`id_tipeSimpanan`) REFERENCES `tipe_simpanan` (`id_tipeSimpanan`),
-  ADD CONSTRAINT `simpanan_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`);
+  ADD CONSTRAINT `fk_tipe` FOREIGN KEY (`id_tipeSimpanan`) REFERENCES `tipe_simpanan` (`id_tipeSimpanan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `simpanan_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id_anggota`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -51,7 +51,7 @@
         <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url() ?>index.php/Login/lihat_akun" style="text-decoration: none">Lihat Akun</a>
-            <a class="collapse-item" href="<?= base_url() ?>index.php/Login/v_bukti/<?= $this->session->id_anggota ?>" style="text-decoration: none">Upload Kelengkapan</a>
+            <!-- <a class="collapse-item" href="<?= base_url() ?>index.php/Login/v_bukti/<?= $this->session->id_anggota ?>" style="text-decoration: none">Upload Kelengkapan</a> -->
         </div>
       </li>
 

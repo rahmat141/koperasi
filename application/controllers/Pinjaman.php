@@ -30,7 +30,6 @@ class Pinjaman extends CI_Controller
 
     public function simpan_pinjaman()
     {
-
         $this->form_validation->set_rules('jml_pinjaman', 'Jumlah Pinjaman', 'trim|required|max_length[255]|numeric');
         $this->form_validation->set_rules('tgl_pinjaman', 'Tanggal Pinjam', 'required');
         $this->form_validation->set_rules('tenor', 'Lama Pinjaman', 'required');
@@ -120,31 +119,31 @@ class Pinjaman extends CI_Controller
             }
 
             //upload ktp
-            if (!empty($_FILES['f_ktp']['name'])) {
-                // Set preference
-                $config['upload_path'] = './storage/upload_jaminan/';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif|docx|pdf';
-                $config['max_size'] = '256000'; // max_size in kb
-                $config['file_name'] = time() . '-' . $_FILES['f_ktp']['name'];
+            // if (!empty($_FILES['f_ktp']['name'])) {
+            //     // Set preference
+            //     $config['upload_path'] = './storage/upload_jaminan/';
+            //     $config['allowed_types'] = 'jpg|jpeg|png|gif|docx|pdf';
+            //     $config['max_size'] = '256000'; // max_size in kb
+            //     $config['file_name'] = time() . '-' . $_FILES['f_ktp']['name'];
 
-                // Load upload library
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
+            //     // Load upload library
+            //     $this->load->library('upload', $config);
+            //     $this->upload->initialize($config);
 
-                // File upload
-                if ($this->upload->do_upload('f_ktp')) {
-                    // Get data about the file
-                    $uploadData = $this->upload->data();
-                    $jaminan_ktp = $uploadData['file_name'];
-                    $data['response'] = 'successfully uploaded ' . $jaminan_ktp;
-                } else {
-                    $data['response'] = 'error_upload' . $this->upload->display_errors();
-                    $this->load->view('form_pinjaman', $data);
-                }
-            } else {
-                $data['response'] = 'file ktp tidak ada';
-                $this->load->view('form_pinjaman', $data);
-            }
+            //     // File upload
+            //     if ($this->upload->do_upload('f_ktp')) {
+            //         // Get data about the file
+            //         $uploadData = $this->upload->data();
+            //         $jaminan_ktp = $uploadData['file_name'];
+            //         $data['response'] = 'successfully uploaded ' . $jaminan_ktp;
+            //     } else {
+            //         $data['response'] = 'error_upload' . $this->upload->display_errors();
+            //         $this->load->view('form_pinjaman', $data);
+            //     }
+            // } else {
+            //     $data['response'] = 'file ktp tidak ada';
+            //     $this->load->view('form_pinjaman', $data);
+            // }
 
             //upload surat
             if (!empty($_FILES['f_surat']['name'])) {
@@ -233,7 +232,7 @@ class Pinjaman extends CI_Controller
                             'id_anggota' => $id_anggota,
                             'status' => $status,
                             'jenis_jaminan' => $jenis_jaminan,
-                            'jaminan_ktp' => $jaminan_ktp,
+                            'jaminan_ktp' => null,
                             'jaminan_surat' => $jaminan_surat,
                             'jaminan_pajak' => $jaminan_pajak,
                             'jaminan_stnk' => $jaminan_stnk,

@@ -210,7 +210,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Jumlah Pinjaman</th>
-                                            <th>Tanggal Pengembalian</th>
+                                            <th>Batas Waktu Pengembalian</th>
                                             <th>Bunga</th>
                                             <th>Sisa Pinjaman</th>
                                             <th>Total Setoran</th>
@@ -278,7 +278,7 @@
                                             } else { ?>
                                                 <div class="btn-group">
                                                     <td>
-                                                        <a href="<?php echo base_url() . 'index.php/Pinjaman/editPinjaman/' . $data->id_pinjaman; ?>" class="btn btn-primary">Edit</a>
+                                                        <button data-idp="<?= $data->id_pinjaman; ?>" data-toggle="modal" data-target="#BuktiJaminan" class="btn btn-primary">Edit</button>
                                                     <?php } ?>
                                                     <?php if ($data->angsuran <= 0 and $data->status == 'Accepted') { ?>
                                                         <a href="<?php echo base_url() . 'index.php/Pinjaman/cetak_resi/' . $data->id_pinjaman; ?>" class="btn btn-primary">Resi</a>
@@ -322,6 +322,25 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
+
+        <div class="modal fade" id="BuktiJaminan" tabindex="-1" aria-labelledby="BuktiJaminanLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="BuktiJaminanLabel">Bukti Jaminan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

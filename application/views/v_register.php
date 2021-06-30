@@ -165,7 +165,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-fw fa-phone"></i></span>
                             </div>
-                            <input name="no_hp" id="no_hp" type="number" class="form-control" placeholder="Nomor HP...">
+                            <input name="no_hp" id="no_hp" type='text' pattern="[0-9]{4}" title="Inputan harus angka 12 digit" maxlength="12" class="form-control" placeholder="Nomor HP...">
+                            
                             <?= form_error('no_hp', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
@@ -177,7 +178,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-fw fa-id-card"></i></span>
                             </div>
-                            <input name="nik" id="nik" type="number" class="form-control" placeholder="NIK...">
+                            <!-- <input name="nik" id="nik" type="number" maxlength="16" class="form-control" placeholder="NIK..."> -->
+                            <input name="nik" id="nik" type="text" pattern="[0-9]{4}" title="Inputan harus angka 12 digit" maxlength="16" class="form-control" placeholder="NIK...">
                             <?= form_error('nik', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>

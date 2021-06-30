@@ -287,17 +287,16 @@
             
                                         <tr>
                                             <th class="text-gray-800">KTP</th>
-                                            <th class="text-gray-800">BPKB</th>
-                                            <th class="text-gray-800">STNK</th>
+                                            <!-- <th class="text-gray-800">BPKB</th>
+                                            <th class="text-gray-800">STNK</th> -->
                                         </tr>
                                     </thead>
 
                                   
                                         <tr>
-                                            <td><img src="<?php echo base_url('asset/foto/'.$data->ktp)?>" width="250" height="300"></td>
-                                            <td><img src="<?php echo base_url('asset/foto/'.$data->bpkb)?>" width="250" height="300"></td>
-                                            <td><img src="<?php echo base_url('asset/foto/'.$data->stnk)?>" width="250" height="300"></td>
-                                            <td></td>
+                                            <td align="center"><img src="<?php echo base_url('asset/foto/'.$data->ktp)?>" width="250" height="300"></td>
+                                            <!-- <td><img src="<?php echo base_url('asset/foto/'.$data->bpkb)?>" width="250" height="300"></td>
+                                            <td><img src="<?php echo base_url('asset/foto/'.$data->stnk)?>" width="250" height="300"></td> -->
                                         </tr>
                                     
                                   </tbody>
